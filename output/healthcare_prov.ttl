@@ -1,0 +1,127 @@
+@prefix jh: <https://jhcontext.com/vocab#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+jh:art-final-decision a prov:Entity ;
+    rdfs:label "Physician Override Decision" ;
+    prov:generatedAtTime "2026-03-15T09:20:30+00:00"^^xsd:dateTime ;
+    prov:wasDerivedFrom jh:art-recommendation ;
+    prov:wasGeneratedBy jh:physician-override ;
+    jh:artifactType "semantic_extraction" .
+
+jh:ai-recommendation a prov:Activity ;
+    rdfs:label "AI Treatment Analysis" ;
+    prov:endedAtTime "2026-03-15T09:07:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-03-15T09:06:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-semantic-extraction ;
+    prov:wasAssociatedWith jh:decision-agent ;
+    jh:method "LLM inference (oncology-decision-v3)" .
+
+jh:decision-agent a prov:Agent ;
+    rdfs:label "Treatment Recommendation Agent" ;
+    jh:role "decision_maker" .
+
+jh:physician-override a prov:Activity ;
+    rdfs:label "Physician Overrides AI Recommendation" ;
+    prov:endedAtTime "2026-03-15T09:20:30+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-03-15T09:20:00+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith jh:dr-chen ;
+    prov:wasInformedBy jh:review-ai-recommendation,
+        jh:review-ct-scan,
+        jh:review-history,
+        jh:review-pathology ;
+    jh:method "clinical_judgment" .
+
+jh:review-ai-recommendation a prov:Activity ;
+    rdfs:label "Physician Reviews AI Recommendation" ;
+    prov:endedAtTime "2026-03-15T09:20:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-03-15T09:19:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-recommendation ;
+    prov:wasAssociatedWith jh:dr-chen .
+
+jh:review-ct-scan a prov:Activity ;
+    rdfs:label "Physician Reviews CT Scan Images" ;
+    prov:endedAtTime "2026-03-15T09:14:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-03-15T09:10:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-ct-scan-meta ;
+    prov:wasAssociatedWith jh:dr-chen .
+
+jh:review-history a prov:Activity ;
+    rdfs:label "Physician Reviews Treatment History" ;
+    prov:endedAtTime "2026-03-15T09:17:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-03-15T09:14:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-demographics,
+        jh:art-lab-results ;
+    prov:wasAssociatedWith jh:dr-chen .
+
+jh:review-pathology a prov:Activity ;
+    rdfs:label "Physician Reviews Pathology Report" ;
+    prov:endedAtTime "2026-03-15T09:19:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-03-15T09:17:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-lab-results ;
+    prov:wasAssociatedWith jh:dr-chen .
+
+jh:sensor-agent a prov:Agent ;
+    rdfs:label "Clinical Sensor Agent" ;
+    jh:role "data_collector" .
+
+jh:situation-agent a prov:Agent ;
+    rdfs:label "Situation Recognition Agent" ;
+    jh:role "interpreter" .
+
+jh:situation-recognition a prov:Activity ;
+    rdfs:label "Clinical Situation Analysis" ;
+    prov:endedAtTime "2026-03-15T09:05:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-03-15T09:03:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-ct-scan-meta,
+        jh:art-demographics,
+        jh:art-lab-results ;
+    prov:wasAssociatedWith jh:situation-agent ;
+    jh:method "LLM inference (clinical-situation-v2)" .
+
+jh:art-recommendation a prov:Entity ;
+    rdfs:label "AI Treatment Recommendation" ;
+    prov:wasDerivedFrom jh:art-semantic-extraction ;
+    prov:wasGeneratedBy jh:ai-recommendation ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:e5f6..." .
+
+jh:art-semantic-extraction a prov:Entity ;
+    rdfs:label "Clinical Situation Extraction" ;
+    prov:wasDerivedFrom jh:art-ct-scan-meta,
+        jh:art-demographics,
+        jh:art-lab-results ;
+    prov:wasGeneratedBy jh:situation-recognition ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:d4e5..." .
+
+jh:art-ct-scan-meta a prov:Entity ;
+    rdfs:label "CT Scan Metadata" ;
+    prov:wasGeneratedBy jh:sensor-collection ;
+    jh:artifactType "token_sequence" ;
+    jh:contentHash "sha256:c3d4..." .
+
+jh:art-demographics a prov:Entity ;
+    rdfs:label "Patient Demographics" ;
+    prov:wasGeneratedBy jh:sensor-collection ;
+    jh:artifactType "token_sequence" ;
+    jh:contentHash "sha256:a1b2..." .
+
+jh:sensor-collection a prov:Activity ;
+    rdfs:label "Clinical Data Collection" ;
+    prov:endedAtTime "2026-03-15T09:02:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-03-15T09:00:00+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith jh:sensor-agent ;
+    jh:method "EHR/PACS integration" .
+
+jh:art-lab-results a prov:Entity ;
+    rdfs:label "Lab Results" ;
+    prov:wasGeneratedBy jh:sensor-collection ;
+    jh:artifactType "token_sequence" ;
+    jh:contentHash "sha256:b2c3..." .
+
+jh:dr-chen a prov:Agent ;
+    rdfs:label "Dr. Chen (Oncologist)" ;
+    jh:role "human_oversight" .
+

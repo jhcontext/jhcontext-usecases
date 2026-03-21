@@ -1,0 +1,48 @@
+@prefix jh: <https://jhcontext.com/vocab#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+jh:art-grade-result a prov:Entity ;
+    rdfs:label "Grading Result (B+, 87/100)" ;
+    prov:wasDerivedFrom jh:art-essay-text,
+        jh:art-rubric ;
+    prov:wasGeneratedBy jh:ai-grading ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:3333..." .
+
+jh:ai-grading a prov:Activity ;
+    rdfs:label "AI Essay Evaluation" ;
+    prov:endedAtTime "2026-03-15T14:03:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-03-15T14:01:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-essay-text,
+        jh:art-rubric ;
+    prov:wasAssociatedWith jh:grading-agent ;
+    jh:method "LLM inference (essay-grader-v2)" .
+
+jh:essay-ingestion a prov:Activity ;
+    rdfs:label "Essay Content Extraction" ;
+    prov:endedAtTime "2026-03-15T14:00:30+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-03-15T14:00:00+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith jh:ingestion-agent ;
+    jh:method "identity_stripping" .
+
+jh:grading-agent a prov:Agent ;
+    rdfs:label "AI Essay Grading Agent" ;
+    jh:role "evaluator" .
+
+jh:ingestion-agent a prov:Agent ;
+    rdfs:label "Essay Ingestion Agent" ;
+    jh:role "data_processor" .
+
+jh:art-essay-text a prov:Entity ;
+    rdfs:label "Essay Text Content" ;
+    prov:wasGeneratedBy jh:essay-ingestion ;
+    jh:artifactType "token_sequence" ;
+    jh:contentHash "sha256:1111..." .
+
+jh:art-rubric a prov:Entity ;
+    rdfs:label "Grading Rubric (ENG101-v3)" ;
+    jh:artifactType "token_sequence" ;
+    jh:contentHash "sha256:2222..." .
+

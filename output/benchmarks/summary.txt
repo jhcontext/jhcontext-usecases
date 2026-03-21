@@ -1,0 +1,94 @@
+=======================================================================================
+PAC-AI BENCHMARK RESULTS
+  Python: 3.12.3  |  Platform: Linux-6.17.0-19-generic-x86_64-with-glibc2.39
+=======================================================================================
+
+B1: IN-MEMORY BASELINE (ms)
+  Operation                               Mean   Median   StdDev      P95      Min      Max
+  -----------------------------------------------------------------------------------
+  healthcare_build                        3.98     3.85    0.474     4.87     3.51     6.20
+  healthcare_audit                       0.354    0.347    0.015    0.388    0.342    0.408
+  education_build                         3.11     2.29     3.86     4.14     2.09    29.58
+  education_audit                        0.311    0.310    <0.01    0.316    0.307    0.318
+
+B2: SQLITE PERSISTENCE (ms)
+  Operation                               Mean   Median   StdDev      P95      Min      Max
+  -----------------------------------------------------------------------------------
+  save_envelope                          103.2    82.29    74.52    236.5    67.39    478.5
+  get_envelope                           0.303    0.299    0.013    0.326    0.287    0.335
+  save_prov_graph                        153.5    111.8    101.6    438.3    90.94    525.2
+  get_prov_graph                         0.099    0.062    0.079    0.218    0.043    0.541
+  save_decision                          229.0    108.6    318.8    922.5    91.03   1805.1
+  full_healthcare_persist                518.5    240.8    680.2   2554.7    182.2   3080.7
+  full_education_persist                 262.3    218.2    115.5    563.1    182.8    591.8
+
+B3: REST API ROUND-TRIP (ms)
+  Operation                               Mean   Median   StdDev      P95      Min      Max
+  -----------------------------------------------------------------------------------
+  post_envelope                          279.9    127.8    306.0    982.9    97.65   1071.3
+  get_envelope                            1.52     1.55    0.299     1.88     1.04     2.78
+  post_provenance                        155.8    126.9    83.20    445.3    103.2    496.3
+  query_causal_chain                      4.79     4.52    0.787     6.07     4.07     8.70
+  query_temporal_sequence                 5.04     4.68    0.692     6.62     4.39     6.75
+  query_used_entities                     6.14     5.04     5.54     8.28     4.30    43.82
+  compliance_package                     10.54    10.24     1.40    13.15     8.88    15.05
+  list_envelopes                         0.937    0.909    0.068     1.12    0.852     1.17
+  full_healthcare_api                    360.1    316.9    122.1    641.4    251.7    772.1
+
+B4: MCP TOOL DISPATCH (ms)
+  Operation                               Mean   Median   StdDev      P95      Min      Max
+  -----------------------------------------------------------------------------------
+  submit_envelope                        134.6    107.9    92.75    432.9    79.24    519.0
+  get_envelope                            1.36     1.03    0.775     3.24    0.852     4.31
+  submit_prov_graph                      146.5    123.4    83.89    437.3    102.2    502.6
+  query_causal_chain                      5.03     4.77    0.571     6.29     4.60     7.15
+  query_temporal_sequence                 5.02     4.85    0.580     6.21     4.50     7.46
+  query_used_entities                     5.00     4.79    0.705     6.53     4.34     7.38
+  run_audit                               6.15     5.10     5.27     7.43     4.62    42.31
+
+B5: PROV GRAPH SCALING
+  Entities      Build  Serialize     Digest     Causal   Temporal   DepChain    AllEnts    Size(B)
+  ----------------------------------------------------------------------------------------
+        10       2.23       3.05       3.05      0.052      0.114      0.367      0.016       6121
+        25       7.47       8.10       8.85      0.143      0.385       2.43      0.034      16194
+        50      28.39      20.85      17.16      0.301      0.778      15.48      0.169      33769
+       100      41.95      54.88      36.36      0.763       1.37      64.80      0.115      68919
+       250      97.98      137.6      120.6       6.86       8.08      421.5      0.313     176150
+       500      211.4      257.7      267.7       9.83       7.48     1603.9       1.28     354900
+
+B6: CRYPTO OVERHEAD (ms)
+  Operation                               Mean   Median   StdDev      P95      Min      Max
+  -----------------------------------------------------------------------------------
+  sha256_1024b                           <0.01    <0.01    <0.01    <0.01    <0.01    <0.01
+  sha256_10240b                          0.053    0.052    <0.01    0.059    0.049    0.061
+  sha256_102400b                         0.281    0.265    0.056    0.497    0.254    0.507
+  canonicalize                           0.044    0.042    <0.01    0.057    0.042    0.089
+  content_hash                           0.071    0.061    0.024    0.118    0.051    0.159
+  sign_envelope                          0.198    0.195    0.015    0.237    0.177    0.243
+  verify_envelope                        0.207    0.204    0.014    0.249    0.197    0.273
+  prov_digest                             2.36     2.11    0.528     3.52     1.96     4.00
+
+B7: COMPLIANCE PACKAGE EXPORT
+  Operation                               Mean   Median   StdDev      P95      Min      Max
+  -----------------------------------------------------------------------------------
+  export_package                          9.93     8.92     2.44    17.46     8.08    18.66
+  ZIP size:          3004 bytes
+  All files present: True
+  Audit passed:      True
+  ZIP contents:      ['envelope.json', 'provenance.ttl', 'audit_report.json', 'manifest.json']
+
+COMPARISON: OPERATION LATENCY ACROSS LAYERS (mean ms)
+  Operation                       In-Memory   + SQLite   REST API        MCP
+  ----------------------------------------------------------------------
+  Envelope build+sign                  3.98          —          —          —
+  Envelope persist                        —      103.2      279.9      134.6
+  Envelope retrieve                       —          —       1.52       1.36
+  PROV persist                            —      153.5      155.8      146.5
+  PROV query (causal)                     —          —       4.79       5.03
+  PROV query (temporal)                   —          —       5.04       5.02
+  Audit (integrity)                       —          —          —       6.15
+  Compliance package                      —          —      10.54          —
+  Full healthcare                      3.98      518.5      360.1          —
+  Audit (healthcare)                  0.354          —          —          —
+
+=======================================================================================

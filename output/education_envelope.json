@@ -1,0 +1,119 @@
+{
+  "context_id": "ctx-a98c0638-ab63-4906-af05-51677c093f59",
+  "schema_version": "jh:0.3",
+  "producer": "did:university:ingestion-agent",
+  "created_at": "2026-03-21T14:02:24.300119+00:00",
+  "ttl": "P30D",
+  "status": "active",
+  "scope": "education_assessment",
+  "semantic_payload": [
+    {
+      "@model": "UserML",
+      "layers": {
+        "observation": [
+          {
+            "subject": "submission:S-98765",
+            "predicate": "essay_word_count",
+            "object": 1527
+          },
+          {
+            "subject": "submission:S-98765",
+            "predicate": "essay_topic",
+            "object": "climate_policy"
+          },
+          {
+            "subject": "submission:S-98765",
+            "predicate": "rubric_version",
+            "object": "ENG101-v3"
+          }
+        ],
+        "interpretation": [],
+        "situation": [],
+        "application": []
+      }
+    }
+  ],
+  "artifacts_registry": [
+    {
+      "artifact_id": "art-essay-text",
+      "type": "token_sequence",
+      "content_hash": "sha256:1111aaaa2222bbbb3333cccc4444dddd5555eeee6666ffff7777aaaa8888bbbb",
+      "timestamp": "2026-03-21T14:02:24.300215+00:00",
+      "deterministic": false,
+      "metadata": {}
+    },
+    {
+      "artifact_id": "art-rubric",
+      "type": "token_sequence",
+      "content_hash": "sha256:2222bbbb3333cccc4444dddd5555eeee6666ffff7777aaaa8888bbbb9999cccc",
+      "timestamp": "2026-03-21T14:02:24.300230+00:00",
+      "deterministic": false,
+      "metadata": {}
+    },
+    {
+      "artifact_id": "art-grade-result",
+      "type": "semantic_extraction",
+      "content_hash": "sha256:3333cccc4444dddd5555eeee6666ffff7777aaaa8888bbbb9999ccccaaaadddd",
+      "model": "essay-grader-v2",
+      "timestamp": "2026-03-21T14:02:24.301312+00:00",
+      "deterministic": false,
+      "confidence": 0.91,
+      "metadata": {}
+    }
+  ],
+  "passed_artifact_pointer": "art-grade-result",
+  "decision_influence": [
+    {
+      "agent": "essay-grading-agent",
+      "categories": [
+        "argument_quality",
+        "evidence_use",
+        "writing_clarity",
+        "critical_thinking"
+      ],
+      "abstraction_level": "interpretation",
+      "temporal_scope": "current",
+      "influence_weights": {
+        "argument_quality": 0.3,
+        "evidence_use": 0.3,
+        "writing_clarity": 0.2,
+        "critical_thinking": 0.2
+      },
+      "confidence": 0.91
+    }
+  ],
+  "privacy": {
+    "data_category": "behavioral",
+    "legal_basis": "legitimate_interest",
+    "retention": "P1Y",
+    "storage_policy": "university-encrypted",
+    "feature_suppression": [
+      "student_name",
+      "student_id",
+      "demographic_attributes"
+    ]
+  },
+  "compliance": {
+    "risk_level": "high",
+    "human_oversight_required": false,
+    "model_card_ref": "https://university.example/models/essay-grader-v2",
+    "test_suite_ref": "https://university.example/fairness-tests/2026-Q1",
+    "escalation_path": "academic-affairs@university.example"
+  },
+  "provenance_ref": {
+    "prov_graph_id": "prov:ctx-edu-grading-001",
+    "prov_digest": "e60b3e0d45467800e07c1f5565105918533b81232739b5805f39738465419729"
+  },
+  "proof": {
+    "canonicalization": "URDNA2015",
+    "content_hash": "479bd5f5a2273f07d1eb477bbfccf7c6ddcc8c4e72731c3d18c53635f7f5a37b",
+    "signature": "DO3qieK26OY8RKlrOvBbrzlZk7wCV6EgW56i9_SalWhadoG2vaj16Ife3scMWkLA29jJueORD1rMZ-i3sMn0Dw==",
+    "signer": "did:university:compliance-officer"
+  },
+  "@context": {
+    "jh": "https://jhcontext.com/vocab#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@type": "jh:Envelope"
+}

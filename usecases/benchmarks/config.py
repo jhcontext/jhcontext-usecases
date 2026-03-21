@@ -1,0 +1,6 @@
+"""Benchmark configuration constants."""
+
+ITERATIONS = 50
+WARMUP = 5
+PROV_SIZES = [10, 25, 50, 100, 250, 500]
+CRYPTO_PAYLOAD_SIZES = [1024, 10240, 102400]  # 1KB, 10KB, 100KB

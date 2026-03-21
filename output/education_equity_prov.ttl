@@ -1,0 +1,35 @@
+@prefix jh: <https://jhcontext.com/vocab#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+jh:art-equity-report a prov:Entity ;
+    rdfs:label "Aggregate Equity Statistics" ;
+    prov:wasDerivedFrom jh:art-demographic-attrs,
+        jh:art-student-identity ;
+    prov:wasGeneratedBy jh:equity-reporting ;
+    jh:artifactType "semantic_extraction" .
+
+jh:equity-agent a prov:Agent ;
+    rdfs:label "Equity Reporting Agent" ;
+    jh:role "compliance_reporter" .
+
+jh:equity-reporting a prov:Activity ;
+    rdfs:label "Aggregate Demographic Statistics" ;
+    prov:endedAtTime "2026-03-15T14:06:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-03-15T14:05:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-demographic-attrs,
+        jh:art-student-identity ;
+    prov:wasAssociatedWith jh:equity-agent ;
+    jh:method "aggregate_statistics" .
+
+jh:art-demographic-attrs a prov:Entity ;
+    rdfs:label "Demographic Attributes" ;
+    jh:artifactType "sensitive" ;
+    jh:contentHash "sha256:demographics-hash-redacted" .
+
+jh:art-student-identity a prov:Entity ;
+    rdfs:label "Student Identity Data" ;
+    jh:artifactType "biometric" ;
+    jh:contentHash "sha256:identity-hash-redacted" .
+

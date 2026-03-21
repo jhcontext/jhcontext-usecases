@@ -1,0 +1,44 @@
+{
+  "context_id": "ctx-a98c0638-ab63-4906-af05-51677c093f59",
+  "timestamp": "2026-03-21T14:02:24.322277",
+  "overall_passed": true,
+  "results": [
+    {
+      "check_name": "negative_proof",
+      "passed": true,
+      "evidence": {
+        "decision_entity": "art-grade-result",
+        "dependency_chain": [
+          "art-essay-text",
+          "art-rubric"
+        ],
+        "excluded_types": [
+          "biometric",
+          "sensitive"
+        ],
+        "violations": []
+      },
+      "message": "Negative proof verified: 2 excluded types absent from 2 entities in chain"
+    },
+    {
+      "check_name": "workflow_isolation",
+      "passed": true,
+      "evidence": {
+        "workflow_a_entities": 3,
+        "workflow_b_entities": 3,
+        "shared_entities": []
+      },
+      "message": "Workflows isolated: 3 + 3 entities, 0 shared"
+    },
+    {
+      "check_name": "integrity",
+      "passed": true,
+      "evidence": {
+        "content_hash": "479bd5f5a2273f07d1eb477bbfccf7c6ddcc8c4e72731c3d18c53635f7f5a37b",
+        "signer": "did:university:compliance-officer",
+        "has_signature": true
+      },
+      "message": "Integrity verified"
+    }
+  ]
+}

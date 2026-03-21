@@ -1,0 +1,11 @@
+[project]
+name = "jhcontext-usecases"
+version = "0.1.0"
+description = "PAC-AI compliance scenarios: Healthcare (Art. 14) and Education (Art. 13)"
+requires-python = ">=3.10"
+dependencies = [
+    "jhcontext>=0.2.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
