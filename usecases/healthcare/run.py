@@ -32,9 +32,11 @@ from jhcontext import (
     situation,
     userml_payload,
     verify_integrity,
+    verify_pii_detachment,
     verify_temporal_oversight,
     generate_audit_report,
 )
+from jhcontext.pii import InMemoryPIIVault
 
 OUTPUT_DIR = Path(__file__).resolve().parent.parent.parent / "output"
 
@@ -284,9 +286,11 @@ def run() -> dict:
     metrics["oversight_ms"] = (time.perf_counter() - t0) * 1000
 
     # =========================================================================
-    # STEP 5: Build, sign, and finalize envelope
+    # STEP 5: Build, sign, and finalize envelope (with PII detachment)
     # =========================================================================
     t0 = time.perf_counter()
+
+    pii_vault = InMemoryPIIVault()
 
     builder.set_privacy(
         data_category="sensitive",
@@ -301,6 +305,9 @@ def run() -> dict:
         model_card_ref="https://hospital.example/models/oncology-v3",
         escalation_path="oncology-dept-head@hospital.example",
     )
+
+    # Enable PII detachment — tokenizes patient identifiers before signing
+    builder.enable_pii_detachment(vault=pii_vault)
 
     # Attach provenance reference BEFORE signing
     prov_digest = prov.digest()
@@ -330,14 +337,25 @@ def run() -> dict:
         min_review_seconds=300.0,  # 5 minutes minimum
     )
 
-    # 6b. Integrity check
+    # 6b. PII detachment check
+    pii_result = verify_pii_detachment(envelope)
+
+    # 6c. Integrity check
     integrity_result = verify_integrity(envelope)
 
-    # 6c. Generate report
+    # 6d. Generate report
     report = generate_audit_report(
         envelope, prov,
-        [temporal_result, integrity_result],
+        [temporal_result, pii_result, integrity_result],
     )
+
+    # 6e. GDPR Art. 17 erasure demonstration
+    pii_tokens_before = pii_vault.retrieve_by_context(envelope.context_id)
+    pii_purged = pii_vault.purge_by_context(envelope.context_id)
+    # Integrity still holds after purge — hash covers detached payload
+    post_purge_integrity = verify_integrity(envelope)
+    metrics["pii_tokens_purged"] = pii_purged
+    metrics["integrity_after_purge"] = post_purge_integrity.passed
 
     metrics["audit_ms"] = (time.perf_counter() - t0) * 1000
     metrics["total_ms"] = (time.perf_counter() - t_start) * 1000
@@ -400,6 +418,10 @@ def run() -> dict:
         status = "PASS" if r.passed else "FAIL"
         print(f"    [{status}] {r.check_name}: {r.message}")
     print(f"  Overall: {'PASSED' if report.overall_passed else 'FAILED'}")
+    print()
+    print(f"  PII Detachment: {envelope.privacy.pii_detached}")
+    print(f"  PII Tokens Purged (GDPR Art. 17): {metrics['pii_tokens_purged']}")
+    print(f"  Integrity After Purge: {metrics['integrity_after_purge']}")
     print()
     print("  Performance:")
     print(f"    Sensor:      {metrics['sensor_ms']:.1f} ms")

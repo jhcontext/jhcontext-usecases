@@ -34,9 +34,11 @@ from jhcontext import (
     userml_payload,
     verify_integrity,
     verify_negative_proof,
+    verify_pii_detachment,
     verify_workflow_isolation,
     generate_audit_report,
 )
+from jhcontext.pii import InMemoryPIIVault
 
 OUTPUT_DIR = Path(__file__).resolve().parent.parent.parent / "output"
 
@@ -206,9 +208,11 @@ def run() -> dict:
     metrics["equity_ms"] = (time.perf_counter() - t0) * 1000
 
     # =========================================================================
-    # STEP 4: Build, sign, and finalize envelope
+    # STEP 4: Build, sign, and finalize envelope (with PII detachment)
     # =========================================================================
     t0 = time.perf_counter()
+
+    pii_vault = InMemoryPIIVault()
 
     builder.set_privacy(
         data_category="behavioral",
@@ -224,6 +228,9 @@ def run() -> dict:
         test_suite_ref="https://university.example/fairness-tests/2026-Q1",
         escalation_path="academic-affairs@university.example",
     )
+
+    # Enable PII detachment — tokenizes student identifiers before signing
+    builder.enable_pii_detachment(vault=pii_vault)
 
     # Attach provenance reference BEFORE signing
     grading_digest = prov_grading.digest()
@@ -249,13 +256,16 @@ def run() -> dict:
     # 5b. Workflow isolation: grading and equity share zero artifacts
     isolation_result = verify_workflow_isolation(prov_grading, prov_equity)
 
-    # 5c. Integrity check
+    # 5c. PII detachment check
+    pii_result = verify_pii_detachment(envelope)
+
+    # 5d. Integrity check
     integrity_result = verify_integrity(envelope)
 
-    # 5d. Generate report
+    # 5e. Generate report
     report = generate_audit_report(
         envelope, prov_grading,
-        [negative_result, isolation_result, integrity_result],
+        [negative_result, isolation_result, pii_result, integrity_result],
     )
 
     metrics["audit_ms"] = (time.perf_counter() - t0) * 1000
