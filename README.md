@@ -2,6 +2,8 @@
 
 Compliance scenarios for the [jhcontext SDK](../jhcontext-sdk/) demonstrating EU AI Act auditability through the PAC-AI protocol.
 
+> **TL;DR:** This is the lightweight proof-of-concept — no infrastructure, runs in-memory, and serializes envelopes/PROV graphs/audits to local files (~25ms). For the production-grade version with real CrewAI agents and AWS infrastructure (DynamoDB + S3), see [jhcontext-crewai](../jhcontext-crewai/).
+
 ## Scenarios
 
 ### Healthcare — Article 14: Meaningful Human Oversight
