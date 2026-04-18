@@ -1,0 +1,137 @@
+@prefix jh: <https://jhcontext.com/vocab#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+jh:art-fb-sentence-01 a prov:Entity ;
+    rdfs:label "Feedback sentence assessing rubric_v2.3#C1-thesis_clarity" ;
+    prov:wasDerivedFrom jh:art-rubric-rubric_v2.3,
+        jh:art-submission-S-98765 ;
+    prov:wasGeneratedBy jh:feedback-generation-S-98765 ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:b2bc6236d24013e0..." ;
+    jh:evidenceSpanHash "sha256:0acbab335488c937..." ;
+    jh:evidenceSpanLength 93 ;
+    jh:evidenceSpanOffset 0 ;
+    jh:modelVersion "gpt-4o-2024-08-06" ;
+    jh:promptTemplateHash "sha256:2282a0120dcfa8be..." ;
+    jh:rubricCriterionId "rubric_v2.3#C1-thesis_clarity" .
+
+jh:art-fb-sentence-02 a prov:Entity ;
+    rdfs:label "Feedback sentence assessing rubric_v2.3#C2-argument_quality" ;
+    prov:wasDerivedFrom jh:art-rubric-rubric_v2.3,
+        jh:art-submission-S-98765 ;
+    prov:wasGeneratedBy jh:feedback-generation-S-98765 ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:6ebcd88f2f7b1ac1..." ;
+    jh:evidenceSpanHash "sha256:3ea1bdb97dea3e5b..." ;
+    jh:evidenceSpanLength 84 ;
+    jh:evidenceSpanOffset 94 ;
+    jh:modelVersion "gpt-4o-2024-08-06" ;
+    jh:promptTemplateHash "sha256:2282a0120dcfa8be..." ;
+    jh:rubricCriterionId "rubric_v2.3#C2-argument_quality" .
+
+jh:art-fb-sentence-03 a prov:Entity ;
+    rdfs:label "Feedback sentence assessing rubric_v2.3#C3-evidence_integration" ;
+    prov:wasDerivedFrom jh:art-rubric-rubric_v2.3,
+        jh:art-submission-S-98765 ;
+    prov:wasGeneratedBy jh:feedback-generation-S-98765 ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:ad739416a583504b..." ;
+    jh:evidenceSpanHash "sha256:1d44774ccbee06c3..." ;
+    jh:evidenceSpanLength 127 ;
+    jh:evidenceSpanOffset 178 ;
+    jh:modelVersion "gpt-4o-2024-08-06" ;
+    jh:promptTemplateHash "sha256:2282a0120dcfa8be..." ;
+    jh:rubricCriterionId "rubric_v2.3#C3-evidence_integration" .
+
+jh:art-fb-sentence-04 a prov:Entity ;
+    rdfs:label "Feedback sentence assessing rubric_v2.3#C4-writing_mechanics" ;
+    prov:wasDerivedFrom jh:art-rubric-rubric_v2.3,
+        jh:art-submission-S-98765 ;
+    prov:wasGeneratedBy jh:feedback-generation-S-98765 ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:67c64622100bd062..." ;
+    jh:evidenceSpanHash "sha256:7b287fbeca334151..." ;
+    jh:evidenceSpanLength 59 ;
+    jh:evidenceSpanOffset 305 ;
+    jh:modelVersion "gpt-4o-2024-08-06" ;
+    jh:promptTemplateHash "sha256:2282a0120dcfa8be..." ;
+    jh:rubricCriterionId "rubric_v2.3#C4-writing_mechanics" .
+
+jh:art-fb-sentence-05 a prov:Entity ;
+    rdfs:label "Feedback sentence assessing rubric_v2.3#C3-evidence_integration" ;
+    prov:wasDerivedFrom jh:art-rubric-rubric_v2.3,
+        jh:art-submission-S-98765 ;
+    prov:wasGeneratedBy jh:feedback-generation-S-98765 ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:b1d4233e21063c03..." ;
+    jh:evidenceSpanHash "sha256:d40ccd50be600bca..." ;
+    jh:evidenceSpanLength 94 ;
+    jh:evidenceSpanOffset 364 ;
+    jh:modelVersion "gpt-4o-2024-08-06" ;
+    jh:promptTemplateHash "sha256:2282a0120dcfa8be..." ;
+    jh:rubricCriterionId "rubric_v2.3#C3-evidence_integration" .
+
+jh:art-fb-sentence-06 a prov:Entity ;
+    rdfs:label "Feedback sentence assessing rubric_v2.3#C2-argument_quality" ;
+    prov:wasDerivedFrom jh:art-rubric-rubric_v2.3,
+        jh:art-submission-S-98765 ;
+    prov:wasGeneratedBy jh:feedback-generation-S-98765 ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:8b2a10f770f0cec0..." ;
+    jh:evidenceSpanHash "sha256:c34e17ac86883936..." ;
+    jh:evidenceSpanLength 51 ;
+    jh:evidenceSpanOffset 458 ;
+    jh:modelVersion "gpt-4o-2024-08-06" ;
+    jh:promptTemplateHash "sha256:2282a0120dcfa8be..." ;
+    jh:rubricCriterionId "rubric_v2.3#C2-argument_quality" .
+
+jh:art-fb-sentence-07 a prov:Entity ;
+    rdfs:label "Feedback sentence assessing rubric_v2.3#C1-thesis_clarity" ;
+    prov:wasDerivedFrom jh:art-rubric-rubric_v2.3,
+        jh:art-submission-S-98765 ;
+    prov:wasGeneratedBy jh:feedback-generation-S-98765 ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:987140d1cd3ecc34..." ;
+    jh:evidenceSpanHash "sha256:0acbab335488c937..." ;
+    jh:evidenceSpanLength 93 ;
+    jh:evidenceSpanOffset 0 ;
+    jh:modelVersion "gpt-4o-2024-08-06" ;
+    jh:promptTemplateHash "sha256:2282a0120dcfa8be..." ;
+    jh:rubricCriterionId "rubric_v2.3#C1-thesis_clarity" .
+
+jh:art-fb-sentence-08 a prov:Entity ;
+    rdfs:label "Feedback sentence assessing rubric_v2.3#C4-writing_mechanics" ;
+    prov:wasDerivedFrom jh:art-rubric-rubric_v2.3,
+        jh:art-submission-S-98765 ;
+    prov:wasGeneratedBy jh:feedback-generation-S-98765 ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:3cbdad8edf39cba6..." ;
+    jh:modelVersion "gpt-4o-2024-08-06" ;
+    jh:promptTemplateHash "sha256:2282a0120dcfa8be..." ;
+    jh:rubricCriterionId "rubric_v2.3#C4-writing_mechanics" .
+
+jh:feedback-agent a prov:Agent ;
+    rdfs:label "LLM Feedback Agent" ;
+    jh:role "feedback_generator" .
+
+jh:feedback-generation-S-98765 a prov:Activity ;
+    rdfs:label "Per-criterion feedback generation" ;
+    prov:endedAtTime "2026-05-14T10:32:22+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-05-14T10:32:17+00:00"^^xsd:dateTime ;
+    prov:used jh:art-rubric-rubric_v2.3,
+        jh:art-submission-S-98765 ;
+    prov:wasAssociatedWith jh:feedback-agent ;
+    jh:method "LLM inference (gpt-4o-2024-08-06)" .
+
+jh:art-rubric-rubric_v2.3 a prov:Entity ;
+    rdfs:label "Rubric rubric_v2.3" ;
+    jh:artifactType "token_sequence" ;
+    jh:contentHash "sha256:70632b7769024886..." .
+
+jh:art-submission-S-98765 a prov:Entity ;
+    rdfs:label "Student submission S-98765" ;
+    jh:artifactType "token_sequence" ;
+    jh:contentHash "sha256:b39c8a3d0fe05d32..." .
+

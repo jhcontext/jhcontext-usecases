@@ -1,0 +1,176 @@
+{
+  "context_id": "ctx-9c28ecb9-ddea-4b13-ad84-5446173691d3",
+  "schema_version": "jh:0.3",
+  "producer": "did:clinic:sensor-aggregation-agent",
+  "created_at": "2026-04-18T13:13:16.286070+00:00",
+  "ttl": "PT24H",
+  "status": "active",
+  "scope": "chronic_remote_monitoring",
+  "semantic_payload": [
+    {
+      "@model": "UserML",
+      "layers": {
+        "observation": [
+          {
+            "subject": "patient:P-M318",
+            "predicate": "hr_mean",
+            "object": 92
+          },
+          {
+            "subject": "patient:P-M318",
+            "predicate": "bp_systolic_mean",
+            "object": 142
+          },
+          {
+            "subject": "patient:P-M318",
+            "predicate": "spo2_min",
+            "object": 91
+          },
+          {
+            "subject": "patient:P-M318",
+            "predicate": "glucose_fasting",
+            "object": 168
+          },
+          {
+            "subject": "patient:P-M318",
+            "predicate": "weight_kg",
+            "object": 81.4
+          },
+          {
+            "subject": "patient:P-M318",
+            "predicate": "steps",
+            "object": 2100
+          }
+        ],
+        "interpretation": [],
+        "situation": [],
+        "application": []
+      }
+    },
+    {
+      "@model": "UserML",
+      "layers": {
+        "observation": [],
+        "interpretation": [
+          {
+            "subject": "patient:P-M318",
+            "predicate": "trend_bp",
+            "object": "rising",
+            "confidence": 0.82
+          },
+          {
+            "subject": "patient:P-M318",
+            "predicate": "trend_glucose",
+            "object": "rising",
+            "confidence": 0.79
+          }
+        ],
+        "situation": [
+          {
+            "subject": "patient:P-M318",
+            "predicate": "isInSituation",
+            "object": "chronic-decompensation-risk",
+            "confidence": 0.88,
+            "start": "2026-04-06T07:00:00+00:00"
+          }
+        ],
+        "application": []
+      }
+    }
+  ],
+  "artifacts_registry": [
+    {
+      "artifact_id": "art-daily-aggregate",
+      "type": "token_sequence",
+      "content_hash": "sha256:aa01b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1",
+      "timestamp": "2026-04-18T13:13:16.286095+00:00",
+      "deterministic": false,
+      "metadata": {}
+    },
+    {
+      "artifact_id": "art-weekly-trend",
+      "type": "semantic_extraction",
+      "content_hash": "sha256:bb02c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2",
+      "model": "chronic-trend-v1.3",
+      "timestamp": "2026-04-18T13:13:16.286294+00:00",
+      "deterministic": false,
+      "confidence": 0.88,
+      "metadata": {}
+    },
+    {
+      "artifact_id": "art-alert",
+      "type": "semantic_extraction",
+      "content_hash": "sha256:cc03d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3",
+      "model": "alert-rule-engine-v0.9",
+      "timestamp": "2026-04-18T13:13:16.286548+00:00",
+      "deterministic": false,
+      "confidence": 0.91,
+      "metadata": {
+        "scope": "sustained_trajectory"
+      }
+    },
+    {
+      "artifact_id": "art-care-plan",
+      "type": "semantic_extraction",
+      "content_hash": "sha256:dd04e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4",
+      "model": "care-plan-v0.4",
+      "timestamp": "2026-04-18T13:13:16.286907+00:00",
+      "deterministic": false,
+      "confidence": 0.8,
+      "metadata": {}
+    }
+  ],
+  "passed_artifact_pointer": "art-care-plan",
+  "decision_influence": [
+    {
+      "agent": "alert-agent",
+      "categories": [
+        "trend_bp",
+        "trend_glucose",
+        "patient_situation"
+      ],
+      "abstraction_level": "situation",
+      "temporal_scope": "historical",
+      "influence_weights": {
+        "trend_bp": 0.4,
+        "trend_glucose": 0.35,
+        "patient_situation": 0.25
+      },
+      "confidence": 0.91
+    }
+  ],
+  "privacy": {
+    "data_category": "sensitive",
+    "legal_basis": "informed_consent",
+    "retention": "P1Y",
+    "storage_policy": "edge-encrypted + deferred-sync",
+    "feature_suppression": [
+      "home_address",
+      "raw_geolocation"
+    ],
+    "pii_detached": true
+  },
+  "compliance": {
+    "risk_level": "high",
+    "human_oversight_required": true,
+    "forwarding_policy": "semantic_forward",
+    "model_card_ref": "https://clinic.example/models/chronic-trend-v1.3",
+    "escalation_path": "primary-care-team@clinic.example"
+  },
+  "provenance_ref": {
+    "prov_graph_id": "prov:ctx-chronic-monitoring-001",
+    "prov_digest": "93f77839b5f2fe4959f316ba35ce9cd33db859d7976f0d1cecf89713fd548856"
+  },
+  "proof": {
+    "canonicalization": "URDNA2015",
+    "content_hash": "78bec6b00d33fcff49ed66a4d3753f85f0dbd8e0ec354156fb338ea6c28e14bb",
+    "signature": "70f1ec78ac5b5792105638e5191458571f5c66f3b92d7d9f2bf061caec234fd3",
+    "signer": "did:clinic:compliance-officer"
+  },
+  "@context": {
+    "jh": "https://jhcontext.com/vocab#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@type": "jh:Envelope"
+}

@@ -1,6 +1,6 @@
 {
-  "context_id": "ctx-a98c0638-ab63-4906-af05-51677c093f59",
-  "timestamp": "2026-03-21T14:02:24.322277",
+  "context_id": "ctx-561f1ac3-19bd-4e96-a9f3-61e22af3a23f",
+  "timestamp": "2026-04-18T13:17:48.146391+00:00",
   "overall_passed": true,
   "results": [
     {
@@ -9,8 +9,8 @@
       "evidence": {
         "decision_entity": "art-grade-result",
         "dependency_chain": [
-          "art-essay-text",
-          "art-rubric"
+          "art-rubric",
+          "art-essay-text"
         ],
         "excluded_types": [
           "biometric",
@@ -31,10 +31,20 @@
       "message": "Workflows isolated: 3 + 3 entities, 0 shared"
     },
     {
+      "check_name": "pii_detachment",
+      "passed": true,
+      "evidence": {
+        "pii_detached": true,
+        "residual_pii_count": 0,
+        "residual_pii": []
+      },
+      "message": "PII detachment verified: no personal data in payload"
+    },
+    {
       "check_name": "integrity",
       "passed": true,
       "evidence": {
-        "content_hash": "479bd5f5a2273f07d1eb477bbfccf7c6ddcc8c4e72731c3d18c53635f7f5a37b",
+        "content_hash": "0c4fedbf8bf1be84bb76f373e1727c901d9b5445bad1c3f138d0772154f937c2",
         "signer": "did:university:compliance-officer",
         "has_signature": true
       },

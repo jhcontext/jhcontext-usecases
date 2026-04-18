@@ -1,0 +1,80 @@
+@prefix jh: <https://jhcontext.com/vocab#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+jh:art-allocation a prov:Entity ;
+    rdfs:label "Bed=CCU-3; specialist=teleconsult:cardiology-duty" ;
+    prov:wasDerivedFrom jh:art-triage-priority ;
+    prov:wasGeneratedBy jh:resource-allocation ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:a1b2..." .
+
+jh:teleconsult-review a prov:Activity ;
+    rdfs:label "Specialist reviews ECG + triage priority" ;
+    prov:endedAtTime "2026-04-18T14:16:17+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-18T14:10:17+00:00"^^xsd:dateTime ;
+    prov:used jh:art-ecg-embedding,
+        jh:art-semantic-extraction,
+        jh:art-triage-priority ;
+    prov:wasAssociatedWith jh:dr-rivera .
+
+jh:dr-rivera a prov:Agent ;
+    rdfs:label "Dr. Rivera (Cardiology, teleconsult)" ;
+    jh:role "human_oversight" .
+
+jh:physio-signal-agent a prov:Agent ;
+    rdfs:label "Physiological Signal Agent" ;
+    jh:role "sensor" .
+
+jh:resource-agent a prov:Agent ;
+    rdfs:label "Resource Allocation Agent" ;
+    jh:role "scheduler" .
+
+jh:resource-allocation a prov:Activity ;
+    rdfs:label "Bed + specialist allocation" ;
+    prov:endedAtTime "2026-04-18T14:03:47+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-18T14:03:32+00:00"^^xsd:dateTime ;
+    prov:used jh:art-triage-priority ;
+    prov:wasAssociatedWith jh:resource-agent ;
+    jh:method "rule-based" .
+
+jh:triage-agent a prov:Agent ;
+    rdfs:label "Triage Classification Agent" ;
+    jh:role "classifier" .
+
+jh:triage-classification a prov:Activity ;
+    rdfs:label "Triage priority assignment" ;
+    prov:endedAtTime "2026-04-18T14:03:17+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-18T14:03:02+00:00"^^xsd:dateTime ;
+    prov:used jh:art-semantic-extraction ;
+    prov:wasAssociatedWith jh:triage-agent ;
+    jh:method "LLM inference (triage-classifier-v1.8)" .
+
+jh:art-ecg-embedding a prov:Entity ;
+    rdfs:label "Raw ECG Embedding" ;
+    prov:wasGeneratedBy jh:physio-collection ;
+    jh:artifactType "embedding" ;
+    jh:contentHash "sha256:3f9c..." .
+
+jh:physio-collection a prov:Activity ;
+    rdfs:label "ECG + vitals acquisition" ;
+    prov:endedAtTime "2026-04-18T14:02:47+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-18T14:02:17+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith jh:physio-signal-agent ;
+    jh:method "edge-device sensors" .
+
+jh:art-semantic-extraction a prov:Entity ;
+    rdfs:label "Suspected AF (conf=0.87)" ;
+    prov:wasDerivedFrom jh:art-ecg-embedding ;
+    prov:wasGeneratedBy jh:physio-collection ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:d4e5..." .
+
+jh:art-triage-priority a prov:Entity ;
+    rdfs:label "Triage Priority: P1 (cardiac, urgent)" ;
+    prov:wasDerivedFrom jh:art-semantic-extraction ;
+    prov:wasGeneratedBy jh:triage-classification ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:e5f6..." .
+

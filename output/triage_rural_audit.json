@@ -1,0 +1,58 @@
+{
+  "context_id": "ctx-a934d4c3-707e-4da5-8981-cc6cc8fede1d",
+  "timestamp": "2026-04-18T13:13:16.283372+00:00",
+  "overall_passed": true,
+  "results": [
+    {
+      "check_name": "temporal_oversight",
+      "passed": true,
+      "evidence": {
+        "ai_activity": "triage-classification",
+        "ai_timestamp": "2026-04-18T14:03:02+00:00",
+        "human_activities_after_ai": [
+          "teleconsult-review"
+        ],
+        "total_review_seconds": 360.0,
+        "min_required_seconds": 300.0
+      },
+      "message": "Human oversight verified: 1/1 activities after AI, 360s review time"
+    },
+    {
+      "check_name": "negative_proof",
+      "passed": true,
+      "evidence": {
+        "decision_entity": "art-triage-priority",
+        "dependency_chain": [
+          "art-semantic-extraction",
+          "art-ecg-embedding"
+        ],
+        "excluded_types": [
+          "insurance_record",
+          "socio_economic_indicator"
+        ],
+        "violations": []
+      },
+      "message": "Negative proof verified: 2 excluded types absent from 2 entities in chain"
+    },
+    {
+      "check_name": "integrity",
+      "passed": true,
+      "evidence": {
+        "content_hash": "207e967551851a4fec2fb8d9e1b5fe00fae91aae1459e12992a046deca83c66a",
+        "signer": "did:hospital:compliance-officer",
+        "has_signature": true
+      },
+      "message": "Integrity verified"
+    },
+    {
+      "check_name": "pii_detachment",
+      "passed": true,
+      "evidence": {
+        "pii_detached": true,
+        "residual_pii_count": 0,
+        "residual_pii": []
+      },
+      "message": "PII detachment verified: no personal data in payload"
+    }
+  ]
+}

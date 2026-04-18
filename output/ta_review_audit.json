@@ -1,0 +1,31 @@
+{
+  "context_id": "ctx-cb19c030-0e72-48c7-a4b3-2e79f1db3e02",
+  "timestamp": "2026-04-18T13:17:37.687102+00:00",
+  "overall_passed": true,
+  "results": [
+    {
+      "check_name": "temporal_oversight",
+      "passed": true,
+      "evidence": {
+        "ai_activity": "ai-grading",
+        "ai_timestamp": "2026-05-20T09:00:00+00:00",
+        "human_activities_after_ai": [
+          "ta-review"
+        ],
+        "total_review_seconds": 480.0,
+        "min_required_seconds": 300.0
+      },
+      "message": "Human oversight verified: 1/1 activities after AI, 480s review time"
+    },
+    {
+      "check_name": "integrity",
+      "passed": true,
+      "evidence": {
+        "content_hash": "b0ba8b8eadbba5f12a4ea935a7c8ac43a42dd878730237358cde0b777d8d80a7",
+        "signer": "did:university:compliance-officer",
+        "has_signature": true
+      },
+      "message": "Integrity verified"
+    }
+  ]
+}

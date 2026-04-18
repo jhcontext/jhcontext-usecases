@@ -1,0 +1,116 @@
+@prefix jh: <https://jhcontext.com/vocab#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+jh:nurse-review a prov:Activity ;
+    rdfs:label "Nurse reviews trend + alert + proposed care plan" ;
+    prov:endedAtTime "2026-04-14T09:07:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-14T09:00:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-alert,
+        jh:art-care-plan,
+        jh:art-weekly-trend ;
+    prov:wasAssociatedWith jh:nurse-amani .
+
+jh:alert-agent a prov:Agent ;
+    rdfs:label "Alert Generation Agent" ;
+    jh:role "alerter" .
+
+jh:alert-generation a prov:Activity ;
+    rdfs:label "Threshold/trajectory alert synthesis" ;
+    prov:endedAtTime "2026-04-13T07:11:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-13T07:10:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-weekly-trend ;
+    prov:wasAssociatedWith jh:alert-agent ;
+    jh:method "rule-based" .
+
+jh:art-care-plan a prov:Entity ;
+    rdfs:label "Proposed: metformin titration + next-day nurse visit" ;
+    prov:wasDerivedFrom jh:art-alert ;
+    prov:wasGeneratedBy jh:care-plan-synthesis ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:dd04..." .
+
+jh:art-trend-model-v1.2 a prov:Entity ;
+    rdfs:label "Trend model v1.2 (retired)" ;
+    jh:artifactType "model_version" ;
+    jh:contentHash "sha256:0001..." .
+
+jh:art-trend-model-v1.3 a prov:Entity ;
+    rdfs:label "Trend model v1.3 (active)" ;
+    prov:wasDerivedFrom jh:art-trend-model-v1.2 ;
+    prov:wasGeneratedBy jh:model-upgrade-v1.2-v1.3 ;
+    jh:artifactType "model_version" ;
+    jh:contentHash "sha256:0002..." .
+
+jh:care-plan-agent a prov:Agent ;
+    rdfs:label "Care Plan Agent" ;
+    jh:role "planner" .
+
+jh:care-plan-synthesis a prov:Activity ;
+    rdfs:label "Proposed care-plan adjustment" ;
+    prov:endedAtTime "2026-04-13T07:14:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-13T07:13:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-alert ;
+    prov:wasAssociatedWith jh:care-plan-agent ;
+    jh:method "LLM inference (care-plan-v0.4)" .
+
+jh:mlops-team a prov:Agent ;
+    rdfs:label "MLOps Deployment Team" ;
+    jh:role "model_operator" .
+
+jh:model-upgrade-v1.2-v1.3 a prov:Activity ;
+    rdfs:label "Trend model upgrade v1.2 -> v1.3" ;
+    prov:endedAtTime "2026-04-06T08:00:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-06T07:00:00+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith jh:mlops-team ;
+    jh:method "rolling OTA deployment" .
+
+jh:nurse-amani a prov:Agent ;
+    rdfs:label "Nurse Amani (community nurse)" ;
+    jh:role "human_oversight" .
+
+jh:sensor-agent a prov:Agent ;
+    rdfs:label "Sensor Aggregation Agent" ;
+    jh:role "aggregator" .
+
+jh:sensor-aggregation a prov:Activity ;
+    rdfs:label "Daily reading aggregation" ;
+    prov:endedAtTime "2026-04-13T07:03:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-13T07:00:00+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith jh:sensor-agent ;
+    jh:method "on-device smartphone" .
+
+jh:trend-agent a prov:Agent ;
+    rdfs:label "Trend Analysis Agent" ;
+    jh:role "analyser" .
+
+jh:trend-analysis a prov:Activity ;
+    rdfs:label "7-day trend inference" ;
+    prov:endedAtTime "2026-04-13T07:08:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-13T07:05:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-daily-aggregate,
+        jh:art-trend-model-v1.3 ;
+    prov:wasAssociatedWith jh:trend-agent ;
+    jh:method "LLM inference (chronic-trend-v1.3)" .
+
+jh:art-daily-aggregate a prov:Entity ;
+    rdfs:label "Monday daily aggregate (one of seven)" ;
+    prov:wasGeneratedBy jh:sensor-aggregation ;
+    jh:artifactType "token_sequence" ;
+    jh:contentHash "sha256:aa01..." .
+
+jh:art-alert a prov:Entity ;
+    rdfs:label "Alert: sustained-trajectory breach (nurse review requested)" ;
+    prov:wasDerivedFrom jh:art-weekly-trend ;
+    prov:wasGeneratedBy jh:alert-generation ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:cc03..." .
+
+jh:art-weekly-trend a prov:Entity ;
+    rdfs:label "Weekly trend: rising BP + glucose trajectory" ;
+    prov:wasDerivedFrom jh:art-daily-aggregate ;
+    prov:wasGeneratedBy jh:trend-analysis ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:bb02..." .
+

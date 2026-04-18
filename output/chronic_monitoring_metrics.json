@@ -1,0 +1,13 @@
+{
+  "sensor_ms": 0.22537200129590929,
+  "trend_ms": 0.2630620001582429,
+  "alert_ms": 0.3574599995772587,
+  "care_plan_ms": 0.2894509998441208,
+  "oversight_ms": 0.13356000090425368,
+  "envelope_build_ms": 2.9079209998599254,
+  "audit_ms": 1.0499010004423326,
+  "total_ms": 5.719827000575606,
+  "prov_entities": 6,
+  "prov_activities": 6,
+  "envelope_size_bytes": 5088
+}

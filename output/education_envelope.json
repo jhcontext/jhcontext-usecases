@@ -1,8 +1,8 @@
 {
-  "context_id": "ctx-a98c0638-ab63-4906-af05-51677c093f59",
+  "context_id": "ctx-561f1ac3-19bd-4e96-a9f3-61e22af3a23f",
   "schema_version": "jh:0.3",
   "producer": "did:university:ingestion-agent",
-  "created_at": "2026-03-21T14:02:24.300119+00:00",
+  "created_at": "2026-04-18T13:17:48.142136+00:00",
   "ttl": "P30D",
   "status": "active",
   "scope": "education_assessment",
@@ -38,7 +38,7 @@
       "artifact_id": "art-essay-text",
       "type": "token_sequence",
       "content_hash": "sha256:1111aaaa2222bbbb3333cccc4444dddd5555eeee6666ffff7777aaaa8888bbbb",
-      "timestamp": "2026-03-21T14:02:24.300215+00:00",
+      "timestamp": "2026-04-18T13:17:48.142222+00:00",
       "deterministic": false,
       "metadata": {}
     },
@@ -46,7 +46,7 @@
       "artifact_id": "art-rubric",
       "type": "token_sequence",
       "content_hash": "sha256:2222bbbb3333cccc4444dddd5555eeee6666ffff7777aaaa8888bbbb9999cccc",
-      "timestamp": "2026-03-21T14:02:24.300230+00:00",
+      "timestamp": "2026-04-18T13:17:48.142235+00:00",
       "deterministic": false,
       "metadata": {}
     },
@@ -55,7 +55,7 @@
       "type": "semantic_extraction",
       "content_hash": "sha256:3333cccc4444dddd5555eeee6666ffff7777aaaa8888bbbb9999ccccaaaadddd",
       "model": "essay-grader-v2",
-      "timestamp": "2026-03-21T14:02:24.301312+00:00",
+      "timestamp": "2026-04-18T13:17:48.143198+00:00",
       "deterministic": false,
       "confidence": 0.91,
       "metadata": {}
@@ -91,11 +91,13 @@
       "student_name",
       "student_id",
       "demographic_attributes"
-    ]
+    ],
+    "pii_detached": true
   },
   "compliance": {
     "risk_level": "high",
     "human_oversight_required": false,
+    "forwarding_policy": "semantic_forward",
     "model_card_ref": "https://university.example/models/essay-grader-v2",
     "test_suite_ref": "https://university.example/fairness-tests/2026-Q1",
     "escalation_path": "academic-affairs@university.example"
@@ -106,8 +108,8 @@
   },
   "proof": {
     "canonicalization": "URDNA2015",
-    "content_hash": "479bd5f5a2273f07d1eb477bbfccf7c6ddcc8c4e72731c3d18c53635f7f5a37b",
-    "signature": "DO3qieK26OY8RKlrOvBbrzlZk7wCV6EgW56i9_SalWhadoG2vaj16Ife3scMWkLA29jJueORD1rMZ-i3sMn0Dw==",
+    "content_hash": "0c4fedbf8bf1be84bb76f373e1727c901d9b5445bad1c3f138d0772154f937c2",
+    "signature": "318f9f86a7b2a2892f7e4da2cc75427dfbf23548bbc98ff0b8129519e1761ca4",
     "signer": "did:university:compliance-officer"
   },
   "@context": {

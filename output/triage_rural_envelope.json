@@ -1,0 +1,140 @@
+{
+  "context_id": "ctx-a934d4c3-707e-4da5-8981-cc6cc8fede1d",
+  "schema_version": "jh:0.3",
+  "producer": "did:hospital:physio-signal-agent",
+  "created_at": "2026-04-18T13:13:16.278237+00:00",
+  "ttl": "PT15M",
+  "status": "active",
+  "scope": "rural_cardiac_triage",
+  "semantic_payload": [
+    {
+      "@model": "UserML",
+      "layers": {
+        "observation": [
+          {
+            "subject": "patient:P-R042",
+            "predicate": "ecg_ref",
+            "object": "sig:ECG-2026-04-18-R042"
+          },
+          {
+            "subject": "patient:P-R042",
+            "predicate": "bp_systolic",
+            "object": 148
+          },
+          {
+            "subject": "patient:P-R042",
+            "predicate": "bp_diastolic",
+            "object": 92
+          },
+          {
+            "subject": "patient:P-R042",
+            "predicate": "spo2",
+            "object": 94
+          }
+        ],
+        "interpretation": [
+          {
+            "subject": "patient:P-R042",
+            "predicate": "finding",
+            "object": "suspected_AF",
+            "confidence": 0.87
+          }
+        ],
+        "situation": [],
+        "application": []
+      }
+    }
+  ],
+  "artifacts_registry": [
+    {
+      "artifact_id": "art-ecg-embedding",
+      "type": "embedding",
+      "content_hash": "sha256:3f9c4a81b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5",
+      "model": "ecg-classifier-v2.4",
+      "timestamp": "2026-04-18T13:13:16.278338+00:00",
+      "deterministic": false,
+      "metadata": {}
+    },
+    {
+      "artifact_id": "art-semantic-extraction",
+      "type": "semantic_extraction",
+      "content_hash": "sha256:d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5",
+      "model": "ecg-classifier-v2.4",
+      "timestamp": "2026-04-18T13:13:16.278352+00:00",
+      "deterministic": false,
+      "confidence": 0.87,
+      "metadata": {}
+    },
+    {
+      "artifact_id": "art-triage-priority",
+      "type": "semantic_extraction",
+      "content_hash": "sha256:e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6",
+      "model": "triage-classifier-v1.8",
+      "timestamp": "2026-04-18T13:13:16.279554+00:00",
+      "deterministic": false,
+      "confidence": 0.91,
+      "metadata": {}
+    },
+    {
+      "artifact_id": "art-allocation",
+      "type": "semantic_extraction",
+      "content_hash": "sha256:a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2",
+      "model": "resource-allocator-v1.0",
+      "timestamp": "2026-04-18T13:13:16.279799+00:00",
+      "deterministic": false,
+      "confidence": 1.0,
+      "metadata": {}
+    }
+  ],
+  "passed_artifact_pointer": "art-semantic-extraction",
+  "decision_influence": [
+    {
+      "agent": "triage-agent",
+      "categories": [
+        "ecg_finding",
+        "vital_signs"
+      ],
+      "abstraction_level": "situation",
+      "temporal_scope": "current",
+      "influence_weights": {
+        "ecg_finding": 0.75,
+        "vital_signs": 0.25
+      },
+      "confidence": 0.91
+    }
+  ],
+  "privacy": {
+    "data_category": "sensitive",
+    "legal_basis": "art_9_2_h_gdpr",
+    "retention": "P30D",
+    "storage_policy": "edge-encrypted",
+    "feature_suppression": [
+      "insurance_status",
+      "socio_economic_indicator"
+    ],
+    "pii_detached": true
+  },
+  "compliance": {
+    "risk_level": "high",
+    "human_oversight_required": true,
+    "forwarding_policy": "semantic_forward",
+    "model_card_ref": "https://hospital.example/models/ecg-classifier-v2.4",
+    "escalation_path": "cardiology-on-call@hospital.example"
+  },
+  "provenance_ref": {
+    "prov_graph_id": "prov:ctx-triage-rural-001",
+    "prov_digest": "a78bd4d7ed6b0e6f0778fe9608bc51631f0ab8427d48f21e0cc79f2a0c4409eb"
+  },
+  "proof": {
+    "canonicalization": "URDNA2015",
+    "content_hash": "207e967551851a4fec2fb8d9e1b5fe00fae91aae1459e12992a046deca83c66a",
+    "signature": "622cec09d01069d5358ae9195657baed073111cca870d75a4eda746296aad6a3",
+    "signer": "did:hospital:compliance-officer"
+  },
+  "@context": {
+    "jh": "https://jhcontext.com/vocab#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@type": "jh:Envelope"
+}

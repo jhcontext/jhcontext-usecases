@@ -1,0 +1,12 @@
+{
+  "physio_ms": 1.3485500003298512,
+  "triage_ms": 0.24721299996599555,
+  "allocation_ms": 0.20346499877632596,
+  "oversight_ms": 0.12969799900020007,
+  "envelope_build_ms": 2.7422409984865226,
+  "audit_ms": 0.5068629998277174,
+  "total_ms": 5.1941040001111105,
+  "prov_entities": 4,
+  "prov_activities": 4,
+  "envelope_size_bytes": 4200
+}

@@ -1,0 +1,76 @@
+@prefix jh: <https://jhcontext.com/vocab#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+jh:art-final-grade a prov:Entity ;
+    rdfs:label "Final committed grade (B+, 78/100)" ;
+    prov:wasGeneratedBy jh:grade-commit ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:final-grade-commit-hash" .
+
+jh:ai-grading-agent a prov:Agent ;
+    rdfs:label "AI Essay Grading Agent" ;
+    jh:role "evaluator" .
+
+jh:grade-commit a prov:Activity ;
+    rdfs:label "Final grade committed after TA review" ;
+    prov:endedAtTime "2026-05-20T09:12:32+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-05-20T09:12:30+00:00"^^xsd:dateTime ;
+    prov:used jh:art-ai-feedback,
+        jh:art-ai-score ;
+    prov:wasAssociatedWith jh:ta-martins ;
+    prov:wasInformedBy jh:ta-review ;
+    jh:method "grade_commit" .
+
+jh:ta-review a prov:Activity ;
+    rdfs:label "TA reviews AI score + feedback against submission and rubric" ;
+    prov:endedAtTime "2026-05-20T09:12:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-05-20T09:04:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-ai-feedback,
+        jh:art-ai-score,
+        jh:art-rubric,
+        jh:art-submission ;
+    prov:wasAssociatedWith jh:ta-martins ;
+    jh:method "human_review" ;
+    jh:openedAIFeedbackAt "2026-05-20T09:05:00+00:00" ;
+    jh:openedRubricAt "2026-05-20T09:04:30+00:00" ;
+    jh:openedSubmissionAt "2026-05-20T09:04:00+00:00" .
+
+jh:ai-grading a prov:Activity ;
+    rdfs:label "AI Essay Evaluation" ;
+    prov:endedAtTime "2026-05-20T09:02:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-05-20T09:00:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-rubric,
+        jh:art-submission ;
+    prov:wasAssociatedWith jh:ai-grading-agent ;
+    jh:method "LLM inference (essay-grader-v3)" .
+
+jh:art-ai-feedback a prov:Entity ;
+    rdfs:label "AI-generated feedback block" ;
+    prov:wasGeneratedBy jh:ai-grading ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:99990000..." .
+
+jh:art-ai-score a prov:Entity ;
+    rdfs:label "AI aggregate score (78/100)" ;
+    prov:wasDerivedFrom jh:art-rubric,
+        jh:art-submission ;
+    prov:wasGeneratedBy jh:ai-grading ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:ccccdddd..." .
+
+jh:ta-martins a prov:Agent ;
+    rdfs:label "Teaching Assistant (ENG201)" ;
+    jh:role "human_oversight" .
+
+jh:art-rubric a prov:Entity ;
+    rdfs:label "Summative rubric ENG201-v2" ;
+    jh:artifactType "token_sequence" ;
+    jh:contentHash "sha256:eeeeffff..." .
+
+jh:art-submission a prov:Entity ;
+    rdfs:label "Student submission S-SUMM-042" ;
+    jh:artifactType "token_sequence" ;
+    jh:contentHash "sha256:aaaabbbb..." .
+

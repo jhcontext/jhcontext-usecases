@@ -1,0 +1,80 @@
+@prefix jh: <https://jhcontext.com/vocab#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+jh:supervisor-review a prov:Activity ;
+    rdfs:label "Specialist reviews PHQ-9, risk classification, referral" ;
+    prov:endedAtTime "2026-04-19T10:23:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-19T10:15:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-interview-structured,
+        jh:art-referral,
+        jh:art-risk-classification ;
+    prov:wasAssociatedWith jh:dr-matumbo .
+
+jh:art-phq9-responses a prov:Entity ;
+    rdfs:label "PHQ-9 raw responses (vaulted)" ;
+    prov:wasGeneratedBy jh:phq9-interview ;
+    jh:artifactType "token_sequence" ;
+    jh:contentHash "sha256:a1f9..." .
+
+jh:art-referral a prov:Entity ;
+    rdfs:label "Referral: same-week specialist review (mandatory)" ;
+    prov:wasDerivedFrom jh:art-risk-classification ;
+    prov:wasGeneratedBy jh:referral-recommendation ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:d404..." .
+
+jh:dr-matumbo a prov:Agent ;
+    rdfs:label "Dr. Matumbo (district mental-health specialist)" ;
+    jh:role "human_oversight" .
+
+jh:interview-agent a prov:Agent ;
+    rdfs:label "Interview Assistance Agent" ;
+    jh:role "elicitor" .
+
+jh:referral-agent a prov:Agent ;
+    rdfs:label "Referral Recommendation Agent" ;
+    jh:role "recommender" .
+
+jh:referral-recommendation a prov:Activity ;
+    rdfs:label "Referral recommendation + supervisor queue enqueue" ;
+    prov:endedAtTime "2026-04-18T09:35:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-18T09:34:30+00:00"^^xsd:dateTime ;
+    prov:used jh:art-risk-classification ;
+    prov:wasAssociatedWith jh:referral-agent ;
+    jh:method "rule-based" .
+
+jh:risk-classification a prov:Activity ;
+    rdfs:label "Severity + suicide-risk triage" ;
+    prov:endedAtTime "2026-04-18T09:34:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-18T09:33:30+00:00"^^xsd:dateTime ;
+    prov:used jh:art-interview-structured ;
+    prov:wasAssociatedWith jh:risk-classifier ;
+    jh:method "LLM inference (mh-risk-classifier-v2.0)" .
+
+jh:risk-classifier a prov:Agent ;
+    rdfs:label "Risk Classification Agent" ;
+    jh:role "classifier" .
+
+jh:phq9-interview a prov:Activity ;
+    rdfs:label "PHQ-9 structured elicitation" ;
+    prov:endedAtTime "2026-04-18T09:33:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-18T09:15:00+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith jh:interview-agent ;
+    jh:method "on-tablet PHQ-9-v1 instrument" .
+
+jh:art-interview-structured a prov:Entity ;
+    rdfs:label "Structured PHQ-9 interpretation (total=19, suicide_flag=true)" ;
+    prov:wasDerivedFrom jh:art-phq9-responses ;
+    prov:wasGeneratedBy jh:phq9-interview ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:b2e8..." .
+
+jh:art-risk-classification a prov:Entity ;
+    rdfs:label "Severity=moderately_severe; suicide_risk=elevated" ;
+    prov:wasDerivedFrom jh:art-interview-structured ;
+    prov:wasGeneratedBy jh:risk-classification ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:c393..." .
+

@@ -1,0 +1,59 @@
+{
+  "context_id": "ctx-0537aec3-747d-4918-95fa-9dcd36baffc9",
+  "timestamp": "2026-04-18T13:13:16.299102+00:00",
+  "overall_passed": true,
+  "results": [
+    {
+      "check_name": "temporal_oversight",
+      "passed": true,
+      "evidence": {
+        "ai_activity": "risk-classification",
+        "ai_timestamp": "2026-04-18T09:33:30+00:00",
+        "human_activities_after_ai": [
+          "supervisor-review"
+        ],
+        "total_review_seconds": 480.0,
+        "min_required_seconds": 300.0
+      },
+      "message": "Human oversight verified: 1/1 activities after AI, 480s review time"
+    },
+    {
+      "check_name": "negative_proof",
+      "passed": true,
+      "evidence": {
+        "decision_entity": "art-risk-classification",
+        "dependency_chain": [
+          "art-phq9-responses",
+          "art-interview-structured"
+        ],
+        "excluded_types": [
+          "ethnicity",
+          "religion",
+          "household_income"
+        ],
+        "violations": []
+      },
+      "message": "Negative proof verified: 3 excluded types absent from 2 entities in chain"
+    },
+    {
+      "check_name": "integrity",
+      "passed": true,
+      "evidence": {
+        "content_hash": "935192c0c069eae6ec0f795d95b7223244fbeb4bee11a96d832d67fd0e41f0b4",
+        "signer": "did:district:compliance-officer",
+        "has_signature": true
+      },
+      "message": "Integrity verified"
+    },
+    {
+      "check_name": "pii_detachment",
+      "passed": true,
+      "evidence": {
+        "pii_detached": true,
+        "residual_pii_count": 0,
+        "residual_pii": []
+      },
+      "message": "PII detachment verified: no personal data in payload"
+    }
+  ]
+}

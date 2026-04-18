@@ -1,0 +1,58 @@
+{
+  "context_id": "ctx-9c28ecb9-ddea-4b13-ad84-5446173691d3",
+  "timestamp": "2026-04-18T13:13:16.291275+00:00",
+  "overall_passed": true,
+  "results": [
+    {
+      "check_name": "temporal_oversight",
+      "passed": true,
+      "evidence": {
+        "ai_activity": "alert-generation",
+        "ai_timestamp": "2026-04-13T07:10:00+00:00",
+        "human_activities_after_ai": [
+          "nurse-review"
+        ],
+        "total_review_seconds": 420.0,
+        "min_required_seconds": 300.0
+      },
+      "message": "Human oversight verified: 1/1 activities after AI, 420s review time"
+    },
+    {
+      "check_name": "pii_detachment",
+      "passed": true,
+      "evidence": {
+        "pii_detached": true,
+        "residual_pii_count": 0,
+        "residual_pii": []
+      },
+      "message": "PII detachment verified: no personal data in payload"
+    },
+    {
+      "check_name": "integrity",
+      "passed": true,
+      "evidence": {
+        "content_hash": "78bec6b00d33fcff49ed66a4d3753f85f0dbd8e0ec354156fb338ea6c28e14bb",
+        "signer": "did:clinic:compliance-officer",
+        "has_signature": true
+      },
+      "message": "Integrity verified"
+    },
+    {
+      "check_name": "negative_proof",
+      "passed": true,
+      "evidence": {
+        "decision_entity": "art-alert",
+        "dependency_chain": [
+          "art-daily-aggregate",
+          "art-weekly-trend"
+        ],
+        "excluded_types": [
+          "home_address",
+          "raw_geolocation"
+        ],
+        "violations": []
+      },
+      "message": "Negative proof verified: 2 excluded types absent from 2 entities in chain"
+    }
+  ]
+}

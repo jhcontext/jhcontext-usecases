@@ -1,0 +1,25 @@
+{
+  "context_id": "ctx-edu-feedback-S-98765",
+  "rubric_grounding": {
+    "passed": false,
+    "message": "RUBRIC-GROUNDING VIOLATION: 1/8 feedback sentences lack required bindings",
+    "evidence": {
+      "submission": "art-submission-S-98765",
+      "feedback_sentences_checked": 8,
+      "grounded_count": 7,
+      "orphan_count": 1,
+      "orphans": [
+        {
+          "feedback_sentence": "art-fb-sentence-08",
+          "issues": [
+            "missing_evidence_span_hash"
+          ]
+        }
+      ]
+    }
+  },
+  "integrity": {
+    "passed": true,
+    "envelopes_checked": 8
+  }
+}

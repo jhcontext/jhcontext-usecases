@@ -1,0 +1,12 @@
+{
+  "audit_ms": 2.4056839993136236,
+  "benchmark": {
+    "n_submissions": 500,
+    "sentences_per_submission": 8,
+    "total_envelopes": 4000,
+    "elapsed_seconds": 3.2620358369986207,
+    "per_envelope_ms": 0.8155089592496552
+  },
+  "envelopes_emitted": 8,
+  "total_ms": 3281.3592220009014
+}
