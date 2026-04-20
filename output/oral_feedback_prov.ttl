@@ -1,0 +1,135 @@
+@prefix jh: <https://jhcontext.com/vocab#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+jh:art-oral-fb-sentence-01 a prov:Entity ;
+    rdfs:label "Oral feedback sentence assessing oral_rubric_v1.0#C2-fluency" ;
+    prov:wasDerivedFrom jh:art-oral-rubric-oral_rubric_v1.0,
+        jh:art-oral-submission-ORAL-98765 ;
+    prov:wasGeneratedBy jh:oral-feedback-generation-ORAL-98765 ;
+    jh:artifactModality "audio" ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:731b1d9dd1433321..." ;
+    jh:evidenceEndMs 2400 ;
+    jh:evidenceSpanHash "sha256:166525788df14be9..." ;
+    jh:evidenceStartMs 450 ;
+    jh:modelVersion "gpt-4o-2024-08-06" ;
+    jh:promptTemplateHash "sha256:8dd47447b4a8201b..." ;
+    jh:rubricCriterionId "oral_rubric_v1.0#C2-fluency" .
+
+jh:art-oral-fb-sentence-02 a prov:Entity ;
+    rdfs:label "Oral feedback sentence assessing oral_rubric_v1.0#C1-pronunciation" ;
+    prov:wasDerivedFrom jh:art-oral-rubric-oral_rubric_v1.0,
+        jh:art-oral-submission-ORAL-98765 ;
+    prov:wasGeneratedBy jh:oral-feedback-generation-ORAL-98765 ;
+    jh:artifactModality "audio" ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:f9c8c4a54c5c799e..." ;
+    jh:evidenceEndMs 3400 ;
+    jh:evidenceSpanHash "sha256:2964d2ec47221bdf..." ;
+    jh:evidenceStartMs 2450 ;
+    jh:modelVersion "gpt-4o-2024-08-06" ;
+    jh:promptTemplateHash "sha256:8dd47447b4a8201b..." ;
+    jh:rubricCriterionId "oral_rubric_v1.0#C1-pronunciation" .
+
+jh:art-oral-fb-sentence-03 a prov:Entity ;
+    rdfs:label "Oral feedback sentence assessing oral_rubric_v1.0#C3-content_coherence" ;
+    prov:wasDerivedFrom jh:art-oral-rubric-oral_rubric_v1.0,
+        jh:art-oral-submission-ORAL-98765 ;
+    prov:wasGeneratedBy jh:oral-feedback-generation-ORAL-98765 ;
+    jh:artifactModality "audio" ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:4c64b3f8bcf29b70..." ;
+    jh:evidenceEndMs 13400 ;
+    jh:evidenceSpanHash "sha256:6abc437d34a177a9..." ;
+    jh:evidenceStartMs 8000 ;
+    jh:modelVersion "gpt-4o-2024-08-06" ;
+    jh:promptTemplateHash "sha256:8dd47447b4a8201b..." ;
+    jh:rubricCriterionId "oral_rubric_v1.0#C3-content_coherence" .
+
+jh:art-oral-fb-sentence-04 a prov:Entity ;
+    rdfs:label "Oral feedback sentence assessing oral_rubric_v1.0#C4-grammar_range" ;
+    prov:wasDerivedFrom jh:art-oral-rubric-oral_rubric_v1.0,
+        jh:art-oral-submission-ORAL-98765 ;
+    prov:wasGeneratedBy jh:oral-feedback-generation-ORAL-98765 ;
+    jh:artifactModality "audio" ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:d6a2d97a122714b9..." ;
+    jh:evidenceEndMs 17400 ;
+    jh:evidenceSpanHash "sha256:c9120f39ccc28f26..." ;
+    jh:evidenceStartMs 14500 ;
+    jh:modelVersion "gpt-4o-2024-08-06" ;
+    jh:promptTemplateHash "sha256:8dd47447b4a8201b..." ;
+    jh:rubricCriterionId "oral_rubric_v1.0#C4-grammar_range" .
+
+jh:art-oral-fb-sentence-05 a prov:Entity ;
+    rdfs:label "Oral feedback sentence assessing oral_rubric_v1.0#C2-fluency" ;
+    prov:wasDerivedFrom jh:art-oral-rubric-oral_rubric_v1.0,
+        jh:art-oral-submission-ORAL-98765 ;
+    prov:wasGeneratedBy jh:oral-feedback-generation-ORAL-98765 ;
+    jh:artifactModality "audio" ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:07a6ec277c976ff3..." ;
+    jh:evidenceEndMs 18550 ;
+    jh:evidenceSpanHash "sha256:64db00546be4e47f..." ;
+    jh:evidenceStartMs 15150 ;
+    jh:modelVersion "gpt-4o-2024-08-06" ;
+    jh:promptTemplateHash "sha256:8dd47447b4a8201b..." ;
+    jh:rubricCriterionId "oral_rubric_v1.0#C2-fluency" .
+
+jh:art-oral-fb-sentence-06 a prov:Entity ;
+    rdfs:label "Oral feedback sentence assessing oral_rubric_v1.0#C1-pronunciation" ;
+    prov:wasDerivedFrom jh:art-oral-rubric-oral_rubric_v1.0,
+        jh:art-oral-submission-ORAL-98765 ;
+    prov:wasGeneratedBy jh:oral-feedback-generation-ORAL-98765 ;
+    jh:artifactModality "audio" ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:69e26eb9e83d6761..." ;
+    jh:modelVersion "gpt-4o-2024-08-06" ;
+    jh:promptTemplateHash "sha256:8dd47447b4a8201b..." ;
+    jh:rubricCriterionId "oral_rubric_v1.0#C1-pronunciation" .
+
+jh:art-transcript-ORAL-98765 a prov:Entity ;
+    rdfs:label "Whisper transcript + alignment for ORAL-98765" ;
+    prov:wasDerivedFrom jh:art-oral-submission-ORAL-98765 ;
+    prov:wasGeneratedBy jh:transcription-ORAL-98765 ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:06beae284f454a37..." .
+
+jh:oral-feedback-agent a prov:Agent ;
+    rdfs:label "LLM Oral Feedback Agent" ;
+    jh:role "feedback_generator" .
+
+jh:stt-agent a prov:Agent ;
+    rdfs:label "Speech-to-Text + Alignment Agent" ;
+    jh:role "transcriber" .
+
+jh:transcription-ORAL-98765 a prov:Activity ;
+    rdfs:label "Audio transcription and forced alignment" ;
+    prov:endedAtTime "2026-05-14T10:32:20+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-05-14T10:32:17+00:00"^^xsd:dateTime ;
+    prov:used jh:art-oral-submission-ORAL-98765 ;
+    prov:wasAssociatedWith jh:stt-agent ;
+    jh:method "STT (whisper-large-v3) + forced alignment" .
+
+jh:oral-feedback-generation-ORAL-98765 a prov:Activity ;
+    rdfs:label "Per-criterion oral feedback generation" ;
+    prov:endedAtTime "2026-05-14T10:32:25+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-05-14T10:32:20+00:00"^^xsd:dateTime ;
+    prov:used jh:art-oral-rubric-oral_rubric_v1.0,
+        jh:art-oral-submission-ORAL-98765,
+        jh:art-transcript-ORAL-98765 ;
+    prov:wasAssociatedWith jh:oral-feedback-agent ;
+    jh:method "LLM inference (gpt-4o-2024-08-06)" .
+
+jh:art-oral-rubric-oral_rubric_v1.0 a prov:Entity ;
+    rdfs:label "Oral-assessment rubric oral_rubric_v1.0" ;
+    jh:artifactType "token_sequence" ;
+    jh:contentHash "sha256:b0c759ee3d2d518f..." .
+
+jh:art-oral-submission-ORAL-98765 a prov:Entity ;
+    rdfs:label "Oral submission ORAL-98765 (19000ms)" ;
+    jh:artifactType "audio" ;
+    jh:contentHash "sha256:a705fbc914ee6225..." .
+

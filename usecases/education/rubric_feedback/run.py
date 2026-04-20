@@ -137,44 +137,49 @@ def _build_scenario_envelopes(
     prov: PROVGraph | None = None,
     emit_envelopes: bool = True,
 ):
-    """Build one envelope per feedback sentence. Return (envelopes, prov_graph)."""
+    """Build ONE envelope per submission (all feedback sentences bundled).
+
+    The feedback-generation handoff emits one signed envelope whose
+    UserML ``semantic_payload`` carries a list of interpretation entries
+    (one per feedback sentence). Per-sentence PROV entities remain so
+    ``verify_rubric_grounding`` can audit each sentence individually.
+    """
     submission_hash = _submission_hash(essay_text)
     submission_entity = f"art-submission-{submission_id}"
+    rubric_entity = f"art-rubric-{RUBRIC_ID}"
+    feedback_activity = f"feedback-generation-{submission_id}"
 
-    # PROV graph for the grading chain
     if prov is None:
         prov = PROVGraph(f"ctx-edu-feedback-{submission_id}")
 
     prov.add_entity(submission_entity, f"Student submission {submission_id}",
                     artifact_type="token_sequence", content_hash=submission_hash)
-    prov.add_entity(f"art-rubric-{RUBRIC_ID}", f"Rubric {RUBRIC_ID}",
+    prov.add_entity(rubric_entity, f"Rubric {RUBRIC_ID}",
                     artifact_type="token_sequence",
                     content_hash="sha256:" + compute_sha256(RUBRIC_ID.encode("utf-8"))[:16] + "...")
     prov.add_agent("feedback-agent", "LLM Feedback Agent", role="feedback_generator")
     prov.add_activity(
-        f"feedback-generation-{submission_id}",
+        feedback_activity,
         "Per-criterion feedback generation",
         started_at=_iso(ts_base),
         ended_at=_iso(ts_base + timedelta(seconds=5)),
         method=f"LLM inference ({MODEL_ID})",
     )
-    prov.used(f"feedback-generation-{submission_id}", submission_entity)
-    prov.used(f"feedback-generation-{submission_id}", f"art-rubric-{RUBRIC_ID}")
-    prov.was_associated_with(f"feedback-generation-{submission_id}", "feedback-agent")
+    prov.used(feedback_activity, submission_entity)
+    prov.used(feedback_activity, rubric_entity)
+    prov.was_associated_with(feedback_activity, "feedback-agent")
 
-    envelopes = []
+    # Per-sentence PROV entities (audit granularity preserved).
     for fs in sentences:
-        # Each feedback sentence is its own artifact/entity in the grading PROV graph
         prov.add_entity(
             fs["id"],
             f"Feedback sentence assessing {fs['criterion_id']}",
             artifact_type="semantic_extraction",
             content_hash=fs["text_hash"],
         )
-        prov.was_generated_by(fs["id"], f"feedback-generation-{submission_id}")
+        prov.was_generated_by(fs["id"], feedback_activity)
         prov.was_derived_from(fs["id"], submission_entity)
-        prov.was_derived_from(fs["id"], f"art-rubric-{RUBRIC_ID}")
-        # Attach the domain-specific binding attributes
+        prov.was_derived_from(fs["id"], rubric_entity)
         prov.set_entity_attribute(fs["id"], "rubricCriterionId", fs["criterion_id"])
         prov.set_entity_attribute(fs["id"], "modelVersion", fs["model_id"])
         prov.set_entity_attribute(fs["id"], "promptTemplateHash", fs["prompt_template_hash"])
@@ -183,66 +188,91 @@ def _build_scenario_envelopes(
             prov.set_entity_attribute(fs["id"], "evidenceSpanLength", fs["evidence_span_length"])
             prov.set_entity_attribute(fs["id"], "evidenceSpanHash", fs["evidence_span_hash"])
 
-        if not emit_envelopes:
-            continue
+    if not emit_envelopes:
+        return [], prov
 
-        # Build the per-sentence envelope (paper §3 Figure 1 layout)
-        builder = (
-            EnvelopeBuilder()
-            .set_producer("did:university:feedback-agent-v1.2")
-            .set_scope("education_assessment")
-            .set_ttl("P5Y")  # Art. 12 retention
-            .set_risk_level(RiskLevel.HIGH)
-            .set_human_oversight(True)
-            .set_semantic_payload([
-                userml_payload(
-                    observations=[
-                        observation(submission_entity, "rubric_criterion_id", fs["criterion_id"]),
-                        observation(submission_entity, "model_version", fs["model_id"]),
-                        observation(submission_entity, "prompt_template_id", fs["prompt_template_id"]),
-                    ],
-                    interpretations=(
-                        [interpretation(submission_entity, "evidence_span_hash",
-                                        fs["evidence_span_hash"], confidence=1.0)]
-                        if fs["grounded"] else []
-                    ),
-                )
-            ])
-            .add_artifact(
-                artifact_id=fs["id"],
-                artifact_type=ArtifactType.SEMANTIC_EXTRACTION,
-                content_hash=fs["text_hash"],
-                model=fs["model_id"],
-            )
-            .add_artifact(
-                artifact_id=submission_entity,
-                artifact_type=ArtifactType.TOKEN_SEQUENCE,
-                content_hash=submission_hash,
-            )
-            .add_artifact(
-                artifact_id=f"art-rubric-{RUBRIC_ID}",
-                artifact_type=ArtifactType.TOKEN_SEQUENCE,
-                content_hash="sha256:" + compute_sha256(RUBRIC_ID.encode("utf-8"))[:16] + "...",
-            )
-            .set_passed_artifact(fs["id"])
-            .set_privacy(
-                data_category="behavioral",
-                legal_basis="legitimate_interest",
-                retention="P5Y",
-                storage_policy="university-encrypted",
-                feature_suppression=["student_name", "student_id", "accommodation_flags"],
-            )
-            .set_compliance(
-                risk_level=RiskLevel.HIGH,
-                human_oversight_required=True,
-                model_card_ref="https://university.example/models/feedback-agent-v1.2",
-                escalation_path="academic-affairs@university.example",
-            )
+    # Build the SINGLE envelope for the feedback-generation handoff.
+    # UserML interpretation layer carries one entry per feedback sentence.
+    interpretations = []
+    application_entries = []
+    for fs in sentences:
+        interpretations.append(interpretation(
+            fs["id"], "addresses_criterion", fs["criterion_id"],
+            confidence=0.85,
+        ))
+        if fs["grounded"]:
+            interpretations.append(interpretation(
+                fs["id"], "evidence_span",
+                {
+                    "offset": fs["evidence_span_offset"],
+                    "length": fs["evidence_span_length"],
+                    "hash": fs["evidence_span_hash"],
+                },
+                confidence=1.0,
+            ))
+        application_entries.append({
+            "predicate": "feedback_sentence",
+            "subject": fs["id"],
+            "object": fs.get("cited_preview") or "<feedback text elided>",
+        })
+
+    prompt_entity = f"art-prompt-{PROMPT_TEMPLATE_ID}"
+    builder = (
+        EnvelopeBuilder()
+        .set_producer("did:university:feedback-agent-v1.2")
+        .set_scope("education_assessment")
+        .set_ttl("P5Y")
+        .set_risk_level(RiskLevel.HIGH)
+        .set_human_oversight(True)
+        .set_semantic_payload([
+            userml_payload(
+                observations=[
+                    observation(submission_entity, "rubric_version", RUBRIC_ID),
+                    observation(submission_entity, "word_count", len(essay_text.split())),
+                ],
+                interpretations=interpretations,
+                situations=[
+                    {"subject": submission_entity,
+                     "predicate": "isInSituation",
+                     "object": "summative_assessment",
+                     "confidence": 0.95},
+                ],
+                application=application_entries,
+            ),
+        ])
+        .add_artifact(
+            artifact_id=submission_entity,
+            artifact_type=ArtifactType.TOKEN_SEQUENCE,
+            content_hash=submission_hash,
         )
-        envelope = builder.sign("did:university:compliance-officer").build()
-        envelopes.append(envelope)
-
-    return envelopes, prov
+        .add_artifact(
+            artifact_id=rubric_entity,
+            artifact_type=ArtifactType.TOKEN_SEQUENCE,
+            content_hash="sha256:" + compute_sha256(RUBRIC_ID.encode("utf-8"))[:16] + "...",
+        )
+        .add_artifact(
+            artifact_id=prompt_entity,
+            artifact_type=ArtifactType.TOKEN_SEQUENCE,
+            content_hash="sha256:" + compute_sha256(PROMPT_TEMPLATE_ID.encode("utf-8"))[:16] + "...",
+            model=MODEL_ID,
+        )
+        .set_passed_artifact(submission_entity)
+        .set_privacy(
+            data_category="behavioral",
+            legal_basis="legitimate_interest",
+            retention="P5Y",
+            storage_policy="university-encrypted",
+            feature_suppression=["student_name", "student_id", "accommodation_flags"],
+        )
+        .set_compliance(
+            risk_level=RiskLevel.HIGH,
+            human_oversight_required=True,
+            model_card_ref="https://university.example/models/feedback-agent-v1.2",
+            escalation_path="academic-affairs@university.example",
+        )
+    )
+    envelope = builder.sign("did:university:compliance-officer").build()
+    return [envelope], prov
 
 
 # -- Classroom-scale benchmark ------------------------------------------------
@@ -251,12 +281,17 @@ def _benchmark_envelope_construction(
     n_submissions: int = 500,
     sentences_per_submission: int = 8,
 ) -> dict:
-    """Construct n_submissions × sentences_per_submission envelopes and time it.
+    """Construct one envelope per submission (block-level). Each envelope
+    bundles ``sentences_per_submission`` interpretation entries.
 
-    Paper §5 claim: under 16 s aggregate for 500 × 8 = 4,000 envelopes.
+    Classroom-scale sizing: for a 500-submission assignment with 8
+    feedback sentences per submission, the protocol emits 500 envelopes
+    total (not 4,000), each carrying the per-sentence bindings as UserML
+    interpretation-layer entries.
     """
     ts_base = datetime(2026, 5, 14, 10, 0, 0, tzinfo=timezone.utc)
     total_envelopes = 0
+    total_interpretation_entries = 0
     t0 = time.perf_counter()
     for s_idx in range(n_submissions):
         sub_id = f"S-{s_idx:05d}"
@@ -268,13 +303,17 @@ def _benchmark_envelope_construction(
             ts_base=ts_base + timedelta(seconds=s_idx),
         )
         total_envelopes += len(envelopes)
+        total_interpretation_entries += len(sentences) * 2  # addresses_criterion + evidence_span
     elapsed_s = time.perf_counter() - t0
     return {
         "n_submissions": n_submissions,
         "sentences_per_submission": sentences_per_submission,
+        "envelopes_per_submission": 1,
         "total_envelopes": total_envelopes,
+        "total_interpretation_entries": total_interpretation_entries,
         "elapsed_seconds": elapsed_s,
         "per_envelope_ms": (elapsed_s * 1000) / max(1, total_envelopes),
+        "per_submission_ms": (elapsed_s * 1000) / max(1, n_submissions),
     }
 
 
@@ -351,7 +390,8 @@ def run() -> dict:
     print(f"  Rubric:              {RUBRIC_ID} ({len(RUBRIC_CRITERIA)} criteria)")
     print(f"  Model:               {MODEL_ID}")
     print(f"  Feedback sentences:  {len(sentences)}")
-    print(f"  Per-sentence envelopes emitted: {len(envelopes)}")
+    print(f"  Envelopes emitted:   {len(envelopes)} (one per submission; "
+          f"sentences bundled as UserML interpretation entries)")
     print()
     print("  AUDIT RESULTS:")
     status = "PASS" if rubric_check.passed else "FAIL"
@@ -364,10 +404,14 @@ def run() -> dict:
             print(f"      - {o['feedback_sentence']}: {', '.join(o['issues'])}")
     print()
     print(f"  CLASSROOM-SCALE BENCHMARK ({bench['n_submissions']} submissions × "
-          f"{bench['sentences_per_submission']} sentences):")
-    print(f"    Total envelopes:    {bench['total_envelopes']:,}")
-    print(f"    Aggregate time:     {bench['elapsed_seconds']:.2f} s")
-    print(f"    Per-envelope cost:  {bench['per_envelope_ms']:.2f} ms")
+          f"{bench['sentences_per_submission']} sentences/sub):")
+    print(f"    Envelopes emitted:   {bench['total_envelopes']:,} "
+          f"(1 per submission, bundled)")
+    print(f"    Interpretation entries across envelopes: "
+          f"{bench['total_interpretation_entries']:,}")
+    print(f"    Aggregate time:      {bench['elapsed_seconds']:.2f} s")
+    print(f"    Per-submission cost: {bench['per_submission_ms']:.2f} ms")
+    print(f"    Per-envelope cost:   {bench['per_envelope_ms']:.2f} ms")
     print()
     print(f"  Outputs saved to: {OUTPUT_DIR}/")
     print("=" * 68)

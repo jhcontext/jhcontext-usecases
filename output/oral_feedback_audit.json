@@ -1,0 +1,31 @@
+{
+  "context_id": "ctx-edu-oral-feedback-ORAL-98765",
+  "multimodal_binding": {
+    "passed": false,
+    "message": "MULTIMODAL-BINDING VIOLATION: 1/6 sentences lack required modality-specific bindings",
+    "evidence": {
+      "submission": "art-oral-submission-ORAL-98765",
+      "expected_modality": "audio",
+      "feedback_sentences_checked": 6,
+      "grounded_count": 5,
+      "orphan_count": 1,
+      "modality_counts": {
+        "audio": 6
+      },
+      "orphans": [
+        {
+          "feedback_sentence": "art-oral-fb-sentence-06",
+          "issues": [
+            "missing_evidence_span_hash",
+            "missing_evidenceStartMs",
+            "missing_evidenceEndMs"
+          ]
+        }
+      ]
+    }
+  },
+  "integrity": {
+    "passed": true,
+    "envelopes_checked": 1
+  }
+}
