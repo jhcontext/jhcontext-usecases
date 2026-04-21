@@ -31,7 +31,6 @@ from jhcontext import (
     TemporalScope,
     observation,
     interpretation,
-    userml_payload,
     verify_integrity,
     verify_negative_proof,
     verify_pii_detachment,
@@ -78,13 +77,12 @@ def run() -> dict:
         .set_risk_level(RiskLevel.HIGH)
         .set_human_oversight(False)
         .set_semantic_payload([
-            userml_payload(
-                observations=[
-                    observation("submission:S-98765", "essay_word_count", 1527),
-                    observation("submission:S-98765", "essay_topic", "climate_policy"),
-                    observation("submission:S-98765", "rubric_version", "ENG101-v3"),
-                ],
-            ),
+            observation("submission:S-98765", "essay_word_count", 1527,
+                        range_="non-negative-integer"),
+            observation("submission:S-98765", "essay_topic", "climate_policy",
+                        range_="EssayTopicEnum"),
+            observation("submission:S-98765", "rubric_version", "ENG101-v3",
+                        range_="RubricVersionURI"),
         ])
     )
 

@@ -1,35 +1,49 @@
 {
-  "context_id": "ctx-561f1ac3-19bd-4e96-a9f3-61e22af3a23f",
+  "context_id": "ctx-d2fb1eed-6764-415a-86da-9f172a359e89",
   "schema_version": "jh:0.3",
   "producer": "did:university:ingestion-agent",
-  "created_at": "2026-04-18T13:17:48.142136+00:00",
+  "created_at": "2026-04-21T19:15:00.273044+00:00",
   "ttl": "P30D",
   "status": "active",
   "scope": "education_assessment",
   "semantic_payload": [
     {
       "@model": "UserML",
-      "layers": {
-        "observation": [
-          {
-            "subject": "submission:S-98765",
-            "predicate": "essay_word_count",
-            "object": 1527
-          },
-          {
-            "subject": "submission:S-98765",
-            "predicate": "essay_topic",
-            "object": "climate_policy"
-          },
-          {
-            "subject": "submission:S-98765",
-            "predicate": "rubric_version",
-            "object": "ENG101-v3"
-          }
-        ],
-        "interpretation": [],
-        "situation": [],
-        "application": []
+      "mainpart": {
+        "subject": "submission:S-98765",
+        "auxiliary": "hasProperty",
+        "predicate": "essay_word_count",
+        "range": "non-negative-integer",
+        "object": 1527
+      },
+      "administration": {
+        "group": "Observation"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "submission:S-98765",
+        "auxiliary": "hasProperty",
+        "predicate": "essay_topic",
+        "range": "EssayTopicEnum",
+        "object": "climate_policy"
+      },
+      "administration": {
+        "group": "Observation"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "submission:S-98765",
+        "auxiliary": "hasProperty",
+        "predicate": "rubric_version",
+        "range": "RubricVersionURI",
+        "object": "ENG101-v3"
+      },
+      "administration": {
+        "group": "Observation"
       }
     }
   ],
@@ -38,7 +52,7 @@
       "artifact_id": "art-essay-text",
       "type": "token_sequence",
       "content_hash": "sha256:1111aaaa2222bbbb3333cccc4444dddd5555eeee6666ffff7777aaaa8888bbbb",
-      "timestamp": "2026-04-18T13:17:48.142222+00:00",
+      "timestamp": "2026-04-21T19:15:00.273275+00:00",
       "deterministic": false,
       "metadata": {}
     },
@@ -46,7 +60,7 @@
       "artifact_id": "art-rubric",
       "type": "token_sequence",
       "content_hash": "sha256:2222bbbb3333cccc4444dddd5555eeee6666ffff7777aaaa8888bbbb9999cccc",
-      "timestamp": "2026-04-18T13:17:48.142235+00:00",
+      "timestamp": "2026-04-21T19:15:00.273303+00:00",
       "deterministic": false,
       "metadata": {}
     },
@@ -55,7 +69,7 @@
       "type": "semantic_extraction",
       "content_hash": "sha256:3333cccc4444dddd5555eeee6666ffff7777aaaa8888bbbb9999ccccaaaadddd",
       "model": "essay-grader-v2",
-      "timestamp": "2026-04-18T13:17:48.143198+00:00",
+      "timestamp": "2026-04-21T19:15:00.305141+00:00",
       "deterministic": false,
       "confidence": 0.91,
       "metadata": {}
@@ -108,8 +122,8 @@
   },
   "proof": {
     "canonicalization": "URDNA2015",
-    "content_hash": "0c4fedbf8bf1be84bb76f373e1727c901d9b5445bad1c3f138d0772154f937c2",
-    "signature": "318f9f86a7b2a2892f7e4da2cc75427dfbf23548bbc98ff0b8129519e1761ca4",
+    "content_hash": "6c217343df350a73bc25a9b65773a0ed9ce2432f8dd18c47fca310195de4e3b7",
+    "signature": "6d9739aac87ef1da4161f4fef698e21cf8f63768cbd2d99ccd093645353fac92",
     "signer": "did:university:compliance-officer"
   },
   "@context": {

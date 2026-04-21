@@ -30,7 +30,6 @@ from jhcontext import (
     observation,
     interpretation,
     situation,
-    userml_payload,
     verify_integrity,
     verify_pii_detachment,
     verify_temporal_oversight,
@@ -73,17 +72,16 @@ def run() -> dict:
     # =========================================================================
     t0 = time.perf_counter()
 
-    sensor_payload = userml_payload(
-        observations=[
-            observation("patient:P-12345", "age", 62),
-            observation("patient:P-12345", "gender", "M"),
-            observation("patient:P-12345", "tumor_marker_CEA", 8.7),
-            observation("patient:P-12345", "tumor_marker_CA19_9", 42.0),
-            observation("patient:P-12345", "hemoglobin", 11.2),
-            observation("patient:P-12345", "wbc_count", 6800),
-            observation("patient:P-12345", "ct_scan_ref", "img:CT-2026-03-15-P12345"),
-        ],
-    )
+    sensor_payload = [
+        observation("patient:P-12345", "age", 62, range_="non-negative-integer"),
+        observation("patient:P-12345", "gender", "M", range_="GenderEnum"),
+        observation("patient:P-12345", "tumor_marker_CEA", 8.7, range_="ng-per-mL"),
+        observation("patient:P-12345", "tumor_marker_CA19_9", 42.0, range_="U-per-mL"),
+        observation("patient:P-12345", "hemoglobin", 11.2, range_="g-per-dL"),
+        observation("patient:P-12345", "wbc_count", 6800, range_="cells-per-uL"),
+        observation("patient:P-12345", "ct_scan_ref",
+                    "img:CT-2026-03-15-P12345", range_="ImageRef"),
+    ]
 
     builder = (
         EnvelopeBuilder()
@@ -92,7 +90,7 @@ def run() -> dict:
         .set_ttl("PT24H")
         .set_risk_level(RiskLevel.HIGH)
         .set_human_oversight(True)
-        .set_semantic_payload([sensor_payload])
+        .set_semantic_payload(list(sensor_payload))
         .add_artifact(
             artifact_id="art-demographics",
             artifact_type=ArtifactType.TOKEN_SEQUENCE,
@@ -144,17 +142,17 @@ def run() -> dict:
     # =========================================================================
     t0 = time.perf_counter()
 
-    situation_payload = userml_payload(
-        interpretations=[
-            interpretation("patient:P-12345", "riskLevel", "high", confidence=0.93),
-            interpretation("patient:P-12345", "tumorResponse", "partial_response", confidence=0.88),
-        ],
-        situations=[
-            situation("patient:P-12345", "post-operative-day-3",
-                      start=_iso(base - timedelta(days=3)), confidence=0.95),
-        ],
-    )
-    builder.set_semantic_payload([sensor_payload, situation_payload])
+    situation_payload = [
+        interpretation("patient:P-12345", "riskLevel", "high",
+                       range_="low-medium-high", confidence=0.93),
+        interpretation("patient:P-12345", "tumorResponse", "partial_response",
+                       range_="RECISTResponseEnum", confidence=0.88),
+        situation("patient:P-12345", "post-operative-day-3",
+                  range_="PostOpDayEnum",
+                  start=_iso(base - timedelta(days=3)),
+                  confidence=0.95),
+    ]
+    builder.set_semantic_payload([*sensor_payload, *situation_payload])
 
     builder.add_artifact(
         artifact_id="art-semantic-extraction",

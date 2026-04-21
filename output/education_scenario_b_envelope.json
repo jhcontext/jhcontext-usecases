@@ -1,0 +1,417 @@
+{
+  "context_id": "ctx-32ef054a-dc5d-4df5-b8cb-6d57bf70e708",
+  "schema_version": "jh:0.3",
+  "producer": "did:university:feedback-agent",
+  "created_at": "2026-04-21T19:16:31.403065+00:00",
+  "ttl": "P5Y",
+  "status": "active",
+  "scope": "education_assessment_feedback",
+  "semantic_payload": [
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "submission:S-98765",
+        "auxiliary": "hasProperty",
+        "predicate": "rubric_version",
+        "range": "RubricVersionURI",
+        "object": "rubric_v2.3"
+      },
+      "administration": {
+        "group": "Observation"
+      },
+      "explanation": {
+        "source": "submission_metadata"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "submission:S-98765",
+        "auxiliary": "hasProperty",
+        "predicate": "word_count",
+        "range": "non-negative-integer",
+        "object": 527
+      },
+      "administration": {
+        "group": "Observation"
+      },
+      "explanation": {
+        "source": "submission_metadata"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "feedback:fb-9a1b",
+        "auxiliary": "addresses",
+        "predicate": "rubric_criterion",
+        "range": "RubricCriterionURI",
+        "object": "rubric_v2.3#C3-evidence_integration"
+      },
+      "administration": {
+        "group": "Interpretation"
+      },
+      "explanation": {
+        "confidence": 0.82,
+        "creator": "did:example:feedback-agent",
+        "method": "prompt_template:fb_per_criterion_v4",
+        "evidence": {
+          "offset": 1247,
+          "length": 189,
+          "hash": "sha256:7c4a..."
+        }
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "feedback:fb-9a1b",
+        "auxiliary": "hasText",
+        "predicate": "feedback_sentence",
+        "range": "string",
+        "object": "Your argument relies on..."
+      },
+      "administration": {
+        "group": "Application"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "feedback:fb-2e7c",
+        "auxiliary": "addresses",
+        "predicate": "rubric_criterion",
+        "range": "RubricCriterionURI",
+        "object": "rubric_v2.3#C1-thesis_clarity"
+      },
+      "administration": {
+        "group": "Interpretation"
+      },
+      "explanation": {
+        "confidence": 0.88,
+        "creator": "did:example:feedback-agent",
+        "method": "prompt_template:fb_per_criterion_v4",
+        "evidence": {
+          "offset": 12,
+          "length": 93,
+          "hash": "sha256:b1a2..."
+        }
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "feedback:fb-2e7c",
+        "auxiliary": "hasText",
+        "predicate": "feedback_sentence",
+        "range": "string",
+        "object": "Your thesis is clearly stated..."
+      },
+      "administration": {
+        "group": "Application"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "feedback:fb-4f21",
+        "auxiliary": "addresses",
+        "predicate": "rubric_criterion",
+        "range": "RubricCriterionURI",
+        "object": "rubric_v2.3#C2-coherence"
+      },
+      "administration": {
+        "group": "Interpretation"
+      },
+      "explanation": {
+        "confidence": 0.75,
+        "creator": "did:example:feedback-agent",
+        "method": "prompt_template:fb_per_criterion_v4",
+        "evidence": {
+          "offset": 512,
+          "length": 78,
+          "hash": "sha256:3e91..."
+        }
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "feedback:fb-4f21",
+        "auxiliary": "hasText",
+        "predicate": "feedback_sentence",
+        "range": "string",
+        "object": "The transition between paragraphs..."
+      },
+      "administration": {
+        "group": "Application"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "feedback:fb-8d03",
+        "auxiliary": "addresses",
+        "predicate": "rubric_criterion",
+        "range": "RubricCriterionURI",
+        "object": "rubric_v2.3#C3-evidence_integration"
+      },
+      "administration": {
+        "group": "Interpretation"
+      },
+      "explanation": {
+        "confidence": 0.91,
+        "creator": "did:example:feedback-agent",
+        "method": "prompt_template:fb_per_criterion_v4",
+        "evidence": {
+          "offset": 2104,
+          "length": 142,
+          "hash": "sha256:9a2f..."
+        }
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "feedback:fb-8d03",
+        "auxiliary": "hasText",
+        "predicate": "feedback_sentence",
+        "range": "string",
+        "object": "The cited study supports..."
+      },
+      "administration": {
+        "group": "Application"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "feedback:fb-6b17",
+        "auxiliary": "addresses",
+        "predicate": "rubric_criterion",
+        "range": "RubricCriterionURI",
+        "object": "rubric_v2.3#C4-counterargument"
+      },
+      "administration": {
+        "group": "Interpretation"
+      },
+      "explanation": {
+        "confidence": 0.68,
+        "creator": "did:example:feedback-agent",
+        "method": "prompt_template:fb_per_criterion_v4",
+        "evidence": {
+          "offset": 2890,
+          "length": 167,
+          "hash": "sha256:4d11..."
+        }
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "feedback:fb-6b17",
+        "auxiliary": "hasText",
+        "predicate": "feedback_sentence",
+        "range": "string",
+        "object": "A counter-example would strengthen..."
+      },
+      "administration": {
+        "group": "Application"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "feedback:fb-1c55",
+        "auxiliary": "addresses",
+        "predicate": "rubric_criterion",
+        "range": "RubricCriterionURI",
+        "object": "rubric_v2.3#C5-writing_mechanics"
+      },
+      "administration": {
+        "group": "Interpretation"
+      },
+      "explanation": {
+        "confidence": 0.94,
+        "creator": "did:example:feedback-agent",
+        "method": "prompt_template:fb_per_criterion_v4",
+        "evidence": {
+          "offset": 755,
+          "length": 54,
+          "hash": "sha256:a8c7..."
+        }
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "feedback:fb-1c55",
+        "auxiliary": "hasText",
+        "predicate": "feedback_sentence",
+        "range": "string",
+        "object": "Consider revising the passive voice in..."
+      },
+      "administration": {
+        "group": "Application"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "feedback:fb-3e88",
+        "auxiliary": "addresses",
+        "predicate": "rubric_criterion",
+        "range": "RubricCriterionURI",
+        "object": "rubric_v2.3#C1-thesis_clarity"
+      },
+      "administration": {
+        "group": "Interpretation"
+      },
+      "explanation": {
+        "confidence": 0.79,
+        "creator": "did:example:feedback-agent",
+        "method": "prompt_template:fb_per_criterion_v4",
+        "evidence": {
+          "offset": 3410,
+          "length": 98,
+          "hash": "sha256:bc44..."
+        }
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "feedback:fb-3e88",
+        "auxiliary": "hasText",
+        "predicate": "feedback_sentence",
+        "range": "string",
+        "object": "Your concluding paragraph restates..."
+      },
+      "administration": {
+        "group": "Application"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "feedback:fb-5a42",
+        "auxiliary": "addresses",
+        "predicate": "rubric_criterion",
+        "range": "RubricCriterionURI",
+        "object": "rubric_v2.3#C3-evidence_integration"
+      },
+      "administration": {
+        "group": "Interpretation"
+      },
+      "explanation": {
+        "confidence": 0.59,
+        "creator": "did:example:feedback-agent",
+        "method": "prompt_template:fb_per_criterion_v4",
+        "evidence": {
+          "offset": 1820,
+          "length": 206,
+          "hash": "sha256:77ee..."
+        }
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "feedback:fb-5a42",
+        "auxiliary": "hasText",
+        "predicate": "feedback_sentence",
+        "range": "string",
+        "object": "The statistical evidence is compelling..."
+      },
+      "administration": {
+        "group": "Application"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "submission:S-98765",
+        "auxiliary": "isInSituation",
+        "predicate": "assessment_mode",
+        "range": "formative|summative|draft",
+        "object": "summative_assessment"
+      },
+      "administration": {
+        "group": "Situation"
+      },
+      "explanation": {
+        "confidence": 0.95
+      }
+    }
+  ],
+  "artifacts_registry": [
+    {
+      "artifact_id": "rubric_v2.3",
+      "type": "token_sequence",
+      "content_hash": "sha256:a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+      "timestamp": "2026-04-21T19:16:31.403350+00:00",
+      "deterministic": false,
+      "metadata": {}
+    },
+    {
+      "artifact_id": "essay_2026_S1_0042",
+      "type": "token_sequence",
+      "content_hash": "sha256:b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2",
+      "timestamp": "2026-04-21T19:16:31.403392+00:00",
+      "deterministic": false,
+      "metadata": {}
+    },
+    {
+      "artifact_id": "fb_per_criterion_v4",
+      "type": "token_sequence",
+      "content_hash": "sha256:c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3",
+      "timestamp": "2026-04-21T19:16:31.403434+00:00",
+      "deterministic": false,
+      "metadata": {}
+    },
+    {
+      "artifact_id": "gpt-4o-2024-08-06",
+      "type": "semantic_extraction",
+      "content_hash": "sha256:d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4",
+      "model": "gpt-4o-2024-08-06",
+      "timestamp": "2026-04-21T19:16:31.403460+00:00",
+      "deterministic": false,
+      "metadata": {}
+    }
+  ],
+  "passed_artifact_pointer": "essay_2026_S1_0042",
+  "decision_influence": [],
+  "privacy": {
+    "data_category": "behavioral",
+    "legal_basis": "gdpr_art_6_1_e_public_interest",
+    "retention": "P5Y",
+    "storage_policy": "university-encrypted",
+    "feature_suppression": [
+      "student_name",
+      "student_id",
+      "accommodation_flags"
+    ],
+    "pii_detached": true
+  },
+  "compliance": {
+    "risk_level": "high",
+    "human_oversight_required": false,
+    "forwarding_policy": "semantic_forward"
+  },
+  "provenance_ref": {
+    "prov_graph_id": "prov:ctx-edu-scenario-b-001",
+    "prov_digest": "54e242d8f62827d0da6ef60b20797a770531731ddd9df74fe10862f01394a2a3"
+  },
+  "proof": {
+    "canonicalization": "URDNA2015",
+    "content_hash": "3f9536fb0f43b59d7e70826c01f474b21b933eb66bd4668a50fd73dd41c959dd",
+    "signature": "617eae0a7d48a3d2b858704704cbd2416fc1ebcd09c1d6ed673a16c683b61c62",
+    "signer": "did:university:feedback-agent"
+  },
+  "@context": {
+    "jh": "https://jhcontext.com/vocab#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@type": "jh:Envelope"
+}

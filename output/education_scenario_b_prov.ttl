@@ -1,0 +1,84 @@
+@prefix jh: <https://jhcontext.com/vocab#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+jh:feedback_fb-1c55 a prov:Entity ;
+    rdfs:label "Feedback sentence fb-1c55" ;
+    prov:wasDerivedFrom jh:rubric_artifact,
+        jh:submission_artifact ;
+    prov:wasGeneratedBy jh:feedback-generation ;
+    jh:artifactType "semantic_extraction" .
+
+jh:feedback_fb-2e7c a prov:Entity ;
+    rdfs:label "Feedback sentence fb-2e7c" ;
+    prov:wasDerivedFrom jh:rubric_artifact,
+        jh:submission_artifact ;
+    prov:wasGeneratedBy jh:feedback-generation ;
+    jh:artifactType "semantic_extraction" .
+
+jh:feedback_fb-3e88 a prov:Entity ;
+    rdfs:label "Feedback sentence fb-3e88" ;
+    prov:wasDerivedFrom jh:rubric_artifact,
+        jh:submission_artifact ;
+    prov:wasGeneratedBy jh:feedback-generation ;
+    jh:artifactType "semantic_extraction" .
+
+jh:feedback_fb-4f21 a prov:Entity ;
+    rdfs:label "Feedback sentence fb-4f21" ;
+    prov:wasDerivedFrom jh:rubric_artifact,
+        jh:submission_artifact ;
+    prov:wasGeneratedBy jh:feedback-generation ;
+    jh:artifactType "semantic_extraction" .
+
+jh:feedback_fb-5a42 a prov:Entity ;
+    rdfs:label "Feedback sentence fb-5a42" ;
+    prov:wasDerivedFrom jh:rubric_artifact,
+        jh:submission_artifact ;
+    prov:wasGeneratedBy jh:feedback-generation ;
+    jh:artifactType "semantic_extraction" .
+
+jh:feedback_fb-6b17 a prov:Entity ;
+    rdfs:label "Feedback sentence fb-6b17" ;
+    prov:wasDerivedFrom jh:rubric_artifact,
+        jh:submission_artifact ;
+    prov:wasGeneratedBy jh:feedback-generation ;
+    jh:artifactType "semantic_extraction" .
+
+jh:feedback_fb-8d03 a prov:Entity ;
+    rdfs:label "Feedback sentence fb-8d03" ;
+    prov:wasDerivedFrom jh:rubric_artifact,
+        jh:submission_artifact ;
+    prov:wasGeneratedBy jh:feedback-generation ;
+    jh:artifactType "semantic_extraction" .
+
+jh:feedback_fb-9a1b a prov:Entity ;
+    rdfs:label "Feedback sentence fb-9a1b" ;
+    prov:wasDerivedFrom jh:rubric_artifact,
+        jh:submission_artifact ;
+    prov:wasGeneratedBy jh:feedback-generation ;
+    jh:artifactType "semantic_extraction" .
+
+jh:feedback-agent a prov:Agent ;
+    rdfs:label "LLM Feedback Generator" ;
+    jh:role "ai_author" .
+
+jh:feedback-generation a prov:Activity ;
+    rdfs:label "Per-criterion feedback generation" ;
+    prov:endedAtTime "2026-05-14T10:32:17+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-05-14T10:32:17+00:00"^^xsd:dateTime ;
+    prov:used jh:rubric_artifact,
+        jh:submission_artifact ;
+    prov:wasAssociatedWith jh:feedback-agent ;
+    jh:method "prompt_template:fb_per_criterion_v4" .
+
+jh:rubric_artifact a prov:Entity ;
+    rdfs:label "Rubric v2.3" ;
+    jh:artifactType "token_sequence" ;
+    jh:contentHash "sha256:a1a1..." .
+
+jh:submission_artifact a prov:Entity ;
+    rdfs:label "Submission S-98765" ;
+    jh:artifactType "token_sequence" ;
+    jh:contentHash "sha256:b2b2..." .
+

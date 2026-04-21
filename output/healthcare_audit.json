@@ -1,6 +1,6 @@
 {
-  "context_id": "ctx-2ce06bea-41df-4d35-a5bd-d8a655dd3fef",
-  "timestamp": "2026-03-21T14:02:22.931834",
+  "context_id": "ctx-fc37910b-3c64-4e1c-b4ef-60759c178a1a",
+  "timestamp": "2026-04-21T19:15:12.131455+00:00",
   "overall_passed": true,
   "results": [
     {
@@ -21,10 +21,20 @@
       "message": "Human oversight verified: 4/4 activities after AI, 600s review time"
     },
     {
+      "check_name": "pii_detachment",
+      "passed": true,
+      "evidence": {
+        "pii_detached": true,
+        "residual_pii_count": 0,
+        "residual_pii": []
+      },
+      "message": "PII detachment verified: no personal data in payload"
+    },
+    {
       "check_name": "integrity",
       "passed": true,
       "evidence": {
-        "content_hash": "e44884d8bf2662be993d8f958c779fe2464ed74c077440e8a995148f5e62283e",
+        "content_hash": "72b9b898ae342ff29e89e3b3db33d136bbb7d2c5684e17bc9d72573b89a14814",
         "signer": "did:hospital:compliance-officer",
         "has_signature": true
       },

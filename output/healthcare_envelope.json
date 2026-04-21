@@ -1,85 +1,152 @@
 {
-  "context_id": "ctx-2ce06bea-41df-4d35-a5bd-d8a655dd3fef",
+  "context_id": "ctx-fc37910b-3c64-4e1c-b4ef-60759c178a1a",
   "schema_version": "jh:0.3",
   "producer": "did:hospital:sensor-agent",
-  "created_at": "2026-03-21T14:02:22.907141+00:00",
+  "created_at": "2026-04-21T19:15:12.106449+00:00",
   "ttl": "PT24H",
   "status": "active",
   "scope": "healthcare_treatment_recommendation",
   "semantic_payload": [
     {
       "@model": "UserML",
-      "layers": {
-        "observation": [
-          {
-            "subject": "patient:P-12345",
-            "predicate": "age",
-            "object": 62
-          },
-          {
-            "subject": "patient:P-12345",
-            "predicate": "gender",
-            "object": "M"
-          },
-          {
-            "subject": "patient:P-12345",
-            "predicate": "tumor_marker_CEA",
-            "object": 8.7
-          },
-          {
-            "subject": "patient:P-12345",
-            "predicate": "tumor_marker_CA19_9",
-            "object": 42.0
-          },
-          {
-            "subject": "patient:P-12345",
-            "predicate": "hemoglobin",
-            "object": 11.2
-          },
-          {
-            "subject": "patient:P-12345",
-            "predicate": "wbc_count",
-            "object": 6800
-          },
-          {
-            "subject": "patient:P-12345",
-            "predicate": "ct_scan_ref",
-            "object": "img:CT-2026-03-15-P12345"
-          }
-        ],
-        "interpretation": [],
-        "situation": [],
-        "application": []
+      "mainpart": {
+        "subject": "patient:P-12345",
+        "auxiliary": "hasProperty",
+        "predicate": "age",
+        "range": "non-negative-integer",
+        "object": 62
+      },
+      "administration": {
+        "group": "Observation"
       }
     },
     {
       "@model": "UserML",
-      "layers": {
-        "observation": [],
-        "interpretation": [
-          {
-            "subject": "patient:P-12345",
-            "predicate": "riskLevel",
-            "object": "high",
-            "confidence": 0.93
-          },
-          {
-            "subject": "patient:P-12345",
-            "predicate": "tumorResponse",
-            "object": "partial_response",
-            "confidence": 0.88
-          }
-        ],
-        "situation": [
-          {
-            "subject": "patient:P-12345",
-            "predicate": "isInSituation",
-            "object": "post-operative-day-3",
-            "confidence": 0.95,
-            "start": "2026-03-12T09:00:00+00:00"
-          }
-        ],
-        "application": []
+      "mainpart": {
+        "subject": "patient:P-12345",
+        "auxiliary": "hasProperty",
+        "predicate": "gender",
+        "range": "GenderEnum",
+        "object": "M"
+      },
+      "administration": {
+        "group": "Observation"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "patient:P-12345",
+        "auxiliary": "hasProperty",
+        "predicate": "tumor_marker_CEA",
+        "range": "ng-per-mL",
+        "object": 8.7
+      },
+      "administration": {
+        "group": "Observation"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "patient:P-12345",
+        "auxiliary": "hasProperty",
+        "predicate": "tumor_marker_CA19_9",
+        "range": "U-per-mL",
+        "object": 42.0
+      },
+      "administration": {
+        "group": "Observation"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "patient:P-12345",
+        "auxiliary": "hasProperty",
+        "predicate": "hemoglobin",
+        "range": "g-per-dL",
+        "object": 11.2
+      },
+      "administration": {
+        "group": "Observation"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "patient:P-12345",
+        "auxiliary": "hasProperty",
+        "predicate": "wbc_count",
+        "range": "cells-per-uL",
+        "object": 6800
+      },
+      "administration": {
+        "group": "Observation"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "patient:P-12345",
+        "auxiliary": "hasProperty",
+        "predicate": "ct_scan_ref",
+        "range": "ImageRef",
+        "object": "img:CT-2026-03-15-P12345"
+      },
+      "administration": {
+        "group": "Observation"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "patient:P-12345",
+        "auxiliary": "hasAssessment",
+        "predicate": "riskLevel",
+        "range": "low-medium-high",
+        "object": "high"
+      },
+      "administration": {
+        "group": "Interpretation"
+      },
+      "explanation": {
+        "confidence": 0.93
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "patient:P-12345",
+        "auxiliary": "hasAssessment",
+        "predicate": "tumorResponse",
+        "range": "RECISTResponseEnum",
+        "object": "partial_response"
+      },
+      "administration": {
+        "group": "Interpretation"
+      },
+      "explanation": {
+        "confidence": 0.88
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "patient:P-12345",
+        "auxiliary": "isInSituation",
+        "predicate": "activity",
+        "range": "PostOpDayEnum",
+        "object": "post-operative-day-3"
+      },
+      "administration": {
+        "group": "Situation"
+      },
+      "situation": {
+        "start": "2026-03-12T09:00:00+00:00"
+      },
+      "explanation": {
+        "confidence": 0.95
       }
     }
   ],
@@ -88,7 +155,7 @@
       "artifact_id": "art-demographics",
       "type": "token_sequence",
       "content_hash": "sha256:a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2",
-      "timestamp": "2026-03-21T14:02:22.907237+00:00",
+      "timestamp": "2026-04-21T19:15:12.106743+00:00",
       "deterministic": false,
       "metadata": {}
     },
@@ -96,7 +163,7 @@
       "artifact_id": "art-lab-results",
       "type": "token_sequence",
       "content_hash": "sha256:b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3",
-      "timestamp": "2026-03-21T14:02:22.907251+00:00",
+      "timestamp": "2026-04-21T19:15:12.106791+00:00",
       "deterministic": false,
       "metadata": {}
     },
@@ -105,7 +172,7 @@
       "type": "token_sequence",
       "storage_ref": "pacs://hospital/CT-2026-03-15-P12345",
       "content_hash": "sha256:c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4",
-      "timestamp": "2026-03-21T14:02:22.907260+00:00",
+      "timestamp": "2026-04-21T19:15:12.106821+00:00",
       "deterministic": false,
       "metadata": {}
     },
@@ -114,7 +181,7 @@
       "type": "semantic_extraction",
       "content_hash": "sha256:d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5",
       "model": "clinical-situation-v2",
-      "timestamp": "2026-03-21T14:02:22.908437+00:00",
+      "timestamp": "2026-04-21T19:15:12.111757+00:00",
       "deterministic": false,
       "confidence": 0.93,
       "metadata": {}
@@ -124,7 +191,7 @@
       "type": "semantic_extraction",
       "content_hash": "sha256:e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6",
       "model": "oncology-decision-v3",
-      "timestamp": "2026-03-21T14:02:22.908781+00:00",
+      "timestamp": "2026-04-21T19:15:12.113158+00:00",
       "deterministic": false,
       "confidence": 0.87,
       "metadata": {}
@@ -133,7 +200,7 @@
       "artifact_id": "art-final-decision",
       "type": "semantic_extraction",
       "content_hash": "sha256:f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1",
-      "timestamp": "2026-03-21T14:02:22.909810+00:00",
+      "timestamp": "2026-04-21T19:15:12.117974+00:00",
       "deterministic": false,
       "confidence": 1.0,
       "metadata": {}
@@ -166,11 +233,13 @@
     "feature_suppression": [
       "patient_name",
       "patient_address"
-    ]
+    ],
+    "pii_detached": true
   },
   "compliance": {
     "risk_level": "high",
     "human_oversight_required": true,
+    "forwarding_policy": "semantic_forward",
     "model_card_ref": "https://hospital.example/models/oncology-v3",
     "escalation_path": "oncology-dept-head@hospital.example"
   },
@@ -180,8 +249,8 @@
   },
   "proof": {
     "canonicalization": "URDNA2015",
-    "content_hash": "e44884d8bf2662be993d8f958c779fe2464ed74c077440e8a995148f5e62283e",
-    "signature": "n90Zb3KN5a3ynVnunxgZjHgvR7UcmiHqx4isPuLQc4ARaQqA5NOF_utYCa3LihOta2nbz0X9XQIxEbrdrKPeCw==",
+    "content_hash": "72b9b898ae342ff29e89e3b3db33d136bbb7d2c5684e17bc9d72573b89a14814",
+    "signature": "bbf29355afba2cfa531718f78c9aae4b489454a2cf03b4c28074c44417da7e10",
     "signer": "did:hospital:compliance-officer"
   },
   "@context": {

@@ -1,0 +1,185 @@
+{
+  "context_id": "ctx-1aa65cd3-36a9-4c98-9d81-cea2a4c36e19",
+  "schema_version": "jh:0.3",
+  "producer": "did:example:ecg-classifier-v2.4",
+  "created_at": "2026-04-21T19:30:06.957075+00:00",
+  "ttl": "PT1H",
+  "status": "active",
+  "scope": "healthcare_triage_cohort",
+  "semantic_payload": [
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "Patient/42",
+        "auxiliary": "hasFinding",
+        "predicate": "clinical_finding",
+        "range": "SNOMEDFindingCode",
+        "object": "snomed:49436004"
+      },
+      "administration": {
+        "group": "Interpretation"
+      },
+      "explanation": {
+        "confidence": 0.87,
+        "creator": "did:example:ecg-classifier-v2.4",
+        "finding_label": "atrial fibrillation",
+        "finding_status": "suspected"
+      },
+      "situation": {
+        "durability": "current"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "Patient/7",
+        "auxiliary": "hasFinding",
+        "predicate": "clinical_finding",
+        "range": "SNOMEDFindingCode",
+        "object": "snomed:49436004"
+      },
+      "administration": {
+        "group": "Interpretation"
+      },
+      "explanation": {
+        "confidence": 0.72,
+        "creator": "did:example:ecg-classifier-v2.4",
+        "finding_label": "atrial fibrillation",
+        "finding_status": "suspected"
+      },
+      "situation": {
+        "durability": "current"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "Patient/103",
+        "auxiliary": "hasFinding",
+        "predicate": "clinical_finding",
+        "range": "SNOMEDFindingCode",
+        "object": "snomed:49436004"
+      },
+      "administration": {
+        "group": "Interpretation"
+      },
+      "explanation": {
+        "confidence": 0.64,
+        "creator": "did:example:ecg-classifier-v2.4",
+        "finding_label": "atrial fibrillation",
+        "finding_status": "suspected"
+      },
+      "situation": {
+        "durability": "current"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "Patient/58",
+        "auxiliary": "hasFinding",
+        "predicate": "clinical_finding",
+        "range": "SNOMEDFindingCode",
+        "object": "snomed:59621000"
+      },
+      "administration": {
+        "group": "Interpretation"
+      },
+      "explanation": {
+        "confidence": 0.94,
+        "creator": "did:example:ecg-classifier-v2.4",
+        "finding_label": "hypertensive disorder",
+        "finding_status": "confirmed"
+      },
+      "situation": {
+        "durability": "current"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "Patient/201",
+        "auxiliary": "hasFinding",
+        "predicate": "clinical_finding",
+        "range": "SNOMEDFindingCode",
+        "object": "snomed:49436004"
+      },
+      "administration": {
+        "group": "Interpretation"
+      },
+      "explanation": {
+        "confidence": 0.91,
+        "creator": "did:example:ecg-classifier-v2.4",
+        "finding_label": "atrial fibrillation",
+        "finding_status": "suspected"
+      },
+      "situation": {
+        "durability": "current"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "Patient/145",
+        "auxiliary": "hasFinding",
+        "predicate": "clinical_finding",
+        "range": "SNOMEDFindingCode",
+        "object": "snomed:195080001"
+      },
+      "administration": {
+        "group": "Interpretation"
+      },
+      "explanation": {
+        "confidence": 0.95,
+        "creator": "did:example:ecg-classifier-v2.4",
+        "finding_label": "chronic atrial fibrillation",
+        "finding_status": "confirmed"
+      },
+      "situation": {
+        "durability": "current"
+      }
+    }
+  ],
+  "artifacts_registry": [
+    {
+      "artifact_id": "ecg-classifier-v2.4",
+      "type": "semantic_extraction",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "model": "ecg-classifier-v2.4",
+      "timestamp": "2026-04-21T19:30:06.957272+00:00",
+      "deterministic": false,
+      "metadata": {}
+    }
+  ],
+  "decision_influence": [],
+  "privacy": {
+    "data_category": "sensitive",
+    "legal_basis": "art_9_2_h_gdpr",
+    "retention": "P5Y",
+    "storage_policy": "hospital-encrypted",
+    "feature_suppression": [
+      "patient_name",
+      "insurance_status",
+      "demographic_group"
+    ],
+    "pii_detached": true
+  },
+  "compliance": {
+    "risk_level": "high",
+    "human_oversight_required": true,
+    "forwarding_policy": "semantic_forward"
+  },
+  "provenance_ref": {},
+  "proof": {
+    "canonicalization": "URDNA2015",
+    "content_hash": "3b74efcc61227f4d5b3b86db578943e5ea567f48c4ed6e2aab4ac86f524794f7",
+    "signature": "fcbac3e27caacc11a2629fae76d5d82ba7c8c09b83fb060c40e6cc85735f85d1",
+    "signer": "did:example:ecg-classifier-v2.4"
+  },
+  "@context": {
+    "jh": "https://jhcontext.com/vocab#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@type": "jh:Envelope"
+}
