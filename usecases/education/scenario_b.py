@@ -1,10 +1,10 @@
-"""Education Scenario B — Rubric-Grounded LLM Feedback (AIET).
+"""Education Scenario B — Rubric-Grounded LLM Feedback.
 
 Builds a feedback-generation envelope whose semantic_payload carries, per
 feedback sentence, one Interpretation-group SituationalStatement binding
 the sentence to a rubric criterion + evidence span, plus one Application-
-group statement with the sentence text. This matches the envelope shown
-in Figure 1 of the AIET paper.
+group statement with the sentence text. This is the canonical bundled-
+envelope reference for the rubric-grounded feedback pattern.
 
 Outputs:
   - output/education_scenario_b_envelope.json
@@ -21,6 +21,8 @@ from pathlib import Path
 from jhcontext import (
     ArtifactType,
     EnvelopeBuilder,
+    ForwardingEnforcer,
+    ForwardingPolicy,
     PROVGraph,
     RiskLevel,
     interpretation,
@@ -35,7 +37,7 @@ OUTPUT_DIR = Path(__file__).resolve().parent.parent.parent / "output"
 def _feedback_sentences() -> list[dict]:
     """Synthetic per-sentence fixture: each row = (sentence id, criterion, span).
 
-    Eight sentences mirror the AIET paper's benchmark fixture.
+    Eight sentences — fixed fixture used as the rubric-feedback benchmark.
     """
     return [
         {"id": "fb-9a1b", "criterion": "C3-evidence_integration",
@@ -163,7 +165,7 @@ def run() -> dict:
         legal_basis="gdpr_art_6_1_e_public_interest",
         retention="P5Y",
         storage_policy="university-encrypted",
-        feature_suppression=["student_name", "student_id", "accommodation_flags"],
+        feature_suppression=["student_name", "student_id", "accommodation_flags", "prior_grades"],
     )
     builder.set_compliance(risk_level=RiskLevel.HIGH, human_oversight_required=False)
 
@@ -216,6 +218,35 @@ def run() -> dict:
 
     metrics["envelope_size_bytes"] = env_path.stat().st_size
 
+    # --- Structural Semantic-Forward enforcement at handoff to downstream
+    # consumer (e.g. a Scenario C TA-review agent). The envelope's
+    # forwarding_policy was set to SEMANTIC_FORWARD by set_risk_level(HIGH);
+    # ForwardingEnforcer makes that declaration operational by filtering
+    # what crosses the handoff so artifact hashes, proof, and provenance
+    # blocks cannot leak to a downstream model context. Without this step,
+    # the policy is only a label.
+    enforcer = ForwardingEnforcer()
+    effective_policy = enforcer.resolve(envelope)
+    assert effective_policy == ForwardingPolicy.SEMANTIC_FORWARD, (
+        f"Scenario B requires SEMANTIC_FORWARD; got {effective_policy}"
+    )
+    forwarded = enforcer.filter_output(envelope, effective_policy)
+    forwarded_obj = json.loads(forwarded)
+    leaked = [k for k in ("artifacts_registry", "proof", "provenance_ref",
+                          "producer", "proof_block")
+              if k in forwarded_obj]
+    assert not leaked and set(forwarded_obj.keys()) == {"semantic_payload"}, (
+        f"semantic_forward must expose only semantic_payload; leaked keys: "
+        f"{sorted(forwarded_obj.keys())}"
+    )
+
+    forward_path = OUTPUT_DIR / "education_scenario_b_forward.json"
+    forward_path.write_text(forwarded, encoding="utf-8")
+
+    metrics["forwarding_policy"] = effective_policy.value
+    metrics["forwarded_top_level_keys"] = sorted(forwarded_obj.keys())
+    metrics["forwarded_statement_count"] = len(forwarded_obj["semantic_payload"])
+
     print("=" * 60)
     print("EDUCATION SCENARIO B — Rubric-Grounded LLM Feedback")
     print("=" * 60)
@@ -224,7 +255,11 @@ def run() -> dict:
           f"(2 obs + {metrics['feedback_sentences']}x2 per-sentence + 1 situation)")
     print(f"  Envelope size:       {metrics['envelope_size_bytes']:,} bytes")
     print(f"  Envelope build time: {metrics['envelope_build_ms']:.1f} ms")
-    print(f"  Output:              {env_path}")
+    print(f"  Forwarding policy:   {metrics['forwarding_policy']} "
+          f"(downstream sees {metrics['forwarded_top_level_keys']}, "
+          f"{metrics['forwarded_statement_count']} statements)")
+    print(f"  Envelope output:     {env_path}")
+    print(f"  Forward payload:     {forward_path}")
     print("=" * 60)
 
     return metrics

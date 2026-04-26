@@ -1,15 +1,15 @@
 {
-  "audit_ms": 0.826914999379369,
+  "audit_ms": 0.5761040010838769,
   "benchmark": {
     "n_submissions": 500,
     "sentences_per_submission": 8,
     "envelopes_per_submission": 1,
     "total_envelopes": 500,
     "total_interpretation_entries": 8000,
-    "elapsed_seconds": 2.0573668389997692,
-    "per_envelope_ms": 4.1147336779995385,
-    "per_submission_ms": 4.1147336779995385
+    "elapsed_seconds": 1.629400922000059,
+    "per_envelope_ms": 3.258801844000118,
+    "per_submission_ms": 3.258801844000118
   },
   "envelopes_emitted": 1,
-  "total_ms": 2071.3392190000377
+  "total_ms": 1638.1445860024542
 }

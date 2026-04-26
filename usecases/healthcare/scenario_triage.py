@@ -1,10 +1,11 @@
-"""Healthcare Scenario (triage) — AIiH Listing 1 envelope builder.
+"""Healthcare Scenario — Triage cohort envelope builder.
 
-Builds the physiological-signal -> triage-classification envelope shown as
-Listing 1 of the AIiH paper. Each patient's suspected AF finding is captured
-as an Interpretation-group SituationalStatement with a SNOMED-coded finding
-in ``mainpart.object``, a ``situation.durability`` temporal marker, and an
-``explanation.confidence`` the triage-routing policy reads.
+Builds the physiological-signal -> triage-classification envelope used as
+the canonical clinical-triage sample. Each patient's suspected AF finding
+is captured as an Interpretation-group SituationalStatement with a
+SNOMED-coded finding in ``mainpart.object``, a ``situation.durability``
+temporal marker, and an ``explanation.confidence`` the triage-routing
+policy reads.
 
 Output:
   - output/healthcare_triage_envelope.json
@@ -92,7 +93,7 @@ def _build_envelope(patient_id: str, snomed: str, label: str,
         confidence=confidence,
         creator=f"did:example:{classifier}",
     )
-    # Override default auxiliary with the clinical idiom from the AIiH paper.
+    # Override default auxiliary with the clinical-finding idiom.
     stmt["mainpart"]["auxiliary"] = "hasFinding"
     stmt["situation"] = {"durability": "current"}
 
@@ -229,7 +230,7 @@ def run() -> dict:
     }
 
     print("=" * 60)
-    print("HEALTHCARE TRIAGE COHORT — AIiH envelope")
+    print("HEALTHCARE TRIAGE COHORT — clinical-triage envelope")
     print("=" * 60)
     print(f"  Patients:            {metrics['patients']}")
     print(f"  Envelope size:       {metrics['envelope_size_bytes']:,} bytes")

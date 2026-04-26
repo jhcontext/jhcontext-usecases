@@ -1,11 +1,4 @@
 {
-  "context_id": "ctx-c1476e68-ace4-4003-b594-9b14de615850",
-  "schema_version": "jh:0.3",
-  "producer": "did:university:feedback-agent",
-  "created_at": "2026-04-26T11:03:42.136504+00:00",
-  "ttl": "P5Y",
-  "status": "active",
-  "scope": "education_assessment_feedback",
   "semantic_payload": [
     {
       "@model": "UserML",
@@ -343,76 +336,5 @@
         "confidence": 0.95
       }
     }
-  ],
-  "artifacts_registry": [
-    {
-      "artifact_id": "rubric_v2.3",
-      "type": "token_sequence",
-      "content_hash": "sha256:a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
-      "timestamp": "2026-04-26T11:03:42.136590+00:00",
-      "deterministic": false,
-      "metadata": {}
-    },
-    {
-      "artifact_id": "essay_2026_S1_0042",
-      "type": "token_sequence",
-      "content_hash": "sha256:b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2",
-      "timestamp": "2026-04-26T11:03:42.136603+00:00",
-      "deterministic": false,
-      "metadata": {}
-    },
-    {
-      "artifact_id": "fb_per_criterion_v4",
-      "type": "token_sequence",
-      "content_hash": "sha256:c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3",
-      "timestamp": "2026-04-26T11:03:42.136610+00:00",
-      "deterministic": false,
-      "metadata": {}
-    },
-    {
-      "artifact_id": "gpt-4o-2024-08-06",
-      "type": "semantic_extraction",
-      "content_hash": "sha256:d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4",
-      "model": "gpt-4o-2024-08-06",
-      "timestamp": "2026-04-26T11:03:42.136618+00:00",
-      "deterministic": false,
-      "metadata": {}
-    }
-  ],
-  "passed_artifact_pointer": "essay_2026_S1_0042",
-  "decision_influence": [],
-  "privacy": {
-    "data_category": "behavioral",
-    "legal_basis": "gdpr_art_6_1_e_public_interest",
-    "retention": "P5Y",
-    "storage_policy": "university-encrypted",
-    "feature_suppression": [
-      "student_name",
-      "student_id",
-      "accommodation_flags",
-      "prior_grades"
-    ],
-    "pii_detached": true
-  },
-  "compliance": {
-    "risk_level": "high",
-    "human_oversight_required": false,
-    "forwarding_policy": "semantic_forward"
-  },
-  "provenance_ref": {
-    "prov_graph_id": "prov:ctx-edu-scenario-b-001",
-    "prov_digest": "54e242d8f62827d0da6ef60b20797a770531731ddd9df74fe10862f01394a2a3"
-  },
-  "proof": {
-    "canonicalization": "URDNA2015",
-    "content_hash": "16a991dee74eb891662b1be72de7b339de844cac7ac045eb0e226b49546c9fef",
-    "signature": "a61438c9e67b17a10cc35ab033f34d85b639ab79c920dd890f77c1736e508f56",
-    "signer": "did:university:feedback-agent"
-  },
-  "@context": {
-    "jh": "https://jhcontext.com/vocab#",
-    "prov": "http://www.w3.org/ns/prov#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#"
-  },
-  "@type": "jh:Envelope"
+  ]
 }

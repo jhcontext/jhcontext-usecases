@@ -1,6 +1,6 @@
-"""AIET SPARQL audit queries over a Scenario B feedback envelope.
+"""SPARQL audit queries over a Scenario B (rubric-grounded feedback) envelope.
 
-Runs the two queries shown in the AIET paper:
+Runs the two queries that complete the rubric-grounded feedback audit:
 
   1. RUBRIC_CRITERION_AUDIT — for each feedback sentence that claims to
      address a given rubric criterion, return its cited evidence span,
@@ -93,7 +93,7 @@ def main() -> None:
     g = load_envelope_graph(ENVELOPE_PATH)
 
     print("=" * 72)
-    print("AIET Scenario B — SPARQL Audit Queries")
+    print("Scenario B (Rubric-Grounded Feedback) — SPARQL Audit Queries")
     print(f"Envelope: {ENVELOPE_PATH.name} ({len(g)} triples)")
     print("=" * 72)
 

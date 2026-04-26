@@ -1,6 +1,6 @@
-"""AIiH SPARQL audit queries over a triage-cohort envelope.
+"""SPARQL audit queries over a triage-cohort envelope.
 
-Runs the two queries shown in the AIiH paper:
+Runs the two queries that complete the triage-cohort audit:
 
   1. LOW_CONFIDENCE_AF_TRIAGE — every patient with a suspected AF finding
      produced below a confidence threshold — the population routed to
@@ -77,7 +77,7 @@ def main() -> None:
     g = load_envelope_graph(ENVELOPE_PATH)
 
     print("=" * 72)
-    print("AIiH Triage Scenario — SPARQL Audit Queries")
+    print("Healthcare Triage Scenario — SPARQL Audit Queries")
     print(f"Envelope: {ENVELOPE_PATH.name} ({len(g)} triples)")
     print("=" * 72)
 

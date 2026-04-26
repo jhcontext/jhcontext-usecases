@@ -237,7 +237,7 @@ def _build_scenario_envelopes(
                      "object": "summative_assessment",
                      "confidence": 0.95},
                 ],
-                application=application_entries,
+                applications=application_entries,
             ),
         ])
         .add_artifact(
@@ -262,7 +262,7 @@ def _build_scenario_envelopes(
             legal_basis="legitimate_interest",
             retention="P5Y",
             storage_policy="university-encrypted",
-            feature_suppression=["student_name", "student_id", "accommodation_flags"],
+            feature_suppression=["student_name", "student_id", "accommodation_flags", "prior_grades"],
         )
         .set_compliance(
             risk_level=RiskLevel.HIGH,

@@ -217,7 +217,7 @@ def run() -> dict:
         legal_basis="legitimate_interest",
         retention="P1Y",
         storage_policy="university-encrypted",
-        feature_suppression=["student_name", "student_id", "demographic_attributes"],
+        feature_suppression=["student_name", "student_id", "accommodation_flags", "prior_grades"],
     )
     builder.set_compliance(
         risk_level=RiskLevel.HIGH,

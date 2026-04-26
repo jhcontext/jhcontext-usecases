@@ -29,27 +29,19 @@ A hospital uses AI to recommend oncology treatment plans. The scenario proves th
 python -m usecases.healthcare.run
 ```
 
-### Education — Article 13: Fair Assessment via Negative Proof
+### Education — three-scenario suite (Articles 13, 14, Annex III §3)
 
-A university uses AI to grade essays. The scenario proves that student identity data (name, gender, disability status) was not used in grading.
+A university uses AI to grade essays and give per-rubric-criterion feedback, with mandatory TA oversight on summative grades. The suite has three scenarios that can be inspected independently or together; see [`usecases/education/README.md`](usecases/education/README.md) for the full scenario↔file mapping.
 
-**Pipeline:** Essay Ingestion → AI Grading → (Separate) Equity Reporting → Audit
+| Scenario | What it proves | Entry point |
+|---|---|---|
+| **A** — Identity-Blind Essay Grading | Negative proof + workflow isolation: identity attributes (name, ID, accommodation flags, prior grades) are absent from the grading dependency chain | `python -m usecases.education.run` |
+| **B** — Rubric-Grounded LLM Feedback | Per-sentence Interpretation+Application bindings to rubric criteria with evidence spans; Semantic-Forward enforcement so downstream consumers see only `semantic_payload` (no artifact hashes / proof leak) | `python -m usecases.education.scenario_b` (single submission) or `python -m usecases.education.rubric_feedback.run` (500-submission classroom benchmark) |
+| **C** — Human–AI Collaborative Grading | Temporal oversight: TA review activity recorded after AI output and before grade commit, with per-document open timestamps and configurable `min_review_seconds` | `python -m usecases.education.ta_review.run` |
+| Audit (B follow-up) | Two SPARQL queries over a Scenario B envelope: rubric-criterion audit (sorted by confidence) + orphan-sentence detection | `python -m usecases.education.sparql_queries` |
+| Supplementary — multimodal variant | Same A/B/C pattern over audio submissions; per-sentence interpretations bind to `(start_ms, end_ms)` audio windows audited via `verify_multimodal_binding` | `python -m usecases.education.oral_feedback.run` |
 
-| Step | Agent | What it does |
-|------|-------|--------------|
-| 1 | Ingestion Agent | Strips identity from essay, creates content-only artifact |
-| 2 | Grading Agent | Evaluates essay against rubric (argument 30%, evidence 30%, clarity 20%, thinking 20%) |
-| 3 | Equity Agent | **Isolated workflow** — aggregates demographics for institutional reporting |
-| 4 | Audit Agent | Verifies negative proof + workflow isolation + integrity |
-
-**Audit checks:**
-- Negative proof: 0 biometric/sensitive artifacts in grading dependency chain
-- Workflow isolation: 0 shared entities between grading and equity PROV graphs
-- Envelope integrity: SHA-256 hash + Ed25519 signature verified
-
-```bash
-python -m usecases.education.run
-```
+**Audit checks across the suite:** `verify_negative_proof`, `verify_workflow_isolation`, `verify_pii_detachment`, `verify_rubric_grounding`, `verify_temporal_oversight`, `verify_multimodal_binding`, `verify_integrity`.
 
 ## Output
 
@@ -62,7 +54,7 @@ Both scenarios write to `output/`:
 | `*_audit.json` | Structured audit report with pass/fail per check + evidence |
 | `*_metrics.json` | Performance timing per pipeline step |
 
-The education scenario also produces `education_equity_prov.ttl` — the isolated equity reporting workflow.
+The Scenario A education runner also produces `education_equity_prov.ttl` — the isolated equity reporting workflow. Scenarios B and C produce additional artifacts (`education_scenario_b_envelope.json`, `education_scenario_b_forward.json`, `ta_review_envelope.json`, etc.); see [`usecases/education/README.md`](usecases/education/README.md) for the per-scenario output table.
 
 ## Architecture Notes
 

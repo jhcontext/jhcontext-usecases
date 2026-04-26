@@ -1,0 +1,65 @@
+{
+  "context_id": "ctx-8f3a1b2c-4d5e-...",
+  "schema_version": "jh:0.5",
+  "producer": "did:example:feedback-agent",
+  "created_at": "2026-05-14T10:32:17Z",
+  "ttl": "P5Y",
+  "scope": "education_summative_assessment",
+  "risk_level": "high",
+  "data_category": "academic_work",
+  "legal_basis": "art_6_1_e_gdpr_public_interest",
+  "retention": "P5Y",
+  "feature_suppression": [
+    "student_name",
+    "student_id",
+    "accommodation_flags",
+    "prior_grades"
+  ],
+  "semantic_payload": [
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "submission:S-98765",
+        "auxiliary": "hasProperty",
+        "predicate": "rubric_version",
+        "range": "RubricVersionURI",
+        "object": "rubric_v2.3"
+      },
+      "administration": {"group": "Observation"}
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "feedback:fb-9a1b",
+        "auxiliary": "addresses",
+        "predicate": "rubric_criterion",
+        "range": "RubricCriterionURI",
+        "object": "rubric_v2.3#C3-evidence_integration"
+      },
+      "explanation": {
+        "confidence": 0.82,
+        "creator": "did:example:feedback-agent",
+        "method": "prompt_template:fb_per_criterion_v4",
+        "evidence": {"offset": 1247, "length": 189, "hash": "sha256:7c4a..."}
+      },
+      "administration": {"group": "Interpretation"}
+    }
+  ],
+  "artifacts_registry": [
+    {"kind": "rubric",     "id": "rubric_v2.3",         "sha256": "a1..."},
+    {"kind": "submission", "id": "essay_2026_S1_0042",  "sha256": "b2..."},
+    {"kind": "prompt",     "id": "fb_per_criterion_v4", "sha256": "c3..."},
+    {"kind": "model",      "id": "gpt-4o-2024-08-06"}
+  ],
+  "forwarding_policy": "semantic_forward",
+  "passed_artifact_pointer": "artifacts_registry.submission.extracted_spans",
+  "proof": {
+    "canonicalization": "URDNA2015",
+    "content_hash": "sha256:d4...",
+    "signature": "ed25519:e5..."
+  },
+  "provenance_ref": {
+    "prov_graph_id": "prov://audit.example/essay_2026_S1_0042",
+    "prov_digest": "sha256:e7b9..."
+  }
+}

@@ -121,16 +121,16 @@ wheels = [
 
 [[package]]
 name = "jhcontext"
-version = "0.3.4"
+version = "0.5.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
     { name = "pydantic" },
     { name = "rdflib" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/2e/b0/374d4d03cbaf6d6820f337c6a0405e27db3dca4ee46ab244d9bf98bf1bb3/jhcontext-0.3.4.tar.gz", hash = "sha256:7a3d653bc1d782002c6bb1037390443c8d20e2b29bf6ed2258e5a424cb71499d", size = 347485, upload-time = "2026-03-24T21:58:30.381Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/cb/92/9e83694b167809f2916eb3ad98146772395fc9f38ad3c762f1e950856662/jhcontext-0.5.1.tar.gz", hash = "sha256:b82a27871a48a29b0309dc9220d512e4fec5a5a21533d30b4355e270b06b0ab6", size = 355172, upload-time = "2026-04-21T20:14:32.621Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e3/28/9844d2d6cc29eefe3c0046e5102943f792f48d9480abf0f3766fa2097ffa/jhcontext-0.3.4-py3-none-any.whl", hash = "sha256:9bc4435c489550a4f05bd530e34376e2da3bd4fe8ad67be32ab85806774f7bb4", size = 43294, upload-time = "2026-03-24T21:58:29.018Z" },
+    { url = "https://files.pythonhosted.org/packages/33/4d/300818b147f4561a6935962407000e7a62ee0660921fc978a15c01641228/jhcontext-0.5.1-py3-none-any.whl", hash = "sha256:d8c39cdd39c210b611ae8d40cea7924cf494c5e4aa61c6fa852c7024da2971b0", size = 47478, upload-time = "2026-04-21T20:14:31.287Z" },
 ]
 
 [[package]]
@@ -148,7 +148,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "jhcontext", specifier = ">=0.3.0" },
+    { name = "jhcontext", specifier = ">=0.5.0,<0.6" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0" },
 ]
 provides-extras = ["dev"]
