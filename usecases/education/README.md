@@ -27,12 +27,14 @@ runnable.
 - **Scenario A** — `verify_negative_proof`, `verify_workflow_isolation`,
   `verify_pii_detachment`. Uses `InMemoryPIIVault` to detach identity
   attributes so the grading chain can be proved structurally identity-blind.
-- **Scenario B** — bundled-envelope pattern via `userml_payload(...)` with
-  per-sentence Interpretation+Application pairs. The single-submission
-  variant additionally runs `ForwardingEnforcer` to demonstrate
-  Semantic-Forward at the handoff (downstream consumers see only
-  `semantic_payload`, never raw artifact hashes / proof / provenance).
-  The classroom-benchmark variant adds `verify_rubric_grounding`.
+- **Scenario B** — flat `semantic_payload` of atomic UserML statements
+  (per-sentence Interpretation+Application pairs), matching the canonical
+  envelope figure from the rubric-grounded feedback scenario. The
+  single-submission variant additionally runs `ForwardingEnforcer` to
+  demonstrate Semantic-Forward at the handoff (downstream consumers see
+  only `semantic_payload`, never raw artifact hashes / proof /
+  provenance). The classroom-benchmark variant adds
+  `verify_rubric_grounding`.
 - **Scenario C** — temporal chain: AI grading activity → TA review activity
   (with per-document open timestamps) → grade commit. Audited via
   `verify_temporal_oversight` (configurable `min_review_seconds`).

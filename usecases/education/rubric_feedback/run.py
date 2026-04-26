@@ -43,7 +43,8 @@ from jhcontext import (
     TemporalScope,
     observation,
     interpretation,
-    userml_payload,
+    situation,
+    application,
     verify_integrity,
     verify_rubric_grounding,
     generate_audit_report,
@@ -192,16 +193,20 @@ def _build_scenario_envelopes(
         return [], prov
 
     # Build the SINGLE envelope for the feedback-generation handoff.
-    # UserML interpretation layer carries one entry per feedback sentence.
-    interpretations = []
-    application_entries = []
+    # Flat semantic_payload — atomic UserML SituationalStatements per the
+    # protocol v0.5 SDK convention: one Interpretation+Application pair
+    # per feedback sentence.
+    payload: list[dict] = [
+        observation(submission_entity, "rubric_version", RUBRIC_ID),
+        observation(submission_entity, "word_count", len(essay_text.split())),
+    ]
     for fs in sentences:
-        interpretations.append(interpretation(
+        payload.append(interpretation(
             fs["id"], "addresses_criterion", fs["criterion_id"],
             confidence=0.85,
         ))
         if fs["grounded"]:
-            interpretations.append(interpretation(
+            payload.append(interpretation(
                 fs["id"], "evidence_span",
                 {
                     "offset": fs["evidence_span_offset"],
@@ -210,11 +215,13 @@ def _build_scenario_envelopes(
                 },
                 confidence=1.0,
             ))
-        application_entries.append({
-            "predicate": "feedback_sentence",
-            "subject": fs["id"],
-            "object": fs.get("cited_preview") or "<feedback text elided>",
-        })
+        payload.append(application(
+            fs["id"], "feedback_sentence",
+            fs.get("cited_preview") or "<feedback text elided>",
+        ))
+    payload.append(situation(
+        submission_entity, "summative_assessment", confidence=0.95,
+    ))
 
     prompt_entity = f"art-prompt-{PROMPT_TEMPLATE_ID}"
     builder = (
@@ -224,22 +231,7 @@ def _build_scenario_envelopes(
         .set_ttl("P5Y")
         .set_risk_level(RiskLevel.HIGH)
         .set_human_oversight(True)
-        .set_semantic_payload([
-            userml_payload(
-                observations=[
-                    observation(submission_entity, "rubric_version", RUBRIC_ID),
-                    observation(submission_entity, "word_count", len(essay_text.split())),
-                ],
-                interpretations=interpretations,
-                situations=[
-                    {"subject": submission_entity,
-                     "predicate": "isInSituation",
-                     "object": "summative_assessment",
-                     "confidence": 0.95},
-                ],
-                applications=application_entries,
-            ),
-        ])
+        .set_semantic_payload(payload)
         .add_artifact(
             artifact_id=submission_entity,
             artifact_type=ArtifactType.TOKEN_SEQUENCE,

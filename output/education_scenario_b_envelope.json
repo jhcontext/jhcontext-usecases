@@ -1,8 +1,8 @@
 {
-  "context_id": "ctx-c1476e68-ace4-4003-b594-9b14de615850",
+  "context_id": "ctx-abf7d941-719b-42c1-85fd-9031461c846d",
   "schema_version": "jh:0.3",
   "producer": "did:university:feedback-agent",
-  "created_at": "2026-04-26T11:03:42.136504+00:00",
+  "created_at": "2026-04-26T11:33:19.256213+00:00",
   "ttl": "P5Y",
   "status": "active",
   "scope": "education_assessment_feedback",
@@ -349,7 +349,7 @@
       "artifact_id": "rubric_v2.3",
       "type": "token_sequence",
       "content_hash": "sha256:a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
-      "timestamp": "2026-04-26T11:03:42.136590+00:00",
+      "timestamp": "2026-04-26T11:33:19.256297+00:00",
       "deterministic": false,
       "metadata": {}
     },
@@ -357,7 +357,7 @@
       "artifact_id": "essay_2026_S1_0042",
       "type": "token_sequence",
       "content_hash": "sha256:b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2",
-      "timestamp": "2026-04-26T11:03:42.136603+00:00",
+      "timestamp": "2026-04-26T11:33:19.256310+00:00",
       "deterministic": false,
       "metadata": {}
     },
@@ -365,7 +365,7 @@
       "artifact_id": "fb_per_criterion_v4",
       "type": "token_sequence",
       "content_hash": "sha256:c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3",
-      "timestamp": "2026-04-26T11:03:42.136610+00:00",
+      "timestamp": "2026-04-26T11:33:19.256317+00:00",
       "deterministic": false,
       "metadata": {}
     },
@@ -374,7 +374,7 @@
       "type": "semantic_extraction",
       "content_hash": "sha256:d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4",
       "model": "gpt-4o-2024-08-06",
-      "timestamp": "2026-04-26T11:03:42.136618+00:00",
+      "timestamp": "2026-04-26T11:33:19.256326+00:00",
       "deterministic": false,
       "metadata": {}
     }
@@ -405,8 +405,8 @@
   },
   "proof": {
     "canonicalization": "URDNA2015",
-    "content_hash": "16a991dee74eb891662b1be72de7b339de844cac7ac045eb0e226b49546c9fef",
-    "signature": "a61438c9e67b17a10cc35ab033f34d85b639ab79c920dd890f77c1736e508f56",
+    "content_hash": "65da17fb420319abd7455a04620a2cbc8734f3370bdd5093a225c3e904dd47d0",
+    "signature": "ac6df247619142b9b2ba895c722b38be96dbb4db2f08be394658c1af84280cbe",
     "signer": "did:university:feedback-agent"
   },
   "@context": {

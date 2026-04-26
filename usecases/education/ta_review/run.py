@@ -44,7 +44,6 @@ from jhcontext import (
     TemporalScope,
     observation,
     interpretation,
-    userml_payload,
     verify_integrity,
     verify_temporal_oversight,
     generate_audit_report,
@@ -82,16 +81,14 @@ def run() -> dict:
     # =====================================================================
     t0 = time.perf_counter()
 
-    payload = userml_payload(
-        observations=[
-            observation("submission:S-SUMM-042", "essay_word_count", 2100),
-            observation("submission:S-SUMM-042", "rubric_version", "ENG201-summative-v2"),
-        ],
-        interpretations=[
-            interpretation("submission:S-SUMM-042", "ai_aggregate_score", 78,
-                           confidence=0.88),
-        ],
-    )
+    # Flat semantic_payload — atomic UserML SituationalStatements per the
+    # protocol v0.5 SDK convention.
+    payload = [
+        observation("submission:S-SUMM-042", "essay_word_count", 2100),
+        observation("submission:S-SUMM-042", "rubric_version", "ENG201-summative-v2"),
+        interpretation("submission:S-SUMM-042", "ai_aggregate_score", 78,
+                       confidence=0.88),
+    ]
 
     builder = (
         EnvelopeBuilder()
@@ -100,7 +97,7 @@ def run() -> dict:
         .set_ttl("P5Y")  # Art. 12 long-retention for summative records
         .set_risk_level(RiskLevel.HIGH)  # Annex III §3
         .set_human_oversight(True)       # Art. 14: mandatory for summative
-        .set_semantic_payload([payload])
+        .set_semantic_payload(payload)
         .add_artifact(
             artifact_id="art-submission",
             artifact_type=ArtifactType.TOKEN_SEQUENCE,

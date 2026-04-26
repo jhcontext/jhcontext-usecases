@@ -1,8 +1,8 @@
 {
-  "context_id": "ctx-d2fb1eed-6764-415a-86da-9f172a359e89",
+  "context_id": "ctx-dc97c52d-18b3-43d2-bb51-2b8df0229ea0",
   "schema_version": "jh:0.3",
   "producer": "did:university:ingestion-agent",
-  "created_at": "2026-04-21T19:15:00.273044+00:00",
+  "created_at": "2026-04-26T11:33:19.006691+00:00",
   "ttl": "P30D",
   "status": "active",
   "scope": "education_assessment",
@@ -52,7 +52,7 @@
       "artifact_id": "art-essay-text",
       "type": "token_sequence",
       "content_hash": "sha256:1111aaaa2222bbbb3333cccc4444dddd5555eeee6666ffff7777aaaa8888bbbb",
-      "timestamp": "2026-04-21T19:15:00.273275+00:00",
+      "timestamp": "2026-04-26T11:33:19.006835+00:00",
       "deterministic": false,
       "metadata": {}
     },
@@ -60,7 +60,7 @@
       "artifact_id": "art-rubric",
       "type": "token_sequence",
       "content_hash": "sha256:2222bbbb3333cccc4444dddd5555eeee6666ffff7777aaaa8888bbbb9999cccc",
-      "timestamp": "2026-04-21T19:15:00.273303+00:00",
+      "timestamp": "2026-04-26T11:33:19.006861+00:00",
       "deterministic": false,
       "metadata": {}
     },
@@ -69,7 +69,7 @@
       "type": "semantic_extraction",
       "content_hash": "sha256:3333cccc4444dddd5555eeee6666ffff7777aaaa8888bbbb9999ccccaaaadddd",
       "model": "essay-grader-v2",
-      "timestamp": "2026-04-21T19:15:00.305141+00:00",
+      "timestamp": "2026-04-26T11:33:19.007938+00:00",
       "deterministic": false,
       "confidence": 0.91,
       "metadata": {}
@@ -104,7 +104,8 @@
     "feature_suppression": [
       "student_name",
       "student_id",
-      "demographic_attributes"
+      "accommodation_flags",
+      "prior_grades"
     ],
     "pii_detached": true
   },
@@ -122,8 +123,8 @@
   },
   "proof": {
     "canonicalization": "URDNA2015",
-    "content_hash": "6c217343df350a73bc25a9b65773a0ed9ce2432f8dd18c47fca310195de4e3b7",
-    "signature": "6d9739aac87ef1da4161f4fef698e21cf8f63768cbd2d99ccd093645353fac92",
+    "content_hash": "bf9921d2d93b38324e8582d31f431d20abd3a281f39566ae1a0b140d8d712952",
+    "signature": "c8b5f62504aaad03a8268e6edec752e2f5caf0bf950a576b83b0aed0614f32f0",
     "signer": "did:university:compliance-officer"
   },
   "@context": {

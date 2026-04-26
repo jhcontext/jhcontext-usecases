@@ -47,7 +47,8 @@ from jhcontext import (
     TemporalScope,
     observation,
     interpretation,
-    userml_payload,
+    situation,
+    application,
     verify_integrity,
     verify_multimodal_binding,
     generate_audit_report,
@@ -306,18 +307,20 @@ def _build_scenario_envelopes(
         return [], prov
 
     # Build the SINGLE envelope for the feedback-generation handoff.
-    # UserML layered payload: interpretation carries per-sentence
-    # rubric-binding; application carries the sentence texts; situation
-    # records the assessment type.
-    interpretations = []
-    application_entries = []
+    # Flat semantic_payload — atomic UserML SituationalStatements per the
+    # protocol v0.5 SDK convention: one Interpretation entry per
+    # rubric-binding, plus per-sentence Application entries.
+    payload: list[dict] = [
+        observation(submission_entity, "duration_ms", AUDIO_DURATION_MS),
+        observation(submission_entity, "word_count", len(WORD_TIMINGS)),
+    ]
     for fs in sentences:
-        interpretations.append(interpretation(
+        payload.append(interpretation(
             fs["id"], "addresses_criterion", fs["criterion_id"],
             confidence=0.85,
         ))
         if fs["grounded"]:
-            interpretations.append(interpretation(
+            payload.append(interpretation(
                 fs["id"], "evidence_window",
                 {
                     "start_ms": fs["evidence_start_ms"],
@@ -327,11 +330,13 @@ def _build_scenario_envelopes(
                 },
                 confidence=1.0,
             ))
-        application_entries.append({
-            "predicate": "feedback_sentence",
-            "subject": fs["id"],
-            "object": fs.get("cited_preview") or "<feedback text elided>",
-        })
+        payload.append(application(
+            fs["id"], "feedback_sentence",
+            fs.get("cited_preview") or "<feedback text elided>",
+        ))
+    payload.append(situation(
+        submission_entity, "summative_oral_assessment", confidence=0.95,
+    ))
 
     builder = (
         EnvelopeBuilder()
@@ -340,22 +345,7 @@ def _build_scenario_envelopes(
         .set_ttl("P5Y")
         .set_risk_level(RiskLevel.HIGH)
         .set_human_oversight(True)
-        .set_semantic_payload([
-            userml_payload(
-                observations=[
-                    observation(submission_entity, "duration_ms", AUDIO_DURATION_MS),
-                    observation(submission_entity, "word_count", len(WORD_TIMINGS)),
-                ],
-                interpretations=interpretations,
-                situations=[
-                    {"subject": submission_entity,
-                     "predicate": "isInSituation",
-                     "object": "summative_oral_assessment",
-                     "confidence": 0.95},
-                ],
-                applications=application_entries,
-            ),
-        ])
+        .set_semantic_payload(payload)
         .add_artifact(
             artifact_id=submission_entity,
             artifact_type=ArtifactType.AUDIO,

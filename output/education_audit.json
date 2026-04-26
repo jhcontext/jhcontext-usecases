@@ -1,6 +1,6 @@
 {
-  "context_id": "ctx-d2fb1eed-6764-415a-86da-9f172a359e89",
-  "timestamp": "2026-04-21T19:15:00.332657+00:00",
+  "context_id": "ctx-dc97c52d-18b3-43d2-bb51-2b8df0229ea0",
+  "timestamp": "2026-04-26T11:33:19.011555+00:00",
   "overall_passed": true,
   "results": [
     {
@@ -44,7 +44,7 @@
       "check_name": "integrity",
       "passed": true,
       "evidence": {
-        "content_hash": "6c217343df350a73bc25a9b65773a0ed9ce2432f8dd18c47fca310195de4e3b7",
+        "content_hash": "bf9921d2d93b38324e8582d31f431d20abd3a281f39566ae1a0b140d8d712952",
         "signer": "did:university:compliance-officer",
         "has_signature": true
       },
