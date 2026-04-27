@@ -1,0 +1,87 @@
+{
+  "context_id": "ctx-6a09a0a0-38ce-4ad1-9d13-f9cfc8404194",
+  "timestamp": "2026-04-27T17:09:30.757120+00:00",
+  "overall_passed": true,
+  "results": [
+    {
+      "check_name": "negative_proof",
+      "passed": true,
+      "evidence": {
+        "decision_entity": "art-screening-rank",
+        "dependency_chain": [],
+        "excluded_types": [
+          "raw_video",
+          "raw_cv_with_identifiers"
+        ],
+        "violations": []
+      },
+      "message": "Negative proof verified: 2 excluded types absent from 0 entities in chain"
+    },
+    {
+      "check_name": "no_prohibited_practice",
+      "passed": true,
+      "evidence": {
+        "artifacts_checked": 30,
+        "prohibited_capabilities": [
+          "protected_attribute_biometric_categorisation",
+          "workplace_emotion_inference"
+        ],
+        "violations": []
+      },
+      "message": "No prohibited practice: 30 artifacts free of 2 banned capabilities"
+    },
+    {
+      "check_name": "candidate_notice",
+      "passed": true,
+      "evidence": {
+        "candidate_id": "cand-1001",
+        "attestation_artifact_id": "att-cand-notice-cand-1001",
+        "signer": "did:deployer:notification-service",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00",
+        "decision_timestamp": "2026-04-01T13:12:00+00:00",
+        "issues": []
+      },
+      "message": "Candidate notice verified: candidate cand-1001 notified on 2026-03-31T11:20:00+00:00 (pre-decision)"
+    },
+    {
+      "check_name": "temporal_oversight",
+      "passed": true,
+      "evidence": {
+        "ai_activity": "screening",
+        "ai_timestamp": "2026-04-01T11:00:00+00:00",
+        "human_activities_after_ai": [
+          "recruiter-review"
+        ],
+        "total_review_seconds": 6720.0,
+        "min_required_seconds": 300.0
+      },
+      "message": "Human oversight verified: 1/1 activities after AI, 6720s review time"
+    },
+    {
+      "check_name": "ai_literacy_attestation",
+      "passed": true,
+      "evidence": {
+        "oversight_activity": "recruiter-review",
+        "agents": [
+          {
+            "agent": "recruiter-jane",
+            "competenceRecordHash": "sha256:d5c3de1fea5a119323ebe06e1285a30ce2343d54f3f9ff0bfebfd2da9c209bc3",
+            "competenceRecordSigner": "did:deployer:training-officer"
+          }
+        ],
+        "issues": []
+      },
+      "message": "AI literacy verified: 1 overseer(s) competence-bound"
+    },
+    {
+      "check_name": "integrity",
+      "passed": true,
+      "evidence": {
+        "content_hash": "e5859cde41a44a762442c8921d58131c857f94944d9f4fd688bf997e0de7095f",
+        "signer": "did:deployer:compliance-officer",
+        "has_signature": true
+      },
+      "message": "Integrity verified"
+    }
+  ]
+}

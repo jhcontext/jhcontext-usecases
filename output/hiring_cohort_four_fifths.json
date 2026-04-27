@@ -1,0 +1,13 @@
+{
+  "group_attribute": "experience_band",
+  "protected_value": ">15y",
+  "reference_value": "5-10y",
+  "protected_total": 100,
+  "protected_advanced": 18,
+  "reference_total": 100,
+  "reference_advanced": 30,
+  "selection_rate_protected": 0.18,
+  "selection_rate_reference": 0.3,
+  "ratio": 0.6,
+  "passed": false
+}

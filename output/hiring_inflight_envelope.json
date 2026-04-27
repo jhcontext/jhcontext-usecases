@@ -1,0 +1,1673 @@
+{
+  "context_id": "ctx-6a09a0a0-38ce-4ad1-9d13-f9cfc8404194",
+  "schema_version": "jh:0.3",
+  "producer": "did:vendor:screening-agent",
+  "created_at": "2026-04-27T17:09:30.751126+00:00",
+  "ttl": "PT4H",
+  "status": "active",
+  "scope": "hiring_inflight_screening_to_recruiter",
+  "semantic_payload": [
+    {
+      "@model": "UserML-SituationReport",
+      "statements": [
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1001",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.929
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1002",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.588
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1003",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.565
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1004",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.77
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1005",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.802
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1006",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.709
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1007",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.666
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1008",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.774
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1009",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.806
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1010",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.776
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1011",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.721
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1012",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.695
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1013",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.583
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1014",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.842
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1015",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.755
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1016",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.719
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1017",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.779
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1018",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.788
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1019",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.928
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1020",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.842
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1021",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.664
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1022",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.926
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1023",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.574
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1024",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.709
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1025",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.73
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1026",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.896
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1027",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.823
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1028",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.62
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1001",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.678
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1002",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.762
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1003",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.695
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1004",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.527
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1005",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.762
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1006",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.939
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1007",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.565
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1008",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.807
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1009",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.668
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1010",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.779
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1011",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.641
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1012",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.612
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1013",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.635
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1014",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.63
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1015",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.574
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1016",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.933
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1017",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.894
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1018",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.761
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1019",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.713
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1020",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.639
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1021",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.674
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1022",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.66
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1023",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.846
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1024",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.913
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1025",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.747
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1026",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.625
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1027",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.671
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1028",
+            "auxiliary": "hasAssessment",
+            "predicate": "tenure_pattern_score",
+            "object": 0.604
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1001",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.522
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1002",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.909
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1003",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.531
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1004",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.754
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1005",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.528
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1006",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.521
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1007",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.553
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1008",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.546
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1009",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.746
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1010",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.723
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1011",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.764
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1012",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.581
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1013",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.723
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1014",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.941
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1015",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.654
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1016",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.535
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1017",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.641
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1018",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.705
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1019",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.799
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1020",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.76
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1021",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.801
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1022",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.775
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1023",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.558
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1024",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.723
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1025",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.898
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1026",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.687
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1027",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.604
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-1028",
+            "auxiliary": "hasAssessment",
+            "predicate": "language_signal_score",
+            "object": 0.605
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        }
+      ]
+    }
+  ],
+  "artifacts_registry": [
+    {
+      "artifact_id": "art-model-screener",
+      "type": "semantic_extraction",
+      "content_hash": "sha256:9ac0900a06c1ec40a6a8d1ea6a8fd329babf4d8b317bde0c113c746b79cd9e89",
+      "model": "screener-v1.4",
+      "timestamp": "2026-04-27T17:09:30.751169+00:00",
+      "deterministic": false,
+      "metadata": {
+        "capabilities": [
+          "text_classification",
+          "embedding",
+          "ranking"
+        ],
+        "data_governance_attestation_ref": "data-gov:role-fam-swe-2026Q1",
+        "data_governance_attestation_signer": "did:deployer:dpo"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1001",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751182+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1001",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1001",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1002",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751190+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1002",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1002",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1003",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751197+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1003",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1003",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1004",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751203+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1004",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1004",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1005",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751209+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1005",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1005",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1006",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751215+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1006",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1006",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1007",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751221+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1007",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1007",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1008",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751227+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1008",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1008",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1009",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751237+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1009",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1009",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1010",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751243+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1010",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1010",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1011",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751249+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1011",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1011",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1012",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751255+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1012",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1012",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1013",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751261+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1013",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1013",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1014",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751267+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1014",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1014",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1015",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751273+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1015",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1015",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1016",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751279+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1016",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1016",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1017",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751285+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1017",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1017",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1018",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751291+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1018",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1018",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1019",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751297+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1019",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1019",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1020",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751303+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1020",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1020",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1021",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751309+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1021",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1021",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1022",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751317+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1022",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1022",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1023",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751326+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1023",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1023",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1024",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751332+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1024",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1024",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1025",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751340+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1025",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1025",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1026",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751346+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1026",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1026",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1027",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751353+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1027",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1027",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "att-cand-notice-cand-1028",
+      "type": "tool_result",
+      "content_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "timestamp": "2026-04-27T17:09:30.751413+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "candidate_notice_attestation",
+        "candidate_id": "cand-1028",
+        "signer": "did:deployer:notification-service",
+        "attestation_hash": "sha256:notice-cand-1028",
+        "attestation_timestamp": "2026-03-31T11:20:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "art-decision",
+      "type": "semantic_extraction",
+      "content_hash": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "timestamp": "2026-04-01T13:12:00+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "decision"
+      }
+    }
+  ],
+  "passed_artifact_pointer": "art-decision",
+  "decision_influence": [
+    {
+      "agent": "screening-agent",
+      "categories": [
+        "years_experience",
+        "skills_overlap",
+        "tenure_pattern",
+        "language_signal"
+      ],
+      "abstraction_level": "situation",
+      "temporal_scope": "current",
+      "influence_weights": {
+        "years_experience": 0.42,
+        "skills_overlap": 0.31,
+        "tenure_pattern": 0.18,
+        "language_signal": 0.09
+      },
+      "confidence": 0.88
+    }
+  ],
+  "privacy": {
+    "data_category": "sensitive",
+    "legal_basis": "consent",
+    "retention": "P30D",
+    "storage_policy": "centralized-encrypted",
+    "feature_suppression": [
+      "name",
+      "photograph",
+      "date_of_birth",
+      "citizenship",
+      "gender",
+      "marital_status",
+      "address"
+    ],
+    "pii_detached": true
+  },
+  "compliance": {
+    "risk_level": "high",
+    "human_oversight_required": true,
+    "forwarding_policy": "semantic_forward",
+    "model_card_ref": "https://vendor.example/models/screener-v1.4",
+    "escalation_path": "recruiting-lead@deployer.example"
+  },
+  "provenance_ref": {
+    "prov_graph_id": "prov:ctx-hiring-inflight",
+    "prov_digest": "2d9e1c9c5bdab7ebee8444ae88b31fe713a88effae7e01f32d18e1ffc380100e"
+  },
+  "proof": {
+    "canonicalization": "URDNA2015",
+    "content_hash": "e5859cde41a44a762442c8921d58131c857f94944d9f4fd688bf997e0de7095f",
+    "signature": "c96e16a6dfa454d0331fa7fa7325b460471b575d4eced22cfd9fa17754fc0899",
+    "signer": "did:deployer:compliance-officer"
+  },
+  "@context": {
+    "jh": "https://jhcontext.com/vocab#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@type": "jh:Envelope"
+}

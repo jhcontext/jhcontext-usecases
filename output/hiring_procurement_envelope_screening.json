@@ -1,0 +1,252 @@
+{
+  "context_id": "ctx-b573e013-f50e-4a8e-8dd1-2d473e6c45e6",
+  "schema_version": "jh:0.3",
+  "producer": "did:vendor:screening-agent",
+  "created_at": "2026-04-27T17:09:30.743741+00:00",
+  "ttl": "PT2H",
+  "status": "active",
+  "scope": "hiring_procurement_screening",
+  "semantic_payload": [
+    {
+      "@model": "UserML-SituationReport",
+      "statements": [
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-0001",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.414
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-0002",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.448
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-0003",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.731
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-0004",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.521
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-0005",
+            "auxiliary": "hasProperty",
+            "predicate": "skills_overlap",
+            "object": 0.784
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-0001",
+            "auxiliary": "hasAssessment",
+            "predicate": "rank_score",
+            "object": 0.434
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-0002",
+            "auxiliary": "hasAssessment",
+            "predicate": "rank_score",
+            "object": 0.49
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-0003",
+            "auxiliary": "hasAssessment",
+            "predicate": "rank_score",
+            "object": 0.693
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-0004",
+            "auxiliary": "hasAssessment",
+            "predicate": "rank_score",
+            "object": 0.574
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-0005",
+            "auxiliary": "hasAssessment",
+            "predicate": "rank_score",
+            "object": 0.672
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        }
+      ]
+    }
+  ],
+  "artifacts_registry": [
+    {
+      "artifact_id": "att-workforce",
+      "type": "tool_result",
+      "content_hash": "sha256:wf-20260302",
+      "timestamp": "2026-04-27T17:09:30.743787+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "workforce_notice_attestation",
+        "signer": "did:deployer:hr-director",
+        "attestation_hash": "sha256:wf-2026Q1-collective-notice",
+        "attestation_timestamp": "2026-03-02T09:00:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "art-model-interview",
+      "type": "semantic_extraction",
+      "content_hash": "sha256:a749d348e907bc9cf0091825821e61beff2b9d856341ccbd2e9f12b115328745",
+      "model": "interview-transcribe-v0.9",
+      "timestamp": "2026-04-27T17:09:30.743799+00:00",
+      "deterministic": false,
+      "metadata": {
+        "capabilities": [
+          "transcript_extraction",
+          "speech_to_text"
+        ],
+        "data_governance_attestation_ref": "data-gov:role-fam-swe-2026Q1",
+        "data_governance_attestation_signer": "did:deployer:dpo"
+      }
+    },
+    {
+      "artifact_id": "art-decision",
+      "type": "semantic_extraction",
+      "content_hash": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "timestamp": "2026-04-01T09:08:00+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "decision"
+      }
+    }
+  ],
+  "passed_artifact_pointer": "art-decision",
+  "decision_influence": [
+    {
+      "agent": "screening-agent",
+      "categories": [
+        "years_experience",
+        "skills_overlap",
+        "tenure_pattern",
+        "language_signal"
+      ],
+      "abstraction_level": "situation",
+      "temporal_scope": "current",
+      "influence_weights": {
+        "years_experience": 0.42,
+        "skills_overlap": 0.31,
+        "tenure_pattern": 0.18,
+        "language_signal": 0.09
+      },
+      "confidence": 0.88
+    }
+  ],
+  "privacy": {
+    "data_category": "sensitive",
+    "legal_basis": "consent",
+    "retention": "P30D",
+    "storage_policy": "centralized-encrypted",
+    "feature_suppression": [
+      "name",
+      "photograph",
+      "date_of_birth",
+      "citizenship",
+      "gender",
+      "marital_status",
+      "address"
+    ],
+    "pii_detached": true
+  },
+  "compliance": {
+    "risk_level": "high",
+    "human_oversight_required": true,
+    "forwarding_policy": "semantic_forward",
+    "model_card_ref": "https://vendor.example/models/interview-transcribe-v0.9",
+    "escalation_path": "hr-director@deployer.example"
+  },
+  "provenance_ref": {
+    "prov_graph_id": "prov:ctx-hiring-procurement",
+    "prov_digest": "8ceb3fbd14565f42050ef99f8f80896c4977c9d0554f9c8a729289990c2998c7"
+  },
+  "proof": {
+    "canonicalization": "URDNA2015",
+    "content_hash": "5e8fcdeb3f930f919c04d3e38c74bb9e239d1c67ddbb768f69eb4dc2018ea332",
+    "signature": "dde70a0b79cf5c69699a58d9ea464a876167920aed5eb75c4ee9b6bb20f39454",
+    "signer": "did:deployer:compliance-officer"
+  },
+  "@context": {
+    "jh": "https://jhcontext.com/vocab#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@type": "jh:Envelope"
+}

@@ -1,0 +1,244 @@
+{
+  "sampled_results": [
+    {
+      "receipt_index": 0,
+      "candidate_id": "cand-2001",
+      "negative_proof": {
+        "passed": true,
+        "message": "Negative proof verified: 4 excluded types absent from 0 entities in chain"
+      },
+      "temporal_oversight": {
+        "passed": true,
+        "message": "Human oversight verified: 1/1 activities after AI, 360s review time"
+      }
+    },
+    {
+      "receipt_index": 15,
+      "candidate_id": "cand-2016",
+      "negative_proof": {
+        "passed": true,
+        "message": "Negative proof verified: 4 excluded types absent from 0 entities in chain"
+      },
+      "temporal_oversight": {
+        "passed": true,
+        "message": "Human oversight verified: 1/1 activities after AI, 360s review time"
+      }
+    },
+    {
+      "receipt_index": 30,
+      "candidate_id": "cand-2031",
+      "negative_proof": {
+        "passed": true,
+        "message": "Negative proof verified: 4 excluded types absent from 0 entities in chain"
+      },
+      "temporal_oversight": {
+        "passed": true,
+        "message": "Human oversight verified: 1/1 activities after AI, 360s review time"
+      }
+    },
+    {
+      "receipt_index": 45,
+      "candidate_id": "cand-2046",
+      "negative_proof": {
+        "passed": true,
+        "message": "Negative proof verified: 4 excluded types absent from 0 entities in chain"
+      },
+      "temporal_oversight": {
+        "passed": true,
+        "message": "Human oversight verified: 1/1 activities after AI, 360s review time"
+      }
+    },
+    {
+      "receipt_index": 60,
+      "candidate_id": "cand-2061",
+      "negative_proof": {
+        "passed": true,
+        "message": "Negative proof verified: 4 excluded types absent from 0 entities in chain"
+      },
+      "temporal_oversight": {
+        "passed": true,
+        "message": "Human oversight verified: 1/1 activities after AI, 360s review time"
+      }
+    },
+    {
+      "receipt_index": 75,
+      "candidate_id": "cand-2076",
+      "negative_proof": {
+        "passed": true,
+        "message": "Negative proof verified: 4 excluded types absent from 0 entities in chain"
+      },
+      "temporal_oversight": {
+        "passed": true,
+        "message": "Human oversight verified: 1/1 activities after AI, 360s review time"
+      }
+    },
+    {
+      "receipt_index": 90,
+      "candidate_id": "cand-2091",
+      "negative_proof": {
+        "passed": true,
+        "message": "Negative proof verified: 4 excluded types absent from 0 entities in chain"
+      },
+      "temporal_oversight": {
+        "passed": true,
+        "message": "Human oversight verified: 1/1 activities after AI, 360s review time"
+      }
+    },
+    {
+      "receipt_index": 105,
+      "candidate_id": "cand-2106",
+      "negative_proof": {
+        "passed": true,
+        "message": "Negative proof verified: 4 excluded types absent from 0 entities in chain"
+      },
+      "temporal_oversight": {
+        "passed": true,
+        "message": "Human oversight verified: 1/1 activities after AI, 360s review time"
+      }
+    },
+    {
+      "receipt_index": 120,
+      "candidate_id": "cand-2121",
+      "negative_proof": {
+        "passed": true,
+        "message": "Negative proof verified: 4 excluded types absent from 0 entities in chain"
+      },
+      "temporal_oversight": {
+        "passed": true,
+        "message": "Human oversight verified: 1/1 activities after AI, 360s review time"
+      }
+    },
+    {
+      "receipt_index": 135,
+      "candidate_id": "cand-2136",
+      "negative_proof": {
+        "passed": true,
+        "message": "Negative proof verified: 4 excluded types absent from 0 entities in chain"
+      },
+      "temporal_oversight": {
+        "passed": true,
+        "message": "Human oversight verified: 1/1 activities after AI, 360s review time"
+      }
+    },
+    {
+      "receipt_index": 150,
+      "candidate_id": "cand-2151",
+      "negative_proof": {
+        "passed": true,
+        "message": "Negative proof verified: 4 excluded types absent from 0 entities in chain"
+      },
+      "temporal_oversight": {
+        "passed": true,
+        "message": "Human oversight verified: 1/1 activities after AI, 360s review time"
+      }
+    },
+    {
+      "receipt_index": 165,
+      "candidate_id": "cand-2166",
+      "negative_proof": {
+        "passed": true,
+        "message": "Negative proof verified: 4 excluded types absent from 0 entities in chain"
+      },
+      "temporal_oversight": {
+        "passed": true,
+        "message": "Human oversight verified: 1/1 activities after AI, 360s review time"
+      }
+    },
+    {
+      "receipt_index": 180,
+      "candidate_id": "cand-2181",
+      "negative_proof": {
+        "passed": true,
+        "message": "Negative proof verified: 4 excluded types absent from 0 entities in chain"
+      },
+      "temporal_oversight": {
+        "passed": true,
+        "message": "Human oversight verified: 1/1 activities after AI, 360s review time"
+      }
+    },
+    {
+      "receipt_index": 195,
+      "candidate_id": "cand-2196",
+      "negative_proof": {
+        "passed": true,
+        "message": "Negative proof verified: 4 excluded types absent from 0 entities in chain"
+      },
+      "temporal_oversight": {
+        "passed": true,
+        "message": "Human oversight verified: 1/1 activities after AI, 360s review time"
+      }
+    },
+    {
+      "receipt_index": 210,
+      "candidate_id": "cand-2211",
+      "negative_proof": {
+        "passed": true,
+        "message": "Negative proof verified: 4 excluded types absent from 0 entities in chain"
+      },
+      "temporal_oversight": {
+        "passed": true,
+        "message": "Human oversight verified: 1/1 activities after AI, 360s review time"
+      }
+    },
+    {
+      "receipt_index": 225,
+      "candidate_id": "cand-2226",
+      "negative_proof": {
+        "passed": true,
+        "message": "Negative proof verified: 4 excluded types absent from 0 entities in chain"
+      },
+      "temporal_oversight": {
+        "passed": true,
+        "message": "Human oversight verified: 1/1 activities after AI, 360s review time"
+      }
+    },
+    {
+      "receipt_index": 240,
+      "candidate_id": "cand-2241",
+      "negative_proof": {
+        "passed": true,
+        "message": "Negative proof verified: 4 excluded types absent from 0 entities in chain"
+      },
+      "temporal_oversight": {
+        "passed": true,
+        "message": "Human oversight verified: 1/1 activities after AI, 360s review time"
+      }
+    },
+    {
+      "receipt_index": 255,
+      "candidate_id": "cand-2256",
+      "negative_proof": {
+        "passed": true,
+        "message": "Negative proof verified: 4 excluded types absent from 0 entities in chain"
+      },
+      "temporal_oversight": {
+        "passed": true,
+        "message": "Human oversight verified: 1/1 activities after AI, 360s review time"
+      }
+    },
+    {
+      "receipt_index": 270,
+      "candidate_id": "cand-2271",
+      "negative_proof": {
+        "passed": true,
+        "message": "Negative proof verified: 4 excluded types absent from 0 entities in chain"
+      },
+      "temporal_oversight": {
+        "passed": true,
+        "message": "Human oversight verified: 1/1 activities after AI, 360s review time"
+      }
+    },
+    {
+      "receipt_index": 285,
+      "candidate_id": "cand-2286",
+      "negative_proof": {
+        "passed": true,
+        "message": "Negative proof verified: 4 excluded types absent from 0 entities in chain"
+      },
+      "temporal_oversight": {
+        "passed": true,
+        "message": "Human oversight verified: 1/1 activities after AI, 360s review time"
+      }
+    }
+  ]
+}

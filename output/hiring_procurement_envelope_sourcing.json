@@ -1,0 +1,148 @@
+{
+  "context_id": "ctx-728efbdf-5289-41e9-9a29-eda16570b857",
+  "schema_version": "jh:0.3",
+  "producer": "did:vendor:sourcing-agent",
+  "created_at": "2026-04-27T17:09:30.742428+00:00",
+  "ttl": "PT1H",
+  "status": "active",
+  "scope": "hiring_procurement_sourcing",
+  "semantic_payload": [
+    {
+      "@model": "UserML-SituationReport",
+      "statements": [
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "policy:targeting",
+            "auxiliary": "hasProperty",
+            "predicate": "ad_param",
+            "object": "geo:EU"
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "policy:targeting",
+            "auxiliary": "hasProperty",
+            "predicate": "ad_param",
+            "object": "language:en"
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "policy:targeting",
+            "auxiliary": "hasProperty",
+            "predicate": "ad_param",
+            "object": "industry:software"
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "policy:targeting",
+            "auxiliary": "hasProperty",
+            "predicate": "ad_param",
+            "object": "seniority:mid-senior"
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "policy:targeting",
+            "auxiliary": "hasAssessment",
+            "predicate": "neutrality_review",
+            "object": "passed"
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        }
+      ]
+    }
+  ],
+  "artifacts_registry": [
+    {
+      "artifact_id": "att-workforce",
+      "type": "tool_result",
+      "content_hash": "sha256:wf-20260302",
+      "timestamp": "2026-04-27T17:09:30.742528+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "workforce_notice_attestation",
+        "signer": "did:deployer:hr-director",
+        "attestation_hash": "sha256:wf-2026Q1-collective-notice",
+        "attestation_timestamp": "2026-03-02T09:00:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "art-model-screener",
+      "type": "semantic_extraction",
+      "content_hash": "sha256:9ac0900a06c1ec40a6a8d1ea6a8fd329babf4d8b317bde0c113c746b79cd9e89",
+      "model": "screener-v1.4",
+      "timestamp": "2026-04-27T17:09:30.742548+00:00",
+      "deterministic": false,
+      "metadata": {
+        "capabilities": [
+          "text_classification",
+          "embedding",
+          "ranking"
+        ],
+        "data_governance_attestation_ref": "data-gov:role-fam-swe-2026Q1",
+        "data_governance_attestation_signer": "did:deployer:dpo"
+      }
+    }
+  ],
+  "decision_influence": [],
+  "privacy": {
+    "data_category": "behavioral",
+    "legal_basis": "legitimate_interest",
+    "retention": "P30D",
+    "storage_policy": "centralized-encrypted",
+    "feature_suppression": [
+      "name",
+      "photograph",
+      "date_of_birth",
+      "citizenship",
+      "gender",
+      "marital_status",
+      "address"
+    ],
+    "pii_detached": true
+  },
+  "compliance": {
+    "risk_level": "high",
+    "human_oversight_required": true,
+    "forwarding_policy": "semantic_forward",
+    "model_card_ref": "https://vendor.example/models/screener-v1.4",
+    "escalation_path": "hr-director@deployer.example"
+  },
+  "provenance_ref": {},
+  "proof": {
+    "canonicalization": "URDNA2015",
+    "content_hash": "169e9ecbc29c423649a2bb7108d57e9fc8934ae20dda2f157ac5175d21b6928d",
+    "signature": "dae617e8e9d1936d7878956fee1796b7fd9deaa8f5264fd0f9d1a4d0b91b96ad",
+    "signer": "did:deployer:compliance-officer"
+  },
+  "@context": {
+    "jh": "https://jhcontext.com/vocab#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@type": "jh:Envelope"
+}

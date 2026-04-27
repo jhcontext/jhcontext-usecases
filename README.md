@@ -1,6 +1,6 @@
 # jhcontext-usecases
 
-Compliance scenarios for the [jhcontext SDK](../jhcontext-sdk/) demonstrating EU AI Act auditability through the PAC-AI protocol.
+Compliance scenarios for the [jhcontext SDK](../jhcontext-sdk/) demonstrating EU AI Act auditability through the PAC-AI protocol — Healthcare (Art. 14 oversight), Education (Art. 13 negative proof + rubric grounding), and Hiring (Annex III §4(a) sourcing neutrality + Art. 5(1)(f)/(g) prohibited practice + Art. 26 deployer obligations + cohort 4/5 disparate impact).
 
 > **TL;DR:** This is the lightweight proof-of-concept — no infrastructure, runs in-memory, and serializes envelopes/PROV graphs/audits to local files (~25ms). For the production-grade version with real CrewAI agents and AWS infrastructure (DynamoDB + S3), see [jhcontext-crewai](../jhcontext-crewai/).
 
@@ -42,6 +42,21 @@ A university uses AI to grade essays and give per-rubric-criterion feedback, wit
 | Supplementary — multimodal variant | Same A/B/C pattern over audio submissions; per-sentence interpretations bind to `(start_ms, end_ms)` audio windows audited via `verify_multimodal_binding` | `python -m usecases.education.oral_feedback.run` |
 
 **Audit checks across the suite:** `verify_negative_proof`, `verify_workflow_isolation`, `verify_pii_detachment`, `verify_rubric_grounding`, `verify_temporal_oversight`, `verify_multimodal_binding`, `verify_integrity`.
+
+### Hiring — three-scenario suite (Articles 5(1)(f)/(g), 13, 14, 26 + Annex III §4(a))
+
+A multi-agent hiring pipeline (sourcing → parsing → screening → async-interview → ranking → decision-support) demonstrates governance at three different handoffs. Verifiers + cohort helpers live as local helpers in [`usecases/hiring/`](usecases/hiring/) so the SDK stays untouched.
+
+| Scenario | Handoff stressed | Verifiers fired | Entry point |
+|---|---|---|---|
+| **A** — Procurement | sourcing/parsing → screening | sourcing_neutrality · negative_proof · no_prohibited_practice · workforce_notice · ai_literacy_attestation · input_data_attestation · integrity | `python -m usecases.hiring.procurement.run` |
+| **B** — In-flight oversight | screening → recruiter (Quadripartite forwarding) | negative_proof · no_prohibited_practice · candidate_notice · temporal_oversight · ai_literacy_attestation · integrity | `python -m usecases.hiring.inflight_oversight.run` |
+| **C** — Cohort audit | deployer → regulator | negative_proof · temporal_oversight (per-receipt) · feature_usage_census · four_fifths_ratio · incident_attestation (corpus) | `python -m usecases.hiring.cohort_audit.run` |
+| All three | — | — | `python -m usecases.hiring.run_all` |
+
+Pass `--inject-violation` (or set `HIRING_INJECT_VIOLATION=1`) to seed the specific violation each scenario is built to detect. With default fixtures Scenarios A + B PASS and Scenario C deliberately fails the four-fifths test (seeded disparity 0.18 vs 0.30 → ratio 0.6) and `verify_incident_attestation` (one of two suspensions has no Art. 73 notification within 15 days) — both failures are the demonstration's point.
+
+The seven HR-specific verifiers live in [`usecases/hiring/verifiers.py`](usecases/hiring/verifiers.py); the cohort helpers (feature-usage census + four-fifths rule) live in [`usecases/hiring/cohort.py`](usecases/hiring/cohort.py). Twenty-eight unit tests cover pass + fail for each: `uv run pytest tests/`.
 
 ## Output
 

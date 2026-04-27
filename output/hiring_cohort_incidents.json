@@ -1,0 +1,25 @@
+{
+  "check_name": "incident_attestation",
+  "passed": false,
+  "evidence": {
+    "suspensions": 2,
+    "notification_window_days": 15,
+    "findings": [
+      {
+        "suspension_activity": "susp-2026-Q1-A",
+        "suspension_started_at": "2026-01-15T09:00:00+00:00",
+        "notification": {
+          "activity_id": "notif-2026-Q1-A",
+          "started_at": "2026-01-25T09:00:00+00:00",
+          "delta_days": 10
+        }
+      },
+      {
+        "suspension_activity": "susp-2026-Q1-B",
+        "suspension_started_at": "2026-03-01T09:00:00+00:00",
+        "notification": null
+      }
+    ]
+  },
+  "message": "INCIDENT ATTESTATION FAILED: 1/2 suspension(s) lack timely notification"
+}

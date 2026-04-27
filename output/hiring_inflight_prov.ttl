@@ -1,0 +1,43 @@
+@prefix jh: <https://jhcontext.com/vocab#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+jh:art-raw-cv a prov:Entity ;
+    rdfs:label "Raw candidate CV with identifiers" ;
+    jh:artifactType "raw_cv_with_identifiers" .
+
+jh:art-raw-video a prov:Entity ;
+    rdfs:label "Async-interview raw video" ;
+    jh:artifactType "raw_video" .
+
+jh:recruiter-review a prov:Activity ;
+    rdfs:label "Recruiter reviews shortlist (Art. 14 oversight)" ;
+    prov:endedAtTime "2026-04-01T13:12:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-01T11:20:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-screening-rank ;
+    prov:wasAssociatedWith jh:recruiter-jane ;
+    jh:method "manual review of semantic statements" .
+
+jh:art-screening-rank a prov:Entity ;
+    rdfs:label "Screening rank list (semantic only)" ;
+    prov:wasGeneratedBy jh:screening ;
+    jh:artifactType "semantic_extraction" .
+
+jh:recruiter-jane a prov:Agent ;
+    rdfs:label "Jane Doe" ;
+    jh:competenceRecordHash "sha256:d5c3de1fea5a119323ebe06e1285a30ce2343d54f3f9ff0bfebfd2da9c209bc3" ;
+    jh:competenceRecordSigner "did:deployer:training-officer" ;
+    jh:role "recruiter" .
+
+jh:screening a prov:Activity ;
+    rdfs:label "Screening handoff" ;
+    prov:endedAtTime "2026-04-01T11:15:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-01T11:00:00+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith jh:screening-agent ;
+    jh:method "screener-v1.4 + transcript embedding" .
+
+jh:screening-agent a prov:Agent ;
+    rdfs:label "Screening Agent" ;
+    jh:role "ranker" .
+

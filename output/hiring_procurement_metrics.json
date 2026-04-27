@@ -1,0 +1,16 @@
+{
+  "inject_violation": false,
+  "sourcing_ms": 0.6709209992550313,
+  "parsing_ms": 0.6472539971582592,
+  "screening_ms": 2.9255199915496632,
+  "audit_ms": 0.5826949927723035,
+  "total_ms": 6.503433003672399,
+  "prov_entities": 4,
+  "prov_activities": 4,
+  "envelopes": [
+    "sourcing",
+    "parsing",
+    "screening"
+  ],
+  "overall_passed": true
+}

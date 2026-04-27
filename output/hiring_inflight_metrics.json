@@ -1,0 +1,17 @@
+{
+  "inject_violation": false,
+  "envelope_build_ms": 4.948329005856067,
+  "audit_ms": 1.142878012615256,
+  "total_ms": 6.834088999312371,
+  "prov_entities": 3,
+  "prov_activities": 2,
+  "candidates": 28,
+  "recruiter_total_seconds": 6720,
+  "overall_passed": true,
+  "decision_influence_weights": {
+    "years_experience": 0.42,
+    "skills_overlap": 0.31,
+    "tenure_pattern": 0.18,
+    "language_signal": 0.09
+  }
+}

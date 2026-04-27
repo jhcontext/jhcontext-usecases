@@ -1,0 +1,15 @@
+{
+  "inject_violation": false,
+  "build_corpus_ms": 295.2757169987308,
+  "sampled_receipts": 20,
+  "per_receipt_audit_ms": 1.3492920115822926,
+  "cohort_helpers_ms": 0.624841995886527,
+  "incident_audit_ms": 0.6841510039521381,
+  "total_ms": 317.4443030002294,
+  "corpus_size": 312,
+  "four_fifths_ratio": 0.6,
+  "four_fifths_passed": false,
+  "incident_attestation_passed": false,
+  "per_receipt_negative_proof_passed": true,
+  "per_receipt_temporal_oversight_passed": true
+}

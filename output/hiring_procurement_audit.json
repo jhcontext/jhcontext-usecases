@@ -1,0 +1,102 @@
+{
+  "context_id": "ctx-b573e013-f50e-4a8e-8dd1-2d473e6c45e6",
+  "timestamp": "2026-04-27T17:09:30.747211+00:00",
+  "overall_passed": true,
+  "results": [
+    {
+      "check_name": "sourcing_neutrality",
+      "passed": true,
+      "evidence": {
+        "decision_entity": "art-sourcing-decision",
+        "chain_size": 2,
+        "prohibited_targeting_attrs": [
+          "inferred_age_bracket",
+          "inferred_disability",
+          "inferred_ethnicity",
+          "inferred_gender",
+          "inferred_pregnancy"
+        ],
+        "violations": []
+      },
+      "message": "Sourcing neutrality verified: 2 entities free of 5 banned targeting params"
+    },
+    {
+      "check_name": "negative_proof",
+      "passed": true,
+      "evidence": {
+        "decision_entity": "art-screening-rank",
+        "dependency_chain": [
+          "art-sourcing-decision",
+          "art-parsed-cohort",
+          "art-ad-config"
+        ],
+        "excluded_types": [
+          "biometric_record",
+          "geolocation_record"
+        ],
+        "violations": []
+      },
+      "message": "Negative proof verified: 2 excluded types absent from 3 entities in chain"
+    },
+    {
+      "check_name": "no_prohibited_practice",
+      "passed": true,
+      "evidence": {
+        "artifacts_checked": 3,
+        "prohibited_capabilities": [
+          "protected_attribute_biometric_categorisation",
+          "workplace_emotion_inference"
+        ],
+        "violations": []
+      },
+      "message": "No prohibited practice: 3 artifacts free of 2 banned capabilities"
+    },
+    {
+      "check_name": "workforce_notice",
+      "passed": true,
+      "evidence": {
+        "attestation_artifact_id": "att-workforce",
+        "signer": "did:deployer:hr-director",
+        "attestation_timestamp": "2026-03-02T09:00:00+00:00",
+        "envelope_created_at": "2026-04-27T17:09:30.743741+00:00",
+        "issues": []
+      },
+      "message": "Workforce notice verified: signed by did:deployer:hr-director on 2026-03-02T09:00:00+00:00"
+    },
+    {
+      "check_name": "ai_literacy_attestation",
+      "passed": true,
+      "evidence": {
+        "oversight_activity": "procurement-review",
+        "agents": [
+          {
+            "agent": "recruiter-jane",
+            "competenceRecordHash": "sha256:d5c3de1fea5a119323ebe06e1285a30ce2343d54f3f9ff0bfebfd2da9c209bc3",
+            "competenceRecordSigner": "did:deployer:training-officer"
+          }
+        ],
+        "issues": []
+      },
+      "message": "AI literacy verified: 1 overseer(s) competence-bound"
+    },
+    {
+      "check_name": "input_data_attestation",
+      "passed": true,
+      "evidence": {
+        "model_artifacts": 1,
+        "missing": []
+      },
+      "message": "Input data attestation verified: 1 model artifact(s) bound"
+    },
+    {
+      "check_name": "integrity",
+      "passed": true,
+      "evidence": {
+        "content_hash": "5e8fcdeb3f930f919c04d3e38c74bb9e239d1c67ddbb768f69eb4dc2018ea332",
+        "signer": "did:deployer:compliance-officer",
+        "has_signature": true
+      },
+      "message": "Integrity verified"
+    }
+  ]
+}

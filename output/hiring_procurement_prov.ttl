@@ -1,0 +1,81 @@
+@prefix jh: <https://jhcontext.com/vocab#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+jh:procurement-review a prov:Activity ;
+    rdfs:label "HR director + DPO procurement review" ;
+    prov:endedAtTime "2026-04-01T09:40:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-01T09:10:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-screening-rank ;
+    prov:wasAssociatedWith jh:recruiter-jane ;
+    jh:method "manual review of pipeline disclosures" .
+
+jh:art-screening-rank a prov:Entity ;
+    rdfs:label "Screening rank list" ;
+    prov:wasDerivedFrom jh:art-parsed-cohort ;
+    prov:wasGeneratedBy jh:screening ;
+    jh:artifactType "semantic_extraction" .
+
+jh:parsing a prov:Activity ;
+    rdfs:label "Parsing handoff" ;
+    prov:endedAtTime "2026-04-01T09:04:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-01T09:03:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-sourcing-decision ;
+    prov:wasAssociatedWith jh:parsing-agent ;
+    jh:method "cv-parser-v3.1" .
+
+jh:parsing-agent a prov:Agent ;
+    rdfs:label "Parsing Agent" ;
+    jh:role "parser" .
+
+jh:recruiter-jane a prov:Agent ;
+    rdfs:label "Jane Doe" ;
+    jh:competenceRecordHash "sha256:d5c3de1fea5a119323ebe06e1285a30ce2343d54f3f9ff0bfebfd2da9c209bc3" ;
+    jh:competenceRecordSigner "did:deployer:training-officer" ;
+    jh:role "recruiter" .
+
+jh:screening a prov:Activity ;
+    rdfs:label "Screening handoff" ;
+    prov:endedAtTime "2026-04-01T09:08:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-01T09:05:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-parsed-cohort ;
+    prov:wasAssociatedWith jh:screening-agent ;
+    jh:method "screener-v1.4" .
+
+jh:screening-agent a prov:Agent ;
+    rdfs:label "Screening Agent" ;
+    jh:role "ranker" .
+
+jh:sourcing a prov:Activity ;
+    rdfs:label "Sourcing handoff" ;
+    prov:endedAtTime "2026-04-01T09:02:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-01T09:00:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-ad-config ;
+    prov:wasAssociatedWith jh:sourcing-agent ;
+    jh:method "ad-platform query" .
+
+jh:sourcing-agent a prov:Agent ;
+    rdfs:label "Sourcing Agent" ;
+    jh:role "sourcing" .
+
+jh:art-ad-config a prov:Entity ;
+    rdfs:label "Sourcing ad config" ;
+    jh:adTargetingParam "geo:EU",
+        "industry:software",
+        "language:en",
+        "seniority:mid-senior" ;
+    jh:artifactType "config" .
+
+jh:art-parsed-cohort a prov:Entity ;
+    rdfs:label "Parsed candidate records" ;
+    prov:wasDerivedFrom jh:art-sourcing-decision ;
+    prov:wasGeneratedBy jh:parsing ;
+    jh:artifactType "semantic_extraction" .
+
+jh:art-sourcing-decision a prov:Entity ;
+    rdfs:label "Candidate-pool selection" ;
+    prov:wasDerivedFrom jh:art-ad-config ;
+    prov:wasGeneratedBy jh:sourcing ;
+    jh:artifactType "semantic_extraction" .
+

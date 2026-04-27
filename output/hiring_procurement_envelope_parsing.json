@@ -1,0 +1,219 @@
+{
+  "context_id": "ctx-5cb9e857-e555-4c47-9d7e-2dc9fa5a67b3",
+  "schema_version": "jh:0.3",
+  "producer": "did:vendor:parsing-agent",
+  "created_at": "2026-04-27T17:09:30.743095+00:00",
+  "ttl": "PT1H",
+  "status": "active",
+  "scope": "hiring_procurement_parsing",
+  "semantic_payload": [
+    {
+      "@model": "UserML-SituationReport",
+      "statements": [
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-0001",
+            "auxiliary": "hasProperty",
+            "predicate": "experience_band",
+            "object": "<2y"
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-0002",
+            "auxiliary": "hasProperty",
+            "predicate": "experience_band",
+            "object": ">15y"
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-0003",
+            "auxiliary": "hasProperty",
+            "predicate": "experience_band",
+            "object": ">15y"
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-0004",
+            "auxiliary": "hasProperty",
+            "predicate": "experience_band",
+            "object": "11-15y"
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-0005",
+            "auxiliary": "hasProperty",
+            "predicate": "experience_band",
+            "object": "2-5y"
+          },
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-0001",
+            "auxiliary": "hasAssessment",
+            "predicate": "skills_overlap",
+            "object": 0.414
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-0002",
+            "auxiliary": "hasAssessment",
+            "predicate": "skills_overlap",
+            "object": 0.448
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-0003",
+            "auxiliary": "hasAssessment",
+            "predicate": "skills_overlap",
+            "object": 0.731
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-0004",
+            "auxiliary": "hasAssessment",
+            "predicate": "skills_overlap",
+            "object": 0.521
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "cand-0005",
+            "auxiliary": "hasAssessment",
+            "predicate": "skills_overlap",
+            "object": 0.784
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.9
+          }
+        }
+      ]
+    }
+  ],
+  "artifacts_registry": [
+    {
+      "artifact_id": "att-workforce",
+      "type": "tool_result",
+      "content_hash": "sha256:wf-20260302",
+      "timestamp": "2026-04-27T17:09:30.743124+00:00",
+      "deterministic": false,
+      "metadata": {
+        "kind": "workforce_notice_attestation",
+        "signer": "did:deployer:hr-director",
+        "attestation_hash": "sha256:wf-2026Q1-collective-notice",
+        "attestation_timestamp": "2026-03-02T09:00:00+00:00"
+      }
+    },
+    {
+      "artifact_id": "art-model-parser",
+      "type": "semantic_extraction",
+      "content_hash": "sha256:e39568ddc13ef6e3a977afc34f93b739986c183f4259e87661d357d9083ff3be",
+      "model": "cv-parser-v3.1",
+      "timestamp": "2026-04-27T17:09:30.743138+00:00",
+      "deterministic": false,
+      "metadata": {
+        "capabilities": [
+          "entity_extraction",
+          "schema_mapping"
+        ],
+        "data_governance_attestation_ref": "data-gov:role-fam-swe-2026Q1",
+        "data_governance_attestation_signer": "did:deployer:dpo"
+      }
+    }
+  ],
+  "decision_influence": [],
+  "privacy": {
+    "data_category": "sensitive",
+    "legal_basis": "consent",
+    "retention": "P7D",
+    "storage_policy": "centralized-encrypted",
+    "feature_suppression": [
+      "name",
+      "photograph",
+      "date_of_birth",
+      "citizenship",
+      "gender",
+      "marital_status",
+      "address"
+    ],
+    "pii_detached": true
+  },
+  "compliance": {
+    "risk_level": "high",
+    "human_oversight_required": true,
+    "forwarding_policy": "semantic_forward",
+    "model_card_ref": "https://vendor.example/models/cv-parser-v3.1",
+    "escalation_path": "hr-director@deployer.example"
+  },
+  "provenance_ref": {},
+  "proof": {
+    "canonicalization": "URDNA2015",
+    "content_hash": "aec63f317b783eaac39378651f6f18fbcb22c99d320c4c92dc97ec3d1a251634",
+    "signature": "f833425831133ee44df27730fc8d62854b9620712acf24de96bbe06cbadb8eba",
+    "signer": "did:deployer:compliance-officer"
+  },
+  "@context": {
+    "jh": "https://jhcontext.com/vocab#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@type": "jh:Envelope"
+}

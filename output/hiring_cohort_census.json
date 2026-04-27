@@ -1,0 +1,12 @@
+[
+  {
+    "handoff": "hiring_cohort_screening_to_ranking",
+    "total_receipts": 312,
+    "feature_counts": {
+      "years_experience": 312,
+      "skills_overlap": 312,
+      "tenure_pattern": 312,
+      "language_signal": 312
+    }
+  }
+]
