@@ -9,3 +9,6 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0"]
+
+[tool.uv.sources]
+jhcontext = { path = "../jhcontext-sdk", editable = true }
