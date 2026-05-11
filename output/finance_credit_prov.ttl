@@ -1,0 +1,117 @@
+@prefix jh: <https://jhcontext.com/vocab#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+jh:art-credit-score-embedding a prov:Entity ;
+    rdfs:label "Raw Credit Score Embedding" ;
+    prov:wasDerivedFrom jh:art-financial-data ;
+    prov:wasGeneratedBy jh:risk-analysis ;
+    jh:artifactType "embedding" ;
+    jh:contentHash "sha256:22..." .
+
+jh:art-officer-signoff a prov:Entity ;
+    rdfs:label "Senior Officer Approval" ;
+    prov:generatedAtTime "2026-04-12T09:15:30+00:00"^^xsd:dateTime ;
+    prov:wasDerivedFrom jh:art-credit-decision ;
+    prov:wasGeneratedBy jh:officer-signoff ;
+    jh:artifactType "semantic_extraction" .
+
+jh:ai-credit-decision a prov:Activity ;
+    rdfs:label "AI Credit Decision" ;
+    prov:endedAtTime "2026-04-12T09:04:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-12T09:03:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-risk-analysis ;
+    prov:wasAssociatedWith jh:credit-decision-agent ;
+    jh:method "LLM inference (credit-decision-v3)" .
+
+jh:credit-decision-agent a prov:Agent ;
+    rdfs:label "Credit Decision Agent" ;
+    jh:role "decision_maker" .
+
+jh:data-collection a prov:Activity ;
+    rdfs:label "Financial Data Collection" ;
+    prov:endedAtTime "2026-04-12T09:00:30+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-12T09:00:00+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith jh:data-collector-agent ;
+    jh:method "EHR-equivalent banking integration" .
+
+jh:data-collector-agent a prov:Agent ;
+    rdfs:label "Financial Data Collector" ;
+    jh:role "data_collector" .
+
+jh:officer-signoff a prov:Activity ;
+    rdfs:label "Senior Officer Approval Decision" ;
+    prov:endedAtTime "2026-04-12T09:15:30+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-12T09:15:00+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith jh:officer-rivera ;
+    prov:wasInformedBy jh:review-ai-decision,
+        jh:review-bureau,
+        jh:review-employment,
+        jh:review-income ;
+    jh:method "manual_review" .
+
+jh:review-ai-decision a prov:Activity ;
+    rdfs:label "Officer reviews AI credit decision" ;
+    prov:endedAtTime "2026-04-12T09:15:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-12T09:13:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-credit-decision ;
+    prov:wasAssociatedWith jh:officer-rivera .
+
+jh:review-bureau a prov:Activity ;
+    rdfs:label "Officer reviews bureau report" ;
+    prov:endedAtTime "2026-04-12T09:13:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-12T09:11:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-financial-data ;
+    prov:wasAssociatedWith jh:officer-rivera .
+
+jh:review-employment a prov:Activity ;
+    rdfs:label "Officer reviews employment verification" ;
+    prov:endedAtTime "2026-04-12T09:11:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-12T09:08:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-financial-data ;
+    prov:wasAssociatedWith jh:officer-rivera .
+
+jh:review-income a prov:Activity ;
+    rdfs:label "Officer reviews income documentation" ;
+    prov:endedAtTime "2026-04-12T09:08:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-12T09:05:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-financial-data ;
+    prov:wasAssociatedWith jh:officer-rivera .
+
+jh:risk-analyzer-agent a prov:Agent ;
+    rdfs:label "Credit Risk Analyzer" ;
+    jh:role "risk_assessor" .
+
+jh:art-credit-decision a prov:Entity ;
+    rdfs:label "AI Credit Decision" ;
+    prov:wasDerivedFrom jh:art-risk-analysis ;
+    prov:wasGeneratedBy jh:ai-credit-decision ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:44..." .
+
+jh:art-risk-analysis a prov:Entity ;
+    rdfs:label "Semantic Risk Assessment" ;
+    prov:wasDerivedFrom jh:art-financial-data ;
+    prov:wasGeneratedBy jh:risk-analysis ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:33..." .
+
+jh:risk-analysis a prov:Activity ;
+    rdfs:label "Credit Risk Analysis" ;
+    prov:endedAtTime "2026-04-12T09:02:30+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-12T09:01:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-financial-data ;
+    prov:wasAssociatedWith jh:risk-analyzer-agent ;
+    jh:method "LLM inference (risk-analyzer-v2)" .
+
+jh:officer-rivera a prov:Agent ;
+    rdfs:label "Senior Credit Officer (Rivera)" ;
+    jh:role "human_oversight" .
+
+jh:art-financial-data a prov:Entity ;
+    rdfs:label "Verified Financial Inputs" ;
+    prov:wasGeneratedBy jh:data-collection ;
+    jh:artifactType "token_sequence" ;
+    jh:contentHash "sha256:11..." .
+

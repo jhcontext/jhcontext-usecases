@@ -1,0 +1,73 @@
+{
+  "context_id": "ctx-7d302119-9f30-4a62-876b-918f120a58c2",
+  "timestamp": "2026-05-11T08:53:26.665354+00:00",
+  "overall_passed": true,
+  "results": [
+    {
+      "check_name": "negative_proof",
+      "passed": true,
+      "evidence": {
+        "decision_entity": "art-credit-decision",
+        "dependency_chain": [
+          "art-risk-analysis",
+          "art-financial-data"
+        ],
+        "excluded_types": [
+          "gender",
+          "ethnicity",
+          "marital_status",
+          "nationality"
+        ],
+        "violations": []
+      },
+      "message": "Negative proof verified: 4 excluded types absent from 2 entities in chain"
+    },
+    {
+      "check_name": "workflow_isolation",
+      "passed": true,
+      "evidence": {
+        "workflow_a_entities": 5,
+        "workflow_b_entities": 3,
+        "shared_entities": []
+      },
+      "message": "Workflows isolated: 5 + 3 entities, 0 shared"
+    },
+    {
+      "check_name": "temporal_oversight",
+      "passed": true,
+      "evidence": {
+        "ai_activity": "ai-credit-decision",
+        "ai_timestamp": "2026-04-12T09:03:00+00:00",
+        "human_activities_after_ai": [
+          "review-income",
+          "review-employment",
+          "review-bureau",
+          "review-ai-decision"
+        ],
+        "total_review_seconds": 600.0,
+        "min_required_seconds": 600.0
+      },
+      "message": "Human oversight verified: 4/4 activities after AI, 600s review time"
+    },
+    {
+      "check_name": "pii_detachment",
+      "passed": true,
+      "evidence": {
+        "pii_detached": true,
+        "residual_pii_count": 0,
+        "residual_pii": []
+      },
+      "message": "PII detachment verified: no personal data in payload"
+    },
+    {
+      "check_name": "integrity",
+      "passed": true,
+      "evidence": {
+        "content_hash": "7aa0e9aa23fe3f0dd9099eea969f8c46124e60fded44313e07691b85bd5e9eee",
+        "signer": "did:bank:compliance-officer",
+        "has_signature": true
+      },
+      "message": "Integrity verified"
+    }
+  ]
+}

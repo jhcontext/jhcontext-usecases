@@ -225,7 +225,7 @@ def run() -> dict:
     # what crosses the handoff so artifact hashes, proof, and provenance
     # blocks cannot leak to a downstream model context. Without this step,
     # the policy is only a label.
-    enforcer = ForwardingEnforcer()
+    enforcer = ForwardingEnforcer(policy=ForwardingPolicy.SEMANTIC_FORWARD)
     effective_policy = enforcer.resolve(envelope)
     assert effective_policy == ForwardingPolicy.SEMANTIC_FORWARD, (
         f"Scenario B requires SEMANTIC_FORWARD; got {effective_policy}"

@@ -1,54 +1,94 @@
 {
-  "context_id": "ctx-0537aec3-747d-4918-95fa-9dcd36baffc9",
-  "schema_version": "jh:0.3",
+  "context_id": "ctx-d8672124-8605-4a8d-b75e-e36acab8b1fd",
+  "schema_version": "jh:0.5",
   "producer": "did:chw:interview-agent",
-  "created_at": "2026-04-18T13:13:16.295106+00:00",
+  "created_at": "2026-05-09T08:56:10.033807+00:00",
   "ttl": "PT24H",
   "status": "active",
   "scope": "chw_mental_health_screening",
   "semantic_payload": [
     {
-      "@model": "UserML",
-      "layers": {
-        "observation": [
-          {
+      "@model": "UserML-SituationReport",
+      "statements": [
+        {
+          "@model": "UserML",
+          "mainpart": {
             "subject": "patient:P-CHW0042",
+            "auxiliary": "hasProperty",
             "predicate": "phq9_total",
             "object": 19
           },
-          {
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
             "subject": "patient:P-CHW0042",
+            "auxiliary": "hasProperty",
             "predicate": "phq9_item_9",
             "object": 2
           },
-          {
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
             "subject": "patient:P-CHW0042",
+            "auxiliary": "hasProperty",
             "predicate": "instrument_version",
             "object": "PHQ-9-v1"
           },
-          {
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
             "subject": "patient:P-CHW0042",
+            "auxiliary": "hasProperty",
             "predicate": "language",
             "object": "sw-TZ"
-          }
-        ],
-        "interpretation": [
-          {
-            "subject": "patient:P-CHW0042",
-            "predicate": "phq9_severity",
-            "object": "moderately_severe",
-            "confidence": 0.96
           },
-          {
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
             "subject": "patient:P-CHW0042",
+            "auxiliary": "hasAssessment",
+            "predicate": "phq9_severity",
+            "object": "moderately_severe"
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
+            "confidence": 0.96
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
+            "subject": "patient:P-CHW0042",
+            "auxiliary": "hasAssessment",
             "predicate": "suicide_flag",
-            "object": true,
+            "object": true
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
             "confidence": 1.0
           }
-        ],
-        "situation": [],
-        "application": []
-      }
+        }
+      ]
     }
   ],
   "artifacts_registry": [
@@ -57,7 +97,7 @@
       "type": "token_sequence",
       "storage_ref": "vault://identity/P-CHW0042/phq9-2026-04-18",
       "content_hash": "sha256:a1f9b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1",
-      "timestamp": "2026-04-18T13:13:16.295146+00:00",
+      "timestamp": "2026-05-09T08:56:10.033903+00:00",
       "deterministic": false,
       "metadata": {}
     },
@@ -66,7 +106,7 @@
       "type": "semantic_extraction",
       "content_hash": "sha256:b2e8a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6",
       "model": "phq9-interviewer-v1.1",
-      "timestamp": "2026-04-18T13:13:16.295156+00:00",
+      "timestamp": "2026-05-09T08:56:10.033917+00:00",
       "deterministic": false,
       "confidence": 0.96,
       "metadata": {}
@@ -76,7 +116,7 @@
       "type": "semantic_extraction",
       "content_hash": "sha256:c393a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6",
       "model": "mh-risk-classifier-v2.0",
-      "timestamp": "2026-04-18T13:13:16.295677+00:00",
+      "timestamp": "2026-05-09T08:56:10.034899+00:00",
       "deterministic": false,
       "confidence": 0.92,
       "metadata": {}
@@ -86,7 +126,7 @@
       "type": "semantic_extraction",
       "content_hash": "sha256:d404a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6",
       "model": "mh-referral-rules-v0.8",
-      "timestamp": "2026-04-18T13:13:16.295892+00:00",
+      "timestamp": "2026-05-09T08:56:10.035151+00:00",
       "deterministic": false,
       "confidence": 1.0,
       "metadata": {}
@@ -134,14 +174,15 @@
   },
   "proof": {
     "canonicalization": "URDNA2015",
-    "content_hash": "935192c0c069eae6ec0f795d95b7223244fbeb4bee11a96d832d67fd0e41f0b4",
-    "signature": "a8d5cea0d695d6f7ce1e5af67a70b0f5d9f984e5cacc4bdf9313cea9f35ebeaa",
+    "content_hash": "3470996557174d0592326f773b44384de0dfc9fe04c72689532ebc126b16a520",
+    "signature": "VmnZLm7A5ILSiwV4ejiQ6W7pNgU7hyP-zW6AX-k9JzPvMexw8TgEPGrgexElRvBHNRLW3Xf8JaGBAvD1akXEAA==",
     "signer": "did:district:compliance-officer"
   },
   "@context": {
     "jh": "https://jhcontext.com/vocab#",
     "prov": "http://www.w3.org/ns/prov#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#"
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "@vocab": "https://jhcontext.com/vocab#"
   },
   "@type": "jh:Envelope"
 }

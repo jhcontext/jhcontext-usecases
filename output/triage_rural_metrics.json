@@ -1,12 +1,12 @@
 {
-  "physio_ms": 1.3485500003298512,
-  "triage_ms": 0.24721299996599555,
-  "allocation_ms": 0.20346499877632596,
-  "oversight_ms": 0.12969799900020007,
-  "envelope_build_ms": 2.7422409984865226,
-  "audit_ms": 0.5068629998277174,
-  "total_ms": 5.1941040001111105,
+  "physio_ms": 1.1636950075626373,
+  "triage_ms": 0.24795699573587626,
+  "allocation_ms": 0.2812839957186952,
+  "oversight_ms": 0.13827800285071135,
+  "envelope_build_ms": 22.58875800180249,
+  "audit_ms": 4.308201008825563,
+  "total_ms": 28.771946992492303,
   "prov_entities": 4,
   "prov_activities": 4,
-  "envelope_size_bytes": 4200
+  "envelope_size_bytes": 5109
 }

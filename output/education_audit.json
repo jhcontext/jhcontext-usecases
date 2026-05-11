@@ -1,6 +1,6 @@
 {
-  "context_id": "ctx-dc97c52d-18b3-43d2-bb51-2b8df0229ea0",
-  "timestamp": "2026-04-26T11:33:19.011555+00:00",
+  "context_id": "ctx-1f83fe7b-f0ac-4fe5-a53a-c523a4577f19",
+  "timestamp": "2026-05-09T12:03:30.627423+00:00",
   "overall_passed": true,
   "results": [
     {
@@ -9,8 +9,8 @@
       "evidence": {
         "decision_entity": "art-grade-result",
         "dependency_chain": [
-          "art-rubric",
-          "art-essay-text"
+          "art-essay-text",
+          "art-rubric"
         ],
         "excluded_types": [
           "biometric",
@@ -44,7 +44,7 @@
       "check_name": "integrity",
       "passed": true,
       "evidence": {
-        "content_hash": "bf9921d2d93b38324e8582d31f431d20abd3a281f39566ae1a0b140d8d712952",
+        "content_hash": "355b28e5482babf0c7028b7a8b0034c1898300c33bf107fdd060be08d1c86d76",
         "signer": "did:university:compliance-officer",
         "has_signature": true
       },

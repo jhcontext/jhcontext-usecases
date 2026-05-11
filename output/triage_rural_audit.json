@@ -1,6 +1,6 @@
 {
-  "context_id": "ctx-a934d4c3-707e-4da5-8981-cc6cc8fede1d",
-  "timestamp": "2026-04-18T13:13:16.283372+00:00",
+  "context_id": "ctx-67ded35f-87ca-4438-938b-1230b1b40e41",
+  "timestamp": "2026-05-09T08:56:09.438969+00:00",
   "overall_passed": true,
   "results": [
     {
@@ -23,8 +23,8 @@
       "evidence": {
         "decision_entity": "art-triage-priority",
         "dependency_chain": [
-          "art-semantic-extraction",
-          "art-ecg-embedding"
+          "art-ecg-embedding",
+          "art-semantic-extraction"
         ],
         "excluded_types": [
           "insurance_record",
@@ -38,7 +38,7 @@
       "check_name": "integrity",
       "passed": true,
       "evidence": {
-        "content_hash": "207e967551851a4fec2fb8d9e1b5fe00fae91aae1459e12992a046deca83c66a",
+        "content_hash": "cc007695ac2084c933858ede4595fbb0305dbc5502dc68b130d40bd6e968bb58",
         "signer": "did:hospital:compliance-officer",
         "has_signature": true
       },

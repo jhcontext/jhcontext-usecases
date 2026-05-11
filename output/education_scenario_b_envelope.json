@@ -1,8 +1,8 @@
 {
-  "context_id": "ctx-abf7d941-719b-42c1-85fd-9031461c846d",
-  "schema_version": "jh:0.3",
+  "context_id": "ctx-282b3590-ccf4-48d0-93c0-cf40deae000c",
+  "schema_version": "jh:0.5",
   "producer": "did:university:feedback-agent",
-  "created_at": "2026-04-26T11:33:19.256213+00:00",
+  "created_at": "2026-05-11T08:53:40.552420+00:00",
   "ttl": "P5Y",
   "status": "active",
   "scope": "education_assessment_feedback",
@@ -349,7 +349,7 @@
       "artifact_id": "rubric_v2.3",
       "type": "token_sequence",
       "content_hash": "sha256:a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
-      "timestamp": "2026-04-26T11:33:19.256297+00:00",
+      "timestamp": "2026-05-11T08:53:40.552508+00:00",
       "deterministic": false,
       "metadata": {}
     },
@@ -357,7 +357,7 @@
       "artifact_id": "essay_2026_S1_0042",
       "type": "token_sequence",
       "content_hash": "sha256:b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2",
-      "timestamp": "2026-04-26T11:33:19.256310+00:00",
+      "timestamp": "2026-05-11T08:53:40.552520+00:00",
       "deterministic": false,
       "metadata": {}
     },
@@ -365,7 +365,7 @@
       "artifact_id": "fb_per_criterion_v4",
       "type": "token_sequence",
       "content_hash": "sha256:c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3",
-      "timestamp": "2026-04-26T11:33:19.256317+00:00",
+      "timestamp": "2026-05-11T08:53:40.552527+00:00",
       "deterministic": false,
       "metadata": {}
     },
@@ -374,7 +374,7 @@
       "type": "semantic_extraction",
       "content_hash": "sha256:d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4",
       "model": "gpt-4o-2024-08-06",
-      "timestamp": "2026-04-26T11:33:19.256326+00:00",
+      "timestamp": "2026-05-11T08:53:40.552535+00:00",
       "deterministic": false,
       "metadata": {}
     }
@@ -404,15 +404,16 @@
     "prov_digest": "54e242d8f62827d0da6ef60b20797a770531731ddd9df74fe10862f01394a2a3"
   },
   "proof": {
-    "canonicalization": "URDNA2015",
-    "content_hash": "65da17fb420319abd7455a04620a2cbc8734f3370bdd5093a225c3e904dd47d0",
-    "signature": "ac6df247619142b9b2ba895c722b38be96dbb4db2f08be394658c1af84280cbe",
+    "canonicalization": "deterministic-json",
+    "content_hash": "496802bca14cc263ff68d38f2fbce6d5a64eb42b48f9510464930b9d207cf2c5",
+    "signature": "f1-ntgwvk5CeeWoMnJgflRziLx9MUBbuunEGmumhLT0o39HRqD8uwz0ymZfAoR6bnuF5p266ZVODrLfjHp21CA==",
     "signer": "did:university:feedback-agent"
   },
   "@context": {
     "jh": "https://jhcontext.com/vocab#",
     "prov": "http://www.w3.org/ns/prov#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#"
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "@vocab": "https://jhcontext.com/vocab#"
   },
   "@type": "jh:Envelope"
 }

@@ -1,6 +1,6 @@
 {
-  "context_id": "ctx-0537aec3-747d-4918-95fa-9dcd36baffc9",
-  "timestamp": "2026-04-18T13:13:16.299102+00:00",
+  "context_id": "ctx-d8672124-8605-4a8d-b75e-e36acab8b1fd",
+  "timestamp": "2026-05-09T08:56:10.066608+00:00",
   "overall_passed": true,
   "results": [
     {
@@ -39,7 +39,7 @@
       "check_name": "integrity",
       "passed": true,
       "evidence": {
-        "content_hash": "935192c0c069eae6ec0f795d95b7223244fbeb4bee11a96d832d67fd0e41f0b4",
+        "content_hash": "3470996557174d0592326f773b44384de0dfc9fe04c72689532ebc126b16a520",
         "signer": "did:district:compliance-officer",
         "has_signature": true
       },

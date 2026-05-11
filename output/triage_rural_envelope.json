@@ -1,48 +1,79 @@
 {
-  "context_id": "ctx-a934d4c3-707e-4da5-8981-cc6cc8fede1d",
-  "schema_version": "jh:0.3",
+  "context_id": "ctx-67ded35f-87ca-4438-938b-1230b1b40e41",
+  "schema_version": "jh:0.5",
   "producer": "did:hospital:physio-signal-agent",
-  "created_at": "2026-04-18T13:13:16.278237+00:00",
+  "created_at": "2026-05-09T08:56:09.410289+00:00",
   "ttl": "PT15M",
   "status": "active",
   "scope": "rural_cardiac_triage",
   "semantic_payload": [
     {
-      "@model": "UserML",
-      "layers": {
-        "observation": [
-          {
+      "@model": "UserML-SituationReport",
+      "statements": [
+        {
+          "@model": "UserML",
+          "mainpart": {
             "subject": "patient:P-R042",
+            "auxiliary": "hasProperty",
             "predicate": "ecg_ref",
             "object": "sig:ECG-2026-04-18-R042"
           },
-          {
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
             "subject": "patient:P-R042",
+            "auxiliary": "hasProperty",
             "predicate": "bp_systolic",
             "object": 148
           },
-          {
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
             "subject": "patient:P-R042",
+            "auxiliary": "hasProperty",
             "predicate": "bp_diastolic",
             "object": 92
           },
-          {
+          "administration": {
+            "group": "Observation"
+          }
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
             "subject": "patient:P-R042",
+            "auxiliary": "hasProperty",
             "predicate": "spo2",
             "object": 94
+          },
+          "administration": {
+            "group": "Observation"
           }
-        ],
-        "interpretation": [
-          {
+        },
+        {
+          "@model": "UserML",
+          "mainpart": {
             "subject": "patient:P-R042",
+            "auxiliary": "hasAssessment",
             "predicate": "finding",
-            "object": "suspected_AF",
+            "object": "suspected_AF"
+          },
+          "administration": {
+            "group": "Interpretation"
+          },
+          "explanation": {
             "confidence": 0.87
           }
-        ],
-        "situation": [],
-        "application": []
-      }
+        }
+      ]
     }
   ],
   "artifacts_registry": [
@@ -51,7 +82,7 @@
       "type": "embedding",
       "content_hash": "sha256:3f9c4a81b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5",
       "model": "ecg-classifier-v2.4",
-      "timestamp": "2026-04-18T13:13:16.278338+00:00",
+      "timestamp": "2026-05-09T08:56:09.410394+00:00",
       "deterministic": false,
       "metadata": {}
     },
@@ -60,7 +91,7 @@
       "type": "semantic_extraction",
       "content_hash": "sha256:d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5",
       "model": "ecg-classifier-v2.4",
-      "timestamp": "2026-04-18T13:13:16.278352+00:00",
+      "timestamp": "2026-05-09T08:56:09.410408+00:00",
       "deterministic": false,
       "confidence": 0.87,
       "metadata": {}
@@ -70,7 +101,7 @@
       "type": "semantic_extraction",
       "content_hash": "sha256:e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6",
       "model": "triage-classifier-v1.8",
-      "timestamp": "2026-04-18T13:13:16.279554+00:00",
+      "timestamp": "2026-05-09T08:56:09.411416+00:00",
       "deterministic": false,
       "confidence": 0.91,
       "metadata": {}
@@ -80,7 +111,7 @@
       "type": "semantic_extraction",
       "content_hash": "sha256:a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2",
       "model": "resource-allocator-v1.0",
-      "timestamp": "2026-04-18T13:13:16.279799+00:00",
+      "timestamp": "2026-05-09T08:56:09.411664+00:00",
       "deterministic": false,
       "confidence": 1.0,
       "metadata": {}
@@ -127,14 +158,15 @@
   },
   "proof": {
     "canonicalization": "URDNA2015",
-    "content_hash": "207e967551851a4fec2fb8d9e1b5fe00fae91aae1459e12992a046deca83c66a",
-    "signature": "622cec09d01069d5358ae9195657baed073111cca870d75a4eda746296aad6a3",
+    "content_hash": "cc007695ac2084c933858ede4595fbb0305dbc5502dc68b130d40bd6e968bb58",
+    "signature": "rZRTnlqzn7Cf8QdcuWK7Xw1RK6kCTYM4XOEekUMy8QD58wjwS7GQoHfPrv9_w3kcZnucZq2AQgHdnmaTpKWHBQ==",
     "signer": "did:hospital:compliance-officer"
   },
   "@context": {
     "jh": "https://jhcontext.com/vocab#",
     "prov": "http://www.w3.org/ns/prov#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#"
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "@vocab": "https://jhcontext.com/vocab#"
   },
   "@type": "jh:Envelope"
 }

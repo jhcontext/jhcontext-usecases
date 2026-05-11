@@ -1,8 +1,8 @@
 {
-  "context_id": "ctx-dc97c52d-18b3-43d2-bb51-2b8df0229ea0",
-  "schema_version": "jh:0.3",
+  "context_id": "ctx-1f83fe7b-f0ac-4fe5-a53a-c523a4577f19",
+  "schema_version": "jh:0.5",
   "producer": "did:university:ingestion-agent",
-  "created_at": "2026-04-26T11:33:19.006691+00:00",
+  "created_at": "2026-05-09T12:03:30.609943+00:00",
   "ttl": "P30D",
   "status": "active",
   "scope": "education_assessment",
@@ -52,7 +52,7 @@
       "artifact_id": "art-essay-text",
       "type": "token_sequence",
       "content_hash": "sha256:1111aaaa2222bbbb3333cccc4444dddd5555eeee6666ffff7777aaaa8888bbbb",
-      "timestamp": "2026-04-26T11:33:19.006835+00:00",
+      "timestamp": "2026-05-09T12:03:30.610035+00:00",
       "deterministic": false,
       "metadata": {}
     },
@@ -60,7 +60,7 @@
       "artifact_id": "art-rubric",
       "type": "token_sequence",
       "content_hash": "sha256:2222bbbb3333cccc4444dddd5555eeee6666ffff7777aaaa8888bbbb9999cccc",
-      "timestamp": "2026-04-26T11:33:19.006861+00:00",
+      "timestamp": "2026-05-09T12:03:30.610048+00:00",
       "deterministic": false,
       "metadata": {}
     },
@@ -69,7 +69,7 @@
       "type": "semantic_extraction",
       "content_hash": "sha256:3333cccc4444dddd5555eeee6666ffff7777aaaa8888bbbb9999ccccaaaadddd",
       "model": "essay-grader-v2",
-      "timestamp": "2026-04-26T11:33:19.007938+00:00",
+      "timestamp": "2026-05-09T12:03:30.610971+00:00",
       "deterministic": false,
       "confidence": 0.91,
       "metadata": {}
@@ -122,15 +122,16 @@
     "prov_digest": "e60b3e0d45467800e07c1f5565105918533b81232739b5805f39738465419729"
   },
   "proof": {
-    "canonicalization": "URDNA2015",
-    "content_hash": "bf9921d2d93b38324e8582d31f431d20abd3a281f39566ae1a0b140d8d712952",
-    "signature": "c8b5f62504aaad03a8268e6edec752e2f5caf0bf950a576b83b0aed0614f32f0",
+    "canonicalization": "deterministic-json",
+    "content_hash": "355b28e5482babf0c7028b7a8b0034c1898300c33bf107fdd060be08d1c86d76",
+    "signature": "PbEzxbnxgfgrpthMEW7y-X_vFkxJTMqir0TMn_Z-IRDcjOLVoQNky8ZAE2W1Uz6w8iXbtCXouif6fxJt9UDXCw==",
     "signer": "did:university:compliance-officer"
   },
   "@context": {
     "jh": "https://jhcontext.com/vocab#",
     "prov": "http://www.w3.org/ns/prov#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#"
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "@vocab": "https://jhcontext.com/vocab#"
   },
   "@type": "jh:Envelope"
 }

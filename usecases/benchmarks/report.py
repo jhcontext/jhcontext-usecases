@@ -67,6 +67,18 @@ def generate(all_results: dict[str, dict]) -> None:
             if key in b1:
                 lines.append(_stat_row(key, b1[key]))
 
+        # Per-mode breakout when present (URDNA2015 vs deterministic-json)
+        for mkey in sorted(k for k in b1 if k.startswith("by_mode/")):
+            mode = mkey.split("/", 1)[1]
+            lines.append("")
+            lines.append(f"B1.{mode.upper()} — IN-MEMORY (canonicalization={mode})")
+            lines.append(_header())
+            lines.append(_sep())
+            for key in ["healthcare_build", "healthcare_audit",
+                        "education_build", "education_audit"]:
+                if key in b1[mkey]:
+                    lines.append(_stat_row(key, b1[mkey][key]))
+
     # B2: Storage
     if "storage" in all_results:
         b2 = all_results["storage"]

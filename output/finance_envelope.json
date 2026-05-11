@@ -1,0 +1,336 @@
+{
+  "context_id": "ctx-7d302119-9f30-4a62-876b-918f120a58c2",
+  "schema_version": "jh:0.5",
+  "producer": "did:bank:data-collector-agent",
+  "created_at": "2026-05-11T08:53:26.382746+00:00",
+  "ttl": "PT2H",
+  "status": "active",
+  "scope": "credit_assessment",
+  "semantic_payload": [
+    {
+      "@model": "Identifiers",
+      "subject": "APP-2026-00847",
+      "tax_id": "pii:tok-f772d4190cc6",
+      "account_number": "pii:tok-6204c87e79ec"
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "APP-2026-00847",
+        "auxiliary": "hasProperty",
+        "predicate": "monthly_gross_income",
+        "range": "EUR-non-negative",
+        "object": 5200
+      },
+      "administration": {
+        "group": "Observation"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "APP-2026-00847",
+        "auxiliary": "hasProperty",
+        "predicate": "employment_tenure_months",
+        "range": "non-negative-integer",
+        "object": 48
+      },
+      "administration": {
+        "group": "Observation"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "APP-2026-00847",
+        "auxiliary": "hasProperty",
+        "predicate": "monthly_debt_obligations",
+        "range": "EUR-non-negative",
+        "object": 1664
+      },
+      "administration": {
+        "group": "Observation"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "APP-2026-00847",
+        "auxiliary": "hasProperty",
+        "predicate": "credit_bureau_score",
+        "range": "bureau-score-300-850",
+        "object": 718
+      },
+      "administration": {
+        "group": "Observation"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "APP-2026-00847",
+        "auxiliary": "hasProperty",
+        "predicate": "on_time_payment_pct",
+        "range": "percentage-0-100",
+        "object": 96
+      },
+      "administration": {
+        "group": "Observation"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "APP-2026-00847",
+        "auxiliary": "hasAssessment",
+        "predicate": "debt_to_income_ratio",
+        "range": "ratio-0-1",
+        "object": 0.32
+      },
+      "administration": {
+        "group": "Interpretation"
+      },
+      "explanation": {
+        "confidence": 0.95
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "APP-2026-00847",
+        "auxiliary": "hasAssessment",
+        "predicate": "payment_reliability",
+        "range": "ReliabilityEnum",
+        "object": "excellent"
+      },
+      "administration": {
+        "group": "Interpretation"
+      },
+      "explanation": {
+        "confidence": 0.96
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "APP-2026-00847",
+        "auxiliary": "hasAssessment",
+        "predicate": "employment_stability",
+        "range": "StabilityEnum",
+        "object": "stable"
+      },
+      "administration": {
+        "group": "Interpretation"
+      },
+      "explanation": {
+        "confidence": 0.94
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "APP-2026-00847",
+        "auxiliary": "hasAssessment",
+        "predicate": "default_probability",
+        "range": "probability-0-1",
+        "object": 0.034
+      },
+      "administration": {
+        "group": "Interpretation"
+      },
+      "explanation": {
+        "confidence": 0.91
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "APP-2026-00847",
+        "auxiliary": "isInSituation",
+        "predicate": "activity",
+        "range": "CreditStatusEnum",
+        "object": "creditworthy"
+      },
+      "administration": {
+        "group": "Situation"
+      },
+      "situation": {
+        "start": "2026-04-12T09:02:30+00:00"
+      },
+      "explanation": {
+        "confidence": 0.93
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "APP-2026-00847",
+        "auxiliary": "hasPolicy",
+        "predicate": "credit_decision",
+        "range": "DecisionEnum",
+        "object": "conditional_approval"
+      },
+      "administration": {
+        "group": "Application"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "APP-2026-00847",
+        "auxiliary": "hasPolicy",
+        "predicate": "approved_amount",
+        "object": {
+          "value": 25000,
+          "currency": "EUR"
+        }
+      },
+      "administration": {
+        "group": "Application"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "APP-2026-00847",
+        "auxiliary": "hasPolicy",
+        "predicate": "interest_rate",
+        "object": {
+          "annual_pct": 6.9,
+          "type": "fixed"
+        }
+      },
+      "administration": {
+        "group": "Application"
+      }
+    },
+    {
+      "@model": "UserML",
+      "mainpart": {
+        "subject": "APP-2026-00847",
+        "auxiliary": "hasPolicy",
+        "predicate": "explanation_factors",
+        "object": [
+          "POSITIVE — Bureau score 718 reflects solid repayment history.",
+          "POSITIVE — On-time payments at 96% indicate excellent reliability.",
+          "POSITIVE — Stable employment 48 months with permanent contract.",
+          "POSITIVE — DTI ratio 32% (1,664 / 5,200 EUR) within prudent threshold.",
+          "POSITIVE — Default probability 3.4% well below internal cutoff.",
+          "CONDITION — High-risk classification mandates senior officer review (Art. 14).",
+          "CONDITION — Approved amount capped at EUR 25,000 against requested EUR 30,000."
+        ]
+      },
+      "administration": {
+        "group": "Application"
+      }
+    }
+  ],
+  "artifacts_registry": [
+    {
+      "artifact_id": "art-financial-data",
+      "type": "token_sequence",
+      "content_hash": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+      "timestamp": "2026-05-11T08:53:26.382842+00:00",
+      "deterministic": false,
+      "metadata": {}
+    },
+    {
+      "artifact_id": "art-credit-score-embedding",
+      "type": "embedding",
+      "content_hash": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+      "model": "credit-encoder-v1",
+      "timestamp": "2026-05-11T08:53:26.383300+00:00",
+      "deterministic": false,
+      "dimensions": 768,
+      "metadata": {}
+    },
+    {
+      "artifact_id": "art-risk-analysis",
+      "type": "semantic_extraction",
+      "content_hash": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+      "model": "risk-analyzer-v2",
+      "timestamp": "2026-05-11T08:53:26.383311+00:00",
+      "deterministic": false,
+      "confidence": 0.93,
+      "metadata": {}
+    },
+    {
+      "artifact_id": "art-credit-decision",
+      "type": "semantic_extraction",
+      "content_hash": "sha256:4444444444444444444444444444444444444444444444444444444444444444",
+      "model": "credit-decision-v3",
+      "timestamp": "2026-05-11T08:53:26.383725+00:00",
+      "deterministic": false,
+      "confidence": 0.92,
+      "metadata": {}
+    },
+    {
+      "artifact_id": "art-officer-signoff",
+      "type": "semantic_extraction",
+      "content_hash": "sha256:5555555555555555555555555555555555555555555555555555555555555555",
+      "timestamp": "2026-05-11T08:53:26.384568+00:00",
+      "deterministic": false,
+      "confidence": 1.0,
+      "metadata": {}
+    }
+  ],
+  "passed_artifact_pointer": "art-risk-analysis",
+  "decision_influence": [
+    {
+      "agent": "credit-decision-agent",
+      "categories": [
+        "bureau_score",
+        "payment_history",
+        "employment_stability",
+        "debt_to_income",
+        "default_probability"
+      ],
+      "abstraction_level": "situation",
+      "temporal_scope": "current",
+      "influence_weights": {
+        "bureau_score": 0.3,
+        "payment_history": 0.25,
+        "employment_stability": 0.2,
+        "debt_to_income": 0.18,
+        "default_probability": 0.07
+      },
+      "confidence": 0.92
+    }
+  ],
+  "privacy": {
+    "data_category": "behavioral",
+    "legal_basis": "contract",
+    "retention": "P10Y",
+    "storage_policy": "bank-encrypted",
+    "feature_suppression": [
+      "tax_id",
+      "account_number"
+    ],
+    "pii_detached": true
+  },
+  "compliance": {
+    "risk_level": "high",
+    "human_oversight_required": true,
+    "forwarding_policy": "semantic_forward",
+    "model_card_ref": "https://bank.example/models/credit-decision-v3",
+    "test_suite_ref": "https://bank.example/fair-lending-tests/2026-Q2",
+    "escalation_path": "credit-risk-committee@bank.example"
+  },
+  "provenance_ref": {
+    "prov_graph_id": "prov:ctx-finance-credit-001",
+    "prov_digest": "53d0e7a7ccd7f63e580c5e1a3085aed1f4e4d36982c35de723df04ea6ede667e"
+  },
+  "proof": {
+    "canonicalization": "deterministic-json",
+    "content_hash": "7aa0e9aa23fe3f0dd9099eea969f8c46124e60fded44313e07691b85bd5e9eee",
+    "signature": "JDKOJwQN7b9ayIQV3-dZKOS2zwI6Iw7sLpdZ7WL-UAuWISoJ9ruuHTD2hbaQ7cGX5hstkuYe4IRnyC86_lx_DA==",
+    "signer": "did:bank:compliance-officer"
+  },
+  "@context": {
+    "jh": "https://jhcontext.com/vocab#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "@vocab": "https://jhcontext.com/vocab#"
+  },
+  "@type": "jh:Envelope"
+}

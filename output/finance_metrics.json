@@ -1,0 +1,15 @@
+{
+  "collect_ms": 0.5712760030291975,
+  "risk_ms": 0.43166300747543573,
+  "decide_ms": 0.23352401331067085,
+  "officer_ms": 0.6290650053415447,
+  "fair_lending_ms": 0.5570630019064993,
+  "envelope_build_ms": 277.65681201708503,
+  "pii_tokens_purged": 2,
+  "integrity_after_purge": true,
+  "audit_ms": 2.8718280082102865,
+  "total_ms": 283.9903979911469,
+  "credit_prov_entities": 5,
+  "fair_lending_prov_entities": 3,
+  "envelope_size_bytes": 9406
+}

@@ -1,14 +1,14 @@
 {
-  "ingestion_ms": 1.2712059979094192,
-  "grading_ms": 0.28626900166273117,
-  "equity_ms": 0.4857170060859062,
-  "envelope_build_ms": 2.3826350006856956,
-  "audit_ms": 0.4750920052174479,
-  "total_ms": 4.914504002954345,
+  "ingestion_ms": 1.0499880008865148,
+  "grading_ms": 0.3065710043301806,
+  "equity_ms": 0.5566509935306385,
+  "envelope_build_ms": 14.934475999325514,
+  "audit_ms": 0.6695240008411929,
+  "total_ms": 17.531658988445997,
   "grading_prov_entities": 3,
   "grading_prov_activities": 2,
   "equity_prov_entities": 3,
-  "envelope_size_bytes": 4015,
+  "envelope_size_bytes": 4094,
   "grading_prov_size_bytes": 1684,
   "equity_prov_size_bytes": 1292
 }

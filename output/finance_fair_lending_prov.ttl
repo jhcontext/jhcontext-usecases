@@ -1,0 +1,36 @@
+@prefix jh: <https://jhcontext.com/vocab#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+jh:art-fair-lending-report a prov:Entity ;
+    rdfs:label "Quarterly Fair-Lending Report" ;
+    prov:wasDerivedFrom jh:art-disparity-statistics ;
+    prov:wasGeneratedBy jh:fair-lending-analysis ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:8888888888888888888888888888888888888888888888888888888888888888" .
+
+jh:art-disparity-statistics a prov:Entity ;
+    rdfs:label "Disparity Test Statistics" ;
+    prov:wasDerivedFrom jh:art-cohort-aggregates ;
+    prov:wasGeneratedBy jh:fair-lending-analysis ;
+    jh:artifactType "semantic_extraction" ;
+    jh:contentHash "sha256:7777777777777777777777777777777777777777777777777777777777777777" .
+
+jh:fair-lending-agent a prov:Agent ;
+    rdfs:label "Fair-Lending Compliance Agent" ;
+    jh:role "compliance_reporter" .
+
+jh:art-cohort-aggregates a prov:Entity ;
+    rdfs:label "Aggregate Cohort Demographics" ;
+    jh:artifactType "sensitive" ;
+    jh:contentHash "sha256:6666666666666666666666666666666666666666666666666666666666666666" .
+
+jh:fair-lending-analysis a prov:Activity ;
+    rdfs:label "Aggregate disparity analysis" ;
+    prov:endedAtTime "2026-04-12T13:20:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-04-12T13:00:00+00:00"^^xsd:dateTime ;
+    prov:used jh:art-cohort-aggregates ;
+    prov:wasAssociatedWith jh:fair-lending-agent ;
+    jh:method "four_fifths_rule_aggregation" .
+

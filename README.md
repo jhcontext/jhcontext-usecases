@@ -58,6 +58,24 @@ Pass `--inject-violation` (or set `HIRING_INJECT_VIOLATION=1`) to seed the speci
 
 The seven HR-specific verifiers live in [`usecases/hiring/verifiers.py`](usecases/hiring/verifiers.py); the cohort helpers (feature-usage census + four-fifths rule) live in [`usecases/hiring/cohort.py`](usecases/hiring/cohort.py). Twenty-eight unit tests cover pass + fail for each: `uv run pytest tests/`.
 
+### Finance — Credit Assessment (Annex III §5(b))
+
+A bank uses AI to assess a credit application. The pipeline (Data Collector → Risk Analyzer → Decision Agent) is supervised by a senior credit officer doing a 10-minute documentation review (Art. 14), and a fully isolated fair-lending workflow handles aggregate disparity analysis (Art. 26(4)). Combines all four PAC-AI compliance patterns in one scenario.
+
+| Audit check | What it proves |
+|---|---|
+| `verify_negative_proof` | gender, ethnicity, marital_status, nationality structurally absent from the credit decision chain |
+| `verify_workflow_isolation` | credit pipeline (5 entities) and fair-lending workflow (3 entities) share zero PROV entities |
+| `verify_temporal_oversight` | officer review activities (income, employment, bureau, AI decision) timestamped after AI recommendation, ≥ 600 s total |
+| `verify_pii_detachment` | `tax_id`, `account_number` tokenised before AI processing (GDPR Arts. 17, 25) |
+| `verify_integrity` | Ed25519 signature + canonicalised content hash; survives GDPR Art. 17 token purge |
+
+Principle 3 (recorded artifact = used artifact): the risk analyzer emits both a raw credit-score embedding and a semantic risk assessment; the decision agent consumes the semantic one, recorded via `passed_artifact_pointer`.
+
+```bash
+python -m usecases.finance.run
+```
+
 ## Output
 
 Both scenarios write to `output/`:

@@ -1,6 +1,6 @@
 {
-  "context_id": "ctx-fc37910b-3c64-4e1c-b4ef-60759c178a1a",
-  "timestamp": "2026-04-21T19:15:12.131455+00:00",
+  "context_id": "ctx-2d26669b-fd44-40f9-ac1e-21ea52ace3af",
+  "timestamp": "2026-05-09T12:03:30.360336+00:00",
   "overall_passed": true,
   "results": [
     {
@@ -34,7 +34,7 @@
       "check_name": "integrity",
       "passed": true,
       "evidence": {
-        "content_hash": "72b9b898ae342ff29e89e3b3db33d136bbb7d2c5684e17bc9d72573b89a14814",
+        "content_hash": "297ea5ffa40bdba1799a59a3b8ebf04d95e78ce2dc294e20515a29d6205a1452",
         "signer": "did:hospital:compliance-officer",
         "has_signature": true
       },

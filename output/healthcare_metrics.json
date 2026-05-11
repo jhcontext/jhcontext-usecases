@@ -1,15 +1,15 @@
 {
-  "sensor_ms": 5.267606997222174,
-  "situation_ms": 1.53408099868102,
-  "decision_ms": 0.9976310029742308,
-  "oversight_ms": 3.877991999615915,
-  "envelope_build_ms": 11.976681002124678,
+  "sensor_ms": 1.173593002022244,
+  "situation_ms": 0.4698109987657517,
+  "decision_ms": 0.25368899514432997,
+  "oversight_ms": 0.5820350052090362,
+  "envelope_build_ms": 20.411938996403478,
   "pii_tokens_purged": 0,
   "integrity_after_purge": true,
-  "audit_ms": 2.0548729989968706,
-  "total_ms": 25.784222001675516,
+  "audit_ms": 1.1111530038760975,
+  "total_ms": 24.02467500360217,
   "prov_entities": 6,
   "prov_activities": 8,
-  "envelope_size_bytes": 7222,
+  "envelope_size_bytes": 7301,
   "prov_size_bytes": 4865
 }
