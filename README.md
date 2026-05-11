@@ -2,7 +2,7 @@
 
 Compliance scenarios for the [jhcontext SDK](../jhcontext-sdk/) demonstrating EU AI Act auditability through the PAC-AI protocol — Healthcare (Art. 14 oversight), Education (Art. 13 negative proof + rubric grounding), and Hiring (Annex III §4(a) sourcing neutrality + Art. 5(1)(f)/(g) prohibited practice + Art. 26 deployer obligations + cohort 4/5 disparate impact).
 
-> **TL;DR:** This is the lightweight proof-of-concept — no infrastructure, runs in-memory, and serializes envelopes/PROV graphs/audits to local files (~25ms). For the production-grade version with real CrewAI agents and AWS infrastructure (DynamoDB + S3), see [jhcontext-crewai](../jhcontext-crewai/).
+> **TL;DR:** Lightweight proof-of-concept — no infrastructure, runs in-memory. Envelope build + Ed25519 signing completes **under 4 ms** per handoff (matching the figure reported in PAC-AI §3); a full compliance-package export (envelope + PROV + audit → signed ZIP) lands at ~22 ms. Full breakdown in [`output/benchmarks/summary.txt`](output/benchmarks/summary.txt) — URDNA2015 audit-grade canonicalisation is opt-in via `JHCONTEXT_CANONICALIZATION=URDNA2015`. For the production-grade version with real CrewAI agents and AWS infrastructure (DynamoDB + S3), see [jhcontext-crewai](../jhcontext-crewai/).
 
 ## Scenarios
 
@@ -162,6 +162,8 @@ python -m usecases.benchmarks.run [--iterations 50]
 | 500 | 211 ms | 258 ms | 10 ms | 7.5 ms | 1604 ms | 347 KB |
 
 **Crypto overhead:** SHA-256 <0.01 ms (1KB), Ed25519 sign ~0.2 ms, verify ~0.2 ms — negligible vs pipeline.
+
+**Canonicalisation mode.** B1 reports the active default (`deterministic-json`, ~4 ms healthcare build+sign) and separately tabulates both modes under `B1.URDNA2015` and `B1.DETERMINISTIC-JSON`. URDNA2015 produces W3C-conformant RDF Dataset Canonicalisation at ~7 ms (≈75× cost of canonicalisation alone, ~1.7× of the full envelope-build path) and is the right choice when envelopes cross a serializer boundary (regulator hand-off, federated multi-vendor audit). Switch via `JHCONTEXT_CANONICALIZATION=URDNA2015` or `EnvelopeBuilder.set_canonicalization("URDNA2015")`; the active algorithm is recorded in `Proof.canonicalization` so verifiers always recompute against the same form.
 
 ### Output
 
